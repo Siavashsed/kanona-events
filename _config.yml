@@ -1,0 +1,10 @@
+title: Kanona Events
+description: Premium corporate event planning and strategy
+theme: minima
+baseurl: ""
+url: "https://press.kanonaprojects.com"
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+show_excerpts: true
+minima:
+  skin: dark
