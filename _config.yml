@@ -1,8 +1,8 @@
 title: Kanona Events
 description: Premium corporate event planning and strategy
 theme: minima
-baseurl: ""
-url: "https://press.kanonaprojects.com"
+baseurl: "/kanona-events"
+url: "https://siavashsed.github.io"
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
 show_excerpts: true
