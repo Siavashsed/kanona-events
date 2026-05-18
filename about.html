@@ -2,124 +2,171 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>About Karen Anoa - Kanona Events</title>
-<meta name="description" content="Professional event planning guidance and venue consulting insights.">
+<title>About Kani Sedighi - Kanona Projects</title>
+<meta name="description" content="Experiential event curation for curious minds who want more from an evening.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-/* === reset === */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{  --bg:#0a0805;--bg2:#14100a;--sur:#1e1812;
-  --pri:#d4a853;--pri2:#b8892a;
-  --txt:#f5f0e0;--mut:#9c8860;--brd:#2e2818;
-  --fh:system-ui,sans-serif;--fb:system-ui,sans-serif;--fm:monospace;}
-body{font-family:var(--fb);background:var(--bg);color:var(--txt);font-size:15px;line-height:1.7}
-a{color:var(--pri);text-decoration:none}a:hover{opacity:.85}
-/* === nav === */
-[data-region=nav]{background:var(--bg2);border-bottom:3px solid var(--pri);padding:16px 44px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:99}
-.fg-mark{font-size:20px;font-weight:900;color:var(--txt);text-decoration:none;text-transform:uppercase}
-.fg-mark span{color:var(--pri)}.fg-links{display:flex;gap:28px}.fg-links a{font-size:13px;color:var(--mut);font-weight:600;text-transform:uppercase;letter-spacing:.5px;transition:color .2s}.fg-links a:hover{color:var(--txt)}
-/* === author top bar === */
-.fa-top{background:var(--bg2);border-bottom:1px solid var(--brd);padding:52px 44px;display:flex;align-items:center;gap:28px}
-.fa-top::before{content:'';display:block;width:4px;height:72px;background:var(--pri);flex-shrink:0}
-.fa-avi{width:72px;height:72px;background:var(--pri);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:#000;flex-shrink:0}
-.fa-top-name{font-size:26px;font-weight:900;text-transform:uppercase;letter-spacing:-0.5px;margin-bottom:4px}
-.fa-top-title{font-size:12px;color:var(--pri);font-weight:700;text-transform:uppercase;letter-spacing:1.5px}
-/* === body === */
-.fa-body{max-width:760px;margin:0 auto;padding:52px 44px}
-.fa-block{margin-bottom:40px}
-.fa-block-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--pri);margin-bottom:14px;display:flex;align-items:center;gap:12px}
-.fa-block-label::after{content:'';flex:1;height:1px;background:var(--brd)}
-.fa-p{color:var(--mut);line-height:1.85;margin-bottom:14px}
-/* === checklist credentials === */
-.fa-credentials{background:var(--sur);border-left:3px solid var(--pri);padding:20px 22px;margin-bottom:40px}
-.fa-cred-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--pri);margin-bottom:12px}
-.fa-cred-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;color:var(--txt);font-size:13px}
-.fa-cred-item::before{content:'--';color:var(--pri);font-weight:700;flex-shrink:0}
-/* === newsletter === */
-.fg-nl-box{background:var(--sur);border-left:3px solid var(--pri);padding:24px;margin-top:8px}
-.fg-nl-box h3{font-size:15px;font-weight:900;text-transform:uppercase;margin-bottom:8px}
-.fg-nl-box p{color:var(--mut);font-size:13px;margin-bottom:16px}
-.fg-sub-form2{display:flex;gap:10px;max-width:420px}
-.fg-sub-input{flex:1;background:var(--bg);border:1px solid var(--brd);border-radius:4px;padding:10px 14px;color:var(--txt);font-size:13px;outline:none;transition:border-color .2s}
-.fg-sub-input:focus{border-color:var(--pri)}.fg-sub-input::placeholder{color:var(--mut)}
-.fg-sub-btn{background:var(--pri);color:#000;border:none;border-radius:4px;padding:10px 18px;font-size:13px;font-weight:800;cursor:pointer;text-transform:uppercase;white-space:nowrap}
-.fg-sub-ok{color:var(--pri);font-weight:700;font-size:13px;padding:6px 0}
-/* === footer === */
-[data-region=footer]{padding:22px 44px;border-top:1px solid var(--brd);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:20px}
-.fg-foot-copy,.fg-foot-nav a{font-size:12px;color:var(--mut)}.fg-foot-nav{display:flex;gap:20px}
-@media(max-width:600px){[data-region=nav]{padding:12px 16px}.fa-top{padding:36px 16px;flex-direction:column;gap:14px}.fa-top::before{display:none}.fa-body{padding:36px 16px}.fg-sub-form2{flex-direction:column}[data-region=footer]{padding:20px 16px}}
+:root{  --bg:#080709;--bg2:#0e0c10;--sur:#141218;
+  --pri:#c9a96e;--pri2:#a8883d;
+  --txt:#f2ede6;--mut:#8a7a6a;--brd:#2a2430;
+  --fh:system-ui,sans-serif;--fb:system-ui,sans-serif;--fm:monospace;--fh:Lora,Georgia,serif;}
+body{font-family:var(--fb);background:var(--bg);color:var(--txt);font-size:15px;line-height:1.8}
+a{color:var(--pri);text-decoration:none}a:hover{text-decoration:underline}
+.ln{display:flex;align-items:center;justify-content:space-between;padding:18px 52px;border-bottom:1px solid var(--brd);background:var(--bg);position:sticky;top:0;z-index:99}
+.ln-brand{font-family:var(--fh);font-size:22px;font-weight:700;color:var(--txt);text-decoration:none}
+.ln-brand em{color:var(--pri);font-style:normal}
+.ln-nav{display:flex;gap:28px}.ln-nav a{font-size:13px;color:var(--mut);font-weight:500;text-decoration:none}.ln-nav a:hover{color:var(--txt)}
+/* hero */
+.lah{background:var(--bg2);border-bottom:2px solid var(--brd);padding:52px 52px 44px}
+.lah-top{display:flex;align-items:center;gap:32px;margin-bottom:28px}
+.lah-avi{width:80px;height:80px;border-radius:50%;background:var(--pri);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:26px;font-weight:700;color:#fff;flex-shrink:0;border:3px solid var(--bg)}
+.lah h1{font-family:var(--fh);font-size:clamp(22px,3vw,36px);font-weight:700;margin-bottom:4px;color:var(--txt)}
+.lah-role{font-size:14px;color:var(--pri);font-weight:600}
+.lah-cat{font-size:12px;color:var(--mut);margin-top:4px}
+.lah-stats{display:flex;gap:14px;flex-wrap:wrap}
+.lah-stat{background:var(--bg);border:1px solid var(--brd);border-radius:8px;padding:12px 18px;text-align:center}
+.lah-stat-num{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--pri)}
+.lah-stat-lbl{font-size:10px;color:var(--mut);margin-top:2px;text-transform:uppercase;letter-spacing:1px}
+/* layout */
+.la-layout{display:grid;grid-template-columns:1fr 300px;gap:48px;max-width:1160px;margin:0 auto;padding:52px 52px}
+.la-sec{margin-bottom:44px}
+.la-sec-hd{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--pri)}
+.la-p{color:var(--mut);line-height:1.9;margin-bottom:16px}
+/* quote */
+.la-quote{border-left:3px solid var(--pri);padding:12px 20px;margin:4px 0 24px;background:var(--bg2);border-radius:0 6px 6px 0}
+.la-quote p{font-family:var(--fh);font-size:16px;color:var(--txt);line-height:1.7;font-style:italic}
+/* invest grid */
+.la-inv{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.la-inv-card{border:1px solid var(--brd);border-radius:8px;padding:14px 16px;display:flex;gap:10px;align-items:flex-start;transition:border-color .2s}.la-inv-card:hover{border-color:var(--pri)}
+.la-inv-icon{color:var(--pri);flex-shrink:0;margin-top:2px}
+.la-inv-head{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:3px}
+.la-inv-body{font-size:12px;color:var(--mut);line-height:1.65}
+/* journey timeline */
+.laj{padding:44px 52px;border-bottom:1px solid var(--brd);background:var(--bg2)}
+.laj-inner{max-width:1160px;margin:0 auto}
+.laj-hd{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--mut);margin-bottom:28px}
+.laj-items{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.laj-items::before{content:'';position:absolute;top:12px;left:0;right:0;height:2px;background:var(--brd);z-index:0}
+.laj-item{display:flex;flex-direction:column;gap:8px;padding-top:0;position:relative;z-index:1;padding-right:14px}
+.laj-dot{width:26px;height:26px;border-radius:50%;background:var(--pri);border:3px solid var(--bg2);flex-shrink:0}
+.laj-year{font-family:var(--fh);font-size:13px;font-weight:700;color:var(--pri);margin-top:4px}
+.laj-text{font-size:12px;color:var(--mut);line-height:1.65}
+/* philosophy banner */
+.la-philo{background:var(--pri);padding:40px 52px;text-align:center;border-top:1px solid rgba(0,0,0,.1)}
+.la-philo blockquote{font-family:var(--fh);font-size:clamp(16px,2.2vw,22px);font-style:italic;color:#fff;max-width:760px;margin:0 auto;line-height:1.6}
+.la-philo cite{display:block;margin-top:12px;font-size:11px;color:rgba(255,255,255,.7);font-style:normal;letter-spacing:1.5px;text-transform:uppercase}
+/* methodology */
+.la-steps{display:flex;flex-direction:column;gap:16px}
+.la-step{display:flex;gap:14px}
+.la-step-dot{width:28px;height:28px;border-radius:50%;background:var(--pri);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.la-step-head{font-family:var(--fh);font-size:15px;font-weight:700;color:var(--txt);margin-bottom:4px}
+.la-step-body{font-size:13px;color:var(--mut);line-height:1.7}
+/* sidebar */
+.la-side{}
+.la-card{background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:22px;margin-bottom:18px}
+.la-card-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--pri);margin-bottom:12px}
+/* nl */
+.la-nl{background:var(--pri);border-radius:10px;padding:24px;margin-bottom:18px;color:#fff}
+.la-nl h3{font-family:var(--fh);font-size:18px;font-weight:700;margin-bottom:6px}
+.la-nl p{font-size:12px;opacity:.88;margin-bottom:14px}
+.la-nl-in{width:100%;border:none;border-radius:6px;padding:10px 12px;font-size:13px;margin-bottom:8px;outline:none;background:rgba(255,255,255,.95)}
+.la-nl-btn{width:100%;background:#1c1a14;color:#fff;border:none;border-radius:6px;padding:10px;font-size:13px;font-weight:700;cursor:pointer;transition:opacity .2s}.la-nl-btn:hover{opacity:.85}
+/* footer */
+.lfb{padding:24px 52px;border-top:1px solid var(--brd);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.lfb-copy{font-size:12px;color:var(--mut)}.lfb-links{display:flex;gap:20px}.lfb-links a{font-size:12px;color:var(--mut);text-decoration:none}.lfb-links a:hover{color:var(--pri)}
+@media(max-width:1024px){.la-layout{grid-template-columns:1fr}}
+@media(max-width:768px){.ln{padding:14px 16px}.lah{padding:32px 16px 28px}.lah-top{flex-direction:column;gap:16px}.la-layout{padding:32px 16px;gap:28px}.la-inv{grid-template-columns:1fr}.laj{padding:32px 16px}.laj-items{grid-template-columns:1fr 1fr;gap:24px}.laj-items::before{display:none}.la-philo{padding:32px 16px}.lfb{padding:20px 16px;flex-direction:column;text-align:center}}
 </style>
 </head>
 <body>
 
-<!-- nav -->
-<div data-region="nav">
-  <a href="./" class="fg-mark">Kanona<span> Events</span></a>
-  <div class="fg-links"><a href="./">Home</a><a href="about.html">About</a></div>
-</div>
+<nav class="ln">
+  <a href="./" class="ln-brand">Kanona <em>Projects</em></a>
+  <nav class="ln-nav">
+    <a href="./">Home</a>
+    <a href="about.html">About</a>
+  </nav>
+</nav>
 
-<!-- author-top -->
-<div class="fa-top">
-  <div class="fa-avi">KA</div>
-  <div>
-    <div class="fa-top-name">Karen Anoa</div>
-    <div class="fa-top-title">Professional Event Planner & Venue Consultant</div>
+<div class="lah">
+  <div class="lah-top">
+    <div class="lah-avi">KS</div>
+    <div>
+      <h1>Kani Sedighi</h1>
+      <div class="lah-role">Experiential Event Curator & Creative Director</div>
+      <div class="lah-cat">Experiential Events & Atmosphere</div>
+    </div>
+  </div>
+  <div class="lah-stats">
+    <div class="lah-stat"><div class="lah-stat-num">15+</div><div class="lah-stat-lbl">Yrs Investing</div></div><div class="lah-stat"><div class="lah-stat-num">CFP</div><div class="lah-stat-lbl">Certified</div></div><div class="lah-stat"><div class="lah-stat-num">Retired 41</div><div class="lah-stat-lbl">Passive Income</div></div><div class="lah-stat"><div class="lah-stat-num">4</div><div class="lah-stat-lbl">Income Streams</div></div>
   </div>
 </div>
 
-<!-- pexels-banner -->
 <!-- hero-banner -->
-<div id="pxl-wrap" style="width:100%;height:230px;overflow:hidden;position:relative;background:var(--bg2);">
+<div id="pxl-wrap" style="width:100%;height:220px;overflow:hidden;position:relative;background:var(--bg2);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);">
   <img id="pxl-img" style="width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s;display:block;" alt="">
   <a id="pxl-cred" href="https://www.pexels.com" target="_blank" rel="noopener" style="position:absolute;bottom:6px;right:10px;font-size:10px;color:rgba(255,255,255,.5);opacity:0;transition:opacity .6s;text-decoration:none;">Photo: Pexels</a>
 </div>
 
-<!-- main-content -->
-<div class="fa-body">
-
-  <!-- section: background story -->
-  <div class="fa-block">
-    <div class="fa-block-label">Background</div>
-    <p class="fa-p">I started in the events industry at twenty-three as a venue coordinator for a mid-size conference center. The job required managing vendor relationships, coordinating setups, and serving as the on-site problem solver for planners often running events for the first time. In three years I watched hundreds of events and catalogued everything that went wrong and why.</p>
-    <p class="fa-p">I launched my own event production company at twenty-nine with a small team focused on corporate and private events above a certain production value. The business grew steadily because we were reliable in a way that is apparently rare in the industry - vendors showed up, timelines held, and the client's vision was actually executed rather than approximated.</p>
-    <p class="fa-p">Six hundred events over twelve years covers a lot of ground: corporate conferences, product launches, fundraising galas, large private celebrations, and formats in between. The root causes of failures are remarkably consistent. Budget overruns almost always trace to scope not clearly defined in the contract phase. Day-of chaos almost always traces to vendor communication inadequate in the weeks before the event.</p>
-    <p class="fa-p">What I find missing in event planning content is the insider perspective on vendor relationships. How caterers actually price, where the margin is in a production quote, what a venue coordinator can and will do for you depending on their incentives. This information is not secret - it lives with people who have spent years on the other side of the table.</p>
-    <p class="fa-p">Kanona Events is the manual I assembled from twelve years of production experience. The budgeting frameworks, the vendor selection criteria, the timeline architecture that distinguishes professional events from amateur ones. Whether you are a professional planner building your process or a host running your first large event, the goal is the same.</p>
+<!-- JOURNEY TIMELINE -->
+<div class="laj">
+  <div class="laj-inner">
+    <div class="laj-hd">The Journey</div>
+    <div class="laj-items">
+      <div class="laj-item"><div class="laj-dot"></div><div class="laj-year">Age 26</div><div class="laj-text">Opened first brokerage account. Started with index funds and small monthly contributions.</div></div><div class="laj-item"><div class="laj-dot"></div><div class="laj-year">Age 30</div><div class="laj-text">First dividend payment. Small, but proof the strategy was real.</div></div><div class="laj-item"><div class="laj-dot"></div><div class="laj-year">Age 35</div><div class="laj-text">CFP designation earned. Passive income crossed $1,000/month for the first time.</div></div><div class="laj-item"><div class="laj-dot"></div><div class="laj-year">Age 39</div><div class="laj-text">Launched a digital product. Added a fourth income stream without adding working hours.</div></div><div class="laj-item"><div class="laj-dot"></div><div class="laj-year">Age 41</div><div class="laj-text">Financial independence reached. Left traditional employment.</div></div>
+    </div>
   </div>
-
-  <!-- section: credentials -->
-  <div class="fa-credentials">
-    <div class="fa-cred-label">Credentials</div>
-    <div class="fa-cred-item">Professional Event Planner & Venue Consultant</div>
-    <div class="fa-cred-item">Covering the Event Planning space</div>
-    <div class="fa-cred-item">Kanona Events - independent publication</div>
-  </div>
-
-  <!-- section: this site -->
-  <div class="fa-block">
-    <div class="fa-block-label">This Site</div>
-    <p class="fa-p">Event planning intelligence from a professional who has produced 600+ events. The mistakes, the fixes, and the vendor secrets.</p>
-    <p class="fa-p">Professional event planning guidance and venue consulting insights.</p>
-  </div>
-
-  <!-- section: newsletter -->
-  <div class="fg-nl-box">
-    <h3>The Event Brief</h3>
-    <p>Monthly event planning insights from a professional who has seen it all go right - and wrong.</p>
-    <form id="abt-nl" onsubmit="nlSub(event)">
-      <div class="fg-sub-form2">
-        <input type="email" class="fg-sub-input" placeholder="your@email.com" required>
-        <button type="submit" class="fg-sub-btn">Subscribe</button>
-      </div>
-    </form>
-  </div>
-
 </div>
 
-<!-- section: contributors -->
-<div style="max-width:900px;margin:0 auto;padding:40px 44px 0">
-  <div style="font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:2px;color:var(--mut);margin-bottom:14px">-- CONTRIBUTORS</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:40px">
-    <div style="background:var(--sur);border:1px solid var(--brd);border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
+<!-- PHILOSOPHY BANNER -->
+<div class="la-philo">
+  <blockquote>"Experiential Events Designed to Last a Lifetime"</blockquote>
+  <cite>Kani Sedighi · Experiential Event Curator & Creative Director</cite>
+</div>
+
+<div class="la-layout">
+
+  <div class="la-main">
+
+    <div class="la-sec">
+      <div class="la-sec-hd">Background</div>
+      <p class="la-p">I started in the events industry at twenty-three as a venue coordinator for a mid-size conference center. The job required managing vendor relationships, coordinating setups, and serving as the on-site problem solver for planners often running events for the first time. In three years I watched hundreds of events and catalogued everything that went wrong and why.</p>
+    <p class="la-p">I launched my own event production company at twenty-nine with a small team focused on corporate and private events above a certain production value. The business grew steadily because we were reliable in a way that is apparently rare in the industry - vendors showed up, timelines held, and the client's vision was actually executed rather than approximated.</p>
+    <p class="la-p">Six hundred events over twelve years covers a lot of ground: corporate conferences, product launches, fundraising galas, large private celebrations, and formats in between. The root causes of failures are remarkably consistent. Budget overruns almost always trace to scope not clearly defined in the contract phase. Day-of chaos almost always traces to vendor communication inadequate in the weeks before the event.</p>
+    <p class="la-p">What I find missing in event planning content is the insider perspective on vendor relationships. How caterers actually price, where the margin is in a production quote, what a venue coordinator can and will do for you depending on their incentives. This information is not secret - it lives with people who have spent years on the other side of the table.</p>
+    <p class="la-p">Kanona Events is the manual I assembled from twelve years of production experience. The budgeting frameworks, the vendor selection criteria, the timeline architecture that distinguishes professional events from amateur ones. Whether you are a professional planner building your process or a host running your first large event, the goal is the same.</p>
+    </div>
+
+    <div class="la-quote">
+      <p>"Experiential Events Designed to Last a Lifetime"</p>
+    </div>
+
+    <div class="la-sec">
+      <div class="la-sec-hd">What I Cover</div>
+      <div class="la-inv">
+        <div class="la-inv-card"><div class="la-inv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div><div class="la-inv-head">Dividend Investing</div><div class="la-inv-body">High-quality companies with consistent payout histories.</div></div></div><div class="la-inv-card"><div class="la-inv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="la-inv-head">REITs</div><div class="la-inv-body">Real estate investment trusts for income without direct property management.</div></div></div><div class="la-inv-card"><div class="la-inv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div><div><div class="la-inv-head">Index Funds</div><div class="la-inv-body">The low-cost, tax-efficient core that outperforms most active strategies.</div></div></div><div class="la-inv-card"><div class="la-inv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><div class="la-inv-head">Digital Income</div><div class="la-inv-body">Products that generate recurring revenue once built and marketed.</div></div></div><div class="la-inv-card"><div class="la-inv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="la-inv-head">Fixed Income</div><div class="la-inv-body">Capital preservation and portfolio stability for when equities fall.</div></div></div><div class="la-inv-card"><div class="la-inv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div><div class="la-inv-head">Tax-Advantaged Accounts</div><div class="la-inv-body">Strategic use of registered accounts - the part most content gets wrong.</div></div></div>
+      </div>
+    </div>
+
+    <div class="la-sec">
+      <div class="la-sec-hd">How I Approach Experiential Events & Atmosphere</div>
+      <div class="la-steps">
+        <div class="la-step"><div class="la-step-dot">1</div><div><div class="la-step-head">Start with what the evidence shows</div><div class="la-step-body">Before applying any strategy, understand what the research actually supports - not what popular sources claim.</div></div></div><div class="la-step"><div class="la-step-dot">2</div><div><div class="la-step-head">Layer complexity deliberately</div><div class="la-step-body">Add one new layer at a time. Understand each piece before moving to the next.</div></div></div><div class="la-step"><div class="la-step-dot">3</div><div><div class="la-step-head">Run the realistic numbers</div><div class="la-step-body">Most projections skip the hard parts: time, cost, and real-world friction. Do the honest math first.</div></div></div><div class="la-step"><div class="la-step-dot">4</div><div><div class="la-step-head">Structure beats hustle</div><div class="la-step-body">How you organize your approach matters as much as what you do. Systems compound over time.</div></div></div><div class="la-step"><div class="la-step-dot">5</div><div><div class="la-step-head">Accept the realistic timeline</div><div class="la-step-body">Meaningful results take time. Those who succeed are the ones who stopped looking for shortcuts.</div></div></div>
+      </div>
+    </div>
+
+    <div class="la-sec">
+      <div class="la-sec-hd">About Kanona Projects</div>
+      <p class="la-p">Sensory design, intimate gatherings, and the architecture of unforgettable evenings. For those who want more from a room.</p>
+      <p class="la-p">Experiential event curation for curious minds who want more from an evening.</p>
+    </div>
+
+    <div class="la-sec">
+      <div class="la-sec-hd">Contributors</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
       <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">TN</div>
       <div>
         <div style="font-size:14px;font-weight:700;color:var(--txt)">Tom Nakamura</div>
@@ -127,7 +174,7 @@ a{color:var(--pri);text-decoration:none}a:hover{opacity:.85}
         <div style="font-size:12px;color:var(--mut);line-height:1.6">Ex-quant at a Chicago prop firm. Builds custom scrapers and datasets, then writes about what the data actually shows.</div>
       </div>
     </div>
-    <div style="background:var(--sur);border:1px solid var(--brd);border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
+    <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
       <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">AO</div>
       <div>
         <div style="font-size:14px;font-weight:700;color:var(--txt)">Amara Okafor</div>
@@ -135,7 +182,7 @@ a{color:var(--pri);text-decoration:none}a:hover{opacity:.85}
         <div style="font-size:12px;color:var(--mut);line-height:1.6">Portfolio manager background. Writes about position sizing, risk management, and the behavioral side of long-term investing.</div>
       </div>
     </div>
-    <div style="background:var(--sur);border:1px solid var(--brd);border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
+    <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
       <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">JT</div>
       <div>
         <div style="font-size:14px;font-weight:700;color:var(--txt)">James Thorne</div>
@@ -143,7 +190,7 @@ a{color:var(--pri);text-decoration:none}a:hover{opacity:.85}
         <div style="font-size:12px;color:var(--mut);line-height:1.6">Full-stack developer who switched to financial writing. Covers the engineering reality behind products and platforms.</div>
       </div>
     </div>
-    <div style="background:var(--sur);border:1px solid var(--brd);border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
+    <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
       <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">MW</div>
       <div>
         <div style="font-size:14px;font-weight:700;color:var(--txt)">Marcus Webb</div>
@@ -151,14 +198,13 @@ a{color:var(--pri);text-decoration:none}a:hover{opacity:.85}
         <div style="font-size:12px;color:var(--mut);line-height:1.6">15 years in institutional sales at two major banks. Writes about macro dynamics and how they translate to retail positioning.</div>
       </div>
     </div>
-  </div>
-</div>
+      </div>
+    </div>
 
-<!-- section: comments -->
-<div style="max-width:900px;margin:0 auto;padding:0 44px 48px">
-  <div style="font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:2px;color:var(--mut);margin-bottom:14px">-- READER COMMENTS</div>
-  <div style="background:var(--sur);border-left:4px solid var(--pri);padding:4px 20px">
-    <div style="padding:14px 0;border-bottom:1px solid var(--brd)">
+    <div class="la-sec">
+      <div class="la-sec-hd">Reader Comments</div>
+      <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:4px 20px">
+        <div style="padding:14px 0;border-bottom:1px solid var(--brd)">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
         <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">R</div>
         <span style="font-size:13px;font-weight:600;color:var(--txt)">Raj P.</span>
@@ -198,17 +244,66 @@ a{color:var(--pri);text-decoration:none}a:hover{opacity:.85}
       </div>
       <div style="font-size:13px;color:var(--txt);line-height:1.65;padding-left:36px">The level of detail here is what keeps me coming back. You actually back up the claims instead of just asserting them.</div>
     </div>
+      </div>
+    </div>
+
+  </div>
+
+  <aside class="la-side">
+
+    <div class="la-nl">
+      <h3>The Kanona Letter</h3>
+      <p>One experience a month, described in full. Scent, sound, texture, and what we were thinking when we built it.</p>
+      <form id="la-nl-form" onsubmit="nlSub(event)">
+        <input type="email" class="la-nl-in" placeholder="your@email.com" required>
+        <button type="submit" class="la-nl-btn">Join the letter</button>
+      </form>
+    </div>
+
+    <div class="la-card">
+      <div class="la-card-lbl">Credentials</div>
+      <p style="font-size:13px;color:var(--mut);line-height:1.8;margin-bottom:8px">Experiential Event Curator & Creative Director</p>
+      <p style="font-size:13px;color:var(--mut);line-height:1.8">No product affiliations. No sponsored recommendations. No incentive to tell you anything other than what the math actually shows.</p>
+    </div>
+
+    <div class="la-card">
+      <div class="la-card-lbl">Topics Covered</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:13px;color:var(--mut);display:flex;align-items:center;gap:8px"><span style="color:var(--pri);font-weight:700">→</span> Dividend Investing</li>
+        <li style="font-size:13px;color:var(--mut);display:flex;align-items:center;gap:8px"><span style="color:var(--pri);font-weight:700">→</span> REIT Analysis</li>
+        <li style="font-size:13px;color:var(--mut);display:flex;align-items:center;gap:8px"><span style="color:var(--pri);font-weight:700">→</span> Index Fund Strategy</li>
+        <li style="font-size:13px;color:var(--mut);display:flex;align-items:center;gap:8px"><span style="color:var(--pri);font-weight:700">→</span> Tax Optimization</li>
+        <li style="font-size:13px;color:var(--mut);display:flex;align-items:center;gap:8px"><span style="color:var(--pri);font-weight:700">→</span> Early Retirement Math</li>
+        <li style="font-size:13px;color:var(--mut);display:flex;align-items:center;gap:8px"><span style="color:var(--pri);font-weight:700">→</span> Income Portfolio Design</li>
+      </ul>
+    </div>
+
+    <div class="la-card" id="la-recent-card">
+      <div class="la-card-lbl">Recent Articles</div>
+      <div id="la-recent-list" style="display:flex;flex-direction:column;gap:10px"></div>
+    </div>
+
+  </aside>
+</div>
+
+<div class="lfb">
+  <span class="lfb-copy">© Kanona Projects</span>
+  <div class="lfb-links">
+    <a href="./">Home</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="sms.html">SMS Policy</a><a href="meta-policy.html">Meta Policy</a>
   </div>
 </div>
 
-<!-- footer -->
-<div data-region="footer">
-  <span class="fg-foot-copy">© Kanona Events</span>
-  <div class="fg-foot-nav"><a href="./">Home</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="sms.html">SMS Policy</a><a href="meta-policy.html">Meta Policy</a></div>
-</div>
-
 <script>
-function nlSub(e){e.preventDefault();e.target.innerHTML='<div class="fg-sub-ok">✓ Subscribed.</div>';}
+function nlSub(e){e.preventDefault();document.getElementById('la-nl-form').innerHTML='<div style="color:#fff;font-weight:600;padding:6px 0">Welcome to the letter.</div>';}
+async function loadRecent(){
+  try{
+    const r=await fetch('./articles.json');if(!r.ok)return;
+    const posts=await r.json();
+    const el=document.getElementById('la-recent-list');
+    if(el)el.innerHTML=posts.slice(0,4).map(p=>`<a href="./${p.slug||'#'}/" style="text-decoration:none;display:block;border-bottom:1px solid var(--brd);padding-bottom:8px"><div style="font-family:'Lora',Georgia,serif;font-size:13px;font-weight:600;color:var(--txt);line-height:1.4;margin-bottom:3px">${p.title}</div><div style="font-size:10px;color:var(--mut)">${p.date_iso||''}</div></a>`).join('');
+  }catch(e){}
+}
+loadRecent();
 /* banner loader: pexels → unsplash → picsum */
 (function(){
   var el=document.getElementById('pxl-img');
@@ -216,7 +311,7 @@ function nlSub(e){e.preventDefault();e.target.innerHTML='<div class="fg-sub-ok">
   if(!el)return;
   var SOURCES=['pexels', 'unsplash'];
   var Q=encodeURIComponent('event planning celebration gala corporate dinner');
-  var FALLBACK='https://picsum.photos/seed/814/1400/400';
+  var FALLBACK='https://picsum.photos/seed/855/1400/400';
   function showImg(src,cred){
     el.onload=function(){el.style.opacity='1';if(cred&&cr){cr.textContent=cred;cr.style.opacity='1';}};
     el.src=src;
