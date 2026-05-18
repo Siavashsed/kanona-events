@@ -3,746 +3,542 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kanona Projects - Experiential Events Designed to Last</title>
-<meta name="description" content="Sensory design, intimate gatherings, and the architecture of unforgettable evenings. For curious minds who want more from a room.">
+<title>Kanona Projects</title>
+<meta name="description" content="An ongoing series of experiments in atmosphere, sensory design, and the architecture of evenings that stay with you. By Kani Sedighi.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 :root{
-  --bg:#080709;
-  --bg2:#0e0c10;
-  --surface:#141218;
-  --surface2:#1c1820;
+  --bg:#07060a;
+  --surface:#0e0c12;
   --gold:#c9a96e;
   --gold2:#a8883d;
-  --text:#f2ede6;
-  --muted:#8a7a6a;
-  --border:#2a2430;
-  --font:'Inter',system-ui,sans-serif;
+  --text:#ede9e2;
+  --muted:#7a7068;
+  --border:rgba(255,255,255,.07);
   --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
 }
-body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;line-height:1.65;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
-
-/* ── PRELOADER ── */
-#preloader{
-  position:fixed;inset:0;z-index:9999;
+body{
   background:var(--bg);
-  display:flex;align-items:center;justify-content:center;
-  flex-direction:column;gap:28px;
-  transition:opacity .8s ease, visibility .8s ease;
+  color:var(--text);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.7;
+  overflow-x:hidden;
 }
-#preloader.fade{opacity:0;visibility:hidden}
-.pre-wordmark{
-  font-family:var(--serif);font-size:28px;font-weight:300;
-  letter-spacing:6px;text-transform:uppercase;
-  color:var(--text);opacity:0;
-  animation:preWordmark 1.2s ease .3s forwards;
-}
-@keyframes preWordmark{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.pre-line{
-  width:0;height:1px;background:var(--gold);
-  animation:preLine 1.2s ease .6s forwards;
-}
-@keyframes preLine{from{width:0}to{width:140px}}
-.pre-tagline{
-  font-family:var(--font);font-size:10px;font-weight:400;
-  letter-spacing:4px;text-transform:uppercase;color:var(--muted);
-  opacity:0;animation:preWordmark 1s ease 1s forwards;
-}
+a{color:inherit;text-decoration:none}
 
-/* ── NAV ── */
+/* NAV */
 .nav{
-  position:fixed;top:0;left:0;right:0;z-index:500;
-  height:72px;padding:0 48px;
-  display:flex;align-items:center;
-  transition:background .4s,border-color .4s;
-}
-.nav.scrolled{
-  background:rgba(8,7,9,.94);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(201,169,110,.12);
+  position:sticky;top:0;z-index:100;
+  padding:0 48px;
+  height:62px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(7,6,10,.94);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
 }
 .nav-logo{
-  font-family:var(--serif);font-size:20px;font-weight:400;
-  letter-spacing:4px;text-transform:uppercase;
-  color:var(--text);margin-right:auto;
+  font-family:var(--serif);
+  font-size:16px;font-weight:300;
+  letter-spacing:5px;text-transform:uppercase;
+  color:var(--text);
 }
-.nav-logo span{color:var(--gold)}
-.nav-links{display:flex;align-items:center;gap:0}
+.nav-logo em{color:var(--gold);font-style:normal}
+.nav-right{display:flex;align-items:center;gap:32px}
 .nav-link{
-  font-family:var(--font);font-size:11px;font-weight:400;
-  letter-spacing:2.5px;text-transform:uppercase;
-  color:rgba(242,237,230,.45);padding:10px 20px;transition:color .2s;
+  font-size:9px;font-weight:400;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--muted);
+  transition:color .25s;
 }
 .nav-link:hover{color:var(--text)}
 .nav-cta{
-  font-family:var(--font);font-size:10px;font-weight:500;
+  font-size:9px;font-weight:500;
   letter-spacing:2.5px;text-transform:uppercase;
-  color:var(--bg);background:var(--gold);
-  padding:10px 24px;margin-left:16px;
-  transition:background .2s;
+  color:var(--bg);
+  background:var(--gold);
+  padding:9px 20px;
+  transition:opacity .2s;
 }
-.nav-cta:hover{background:var(--gold2)}
-.nav-mob{display:none;background:none;border:none;cursor:pointer;padding:4px}
-@media(max-width:768px){
-  .nav{padding:0 24px}
-  .nav-links{display:none}
-  .nav-mob{display:block}
-  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:rgba(8,7,9,.98);padding:20px;border-bottom:1px solid var(--border)}
-  .nav-link{padding:14px 0;width:100%}
-  .nav-cta{margin:12px 0 0;text-align:center}
+.nav-cta:hover{opacity:.8}
+@media(max-width:600px){
+  .nav{padding:0 20px}
+  .nav-link{display:none}
 }
 
-/* ── HERO ── */
+/* HERO */
 .hero{
-  position:relative;height:100vh;min-height:600px;
-  display:flex;align-items:center;overflow:hidden;
+  max-width:640px;
+  margin:0 auto;
+  padding:108px 40px 88px;
+  text-align:center;
 }
-#hero-canvas{position:absolute;inset:0;z-index:1;pointer-events:none}
-.hero-bg{position:absolute;inset:0}
-.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;opacity:.45}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(130deg,rgba(8,7,9,.96) 0%,rgba(8,7,9,.75) 55%,rgba(8,7,9,.3) 100%)}
-.hero-overlay2{position:absolute;bottom:0;left:0;right:0;height:35%;background:linear-gradient(to top,rgba(8,7,9,1),transparent)}
-.hero-content{
-  position:relative;z-index:2;
-  max-width:1200px;margin:0 auto;width:100%;
-  padding:0 48px;
+.hero-rule{
+  width:1px;height:56px;
+  background:linear-gradient(to bottom,transparent,var(--gold),transparent);
+  margin:0 auto 36px;
 }
 .hero-eyebrow{
-  font-family:var(--font);font-size:10px;font-weight:400;
-  letter-spacing:4px;text-transform:uppercase;
-  color:var(--gold);margin-bottom:24px;
-  display:flex;align-items:center;gap:16px;
+  font-size:9px;font-weight:400;
+  letter-spacing:5px;text-transform:uppercase;
+  color:rgba(201,169,110,.6);
+  margin-bottom:32px;
 }
-.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
 .hero-h1{
   font-family:var(--serif);
-  font-size:clamp(52px,7vw,112px);
+  font-size:clamp(44px,8vw,92px);
   font-weight:300;
   line-height:.95;
   letter-spacing:-1px;
   color:var(--text);
+  margin-bottom:32px;
+}
+.hero-h1 em{
+  font-style:italic;
+  color:rgba(237,233,226,.38);
+}
+.hero-sub{
+  font-size:13px;font-weight:300;
+  color:var(--muted);
+  line-height:2.1;
+  max-width:360px;
+  margin:0 auto 44px;
+  letter-spacing:.4px;
+}
+.hero-down{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  font-size:9px;font-weight:400;
+  letter-spacing:3px;text-transform:uppercase;
+  color:rgba(122,112,104,.5);
+  transition:color .25s;
+}
+.hero-down:hover{color:var(--gold)}
+@media(max-width:600px){.hero{padding:80px 24px 64px}}
+
+/* DIVIDER */
+.divider{
+  max-width:680px;margin:0 auto;
+  border:none;border-top:1px solid var(--border);
+}
+
+/* SECTION */
+.section{
+  max-width:680px;
+  margin:0 auto;
+  padding:72px 40px;
+}
+.section-label{
+  font-size:9px;font-weight:400;
+  letter-spacing:4.5px;text-transform:uppercase;
+  color:rgba(201,169,110,.55);
+  margin-bottom:48px;
+  display:flex;align-items:center;gap:16px;
+}
+.section-label::before{
+  content:'';width:20px;height:1px;
+  background:var(--gold);opacity:.4;flex-shrink:0;
+}
+@media(max-width:600px){.section{padding:56px 24px}}
+
+/* EXPERIMENTS LIST */
+.exp-list{display:flex;flex-direction:column;gap:0}
+.exp-item{
+  border-top:1px solid var(--border);
+  padding:28px 0;
+  display:grid;
+  grid-template-columns:52px 1fr;
+  gap:0 24px;
+  align-items:start;
+  transition:opacity .2s;
+  cursor:pointer;
+}
+.exp-item:last-child{border-bottom:1px solid var(--border)}
+.exp-item:hover{opacity:.75}
+.exp-num{
+  font-family:var(--serif);
+  font-size:28px;font-weight:300;
+  color:rgba(201,169,110,.18);
+  line-height:1;
+  padding-top:4px;
+  text-align:right;
+}
+.exp-body{}
+.exp-cat{
+  font-size:9px;font-weight:500;
+  letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:7px;
+}
+.exp-title{
+  font-family:var(--serif);
+  font-size:21px;font-weight:400;
+  color:var(--text);
+  line-height:1.3;
+  letter-spacing:.1px;
+  margin-bottom:9px;
+}
+.exp-desc{
+  font-size:13px;font-weight:300;
+  color:var(--muted);
+  line-height:1.9;
+  letter-spacing:.2px;
+  margin-bottom:10px;
+}
+.exp-meta{
+  font-size:10px;font-weight:400;
+  color:rgba(122,112,104,.6);
+  letter-spacing:1px;
+  display:flex;gap:16px;align-items:center;
+}
+.exp-read{
+  font-size:10px;color:var(--gold);
+  letter-spacing:1.5px;text-transform:uppercase;
+  transition:color .2s;
+}
+
+/* PHILOSOPHY */
+.phi-list{display:flex;flex-direction:column;gap:0}
+.phi-item{
+  border-top:1px solid var(--border);
+  padding:32px 0;
+  display:grid;
+  grid-template-columns:52px 1fr;
+  gap:0 24px;
+}
+.phi-item:last-child{border-bottom:1px solid var(--border)}
+.phi-n{
+  font-family:var(--serif);
+  font-size:13px;font-weight:300;
+  color:var(--gold);
+  opacity:.5;
+  padding-top:3px;
+  text-align:right;
+  letter-spacing:1px;
+}
+.phi-body{}
+.phi-h{
+  font-family:var(--serif);
+  font-size:20px;font-weight:400;
+  color:var(--text);
+  margin-bottom:12px;
+  line-height:1.2;
+  letter-spacing:.1px;
+}
+.phi-p{
+  font-size:13px;font-weight:300;
+  color:var(--muted);
+  line-height:2.0;
+  letter-spacing:.2px;
+}
+
+/* CREATOR */
+.creator{
+  border-top:1px solid var(--border);
+  padding-top:64px;
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:52px;
+  align-items:start;
+}
+.creator-portrait{
+  width:180px;
+  aspect-ratio:3/4;
+  overflow:hidden;
+  filter:grayscale(15%) contrast(1.05);
+}
+.creator-portrait img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  display:block;
+}
+.creator-info{}
+.creator-name{
+  font-family:var(--serif);
+  font-size:clamp(28px,4vw,42px);font-weight:300;
+  color:var(--text);
+  margin-bottom:6px;
+  line-height:1;
+  letter-spacing:.3px;
+}
+.creator-role{
+  font-size:9px;font-weight:400;
+  letter-spacing:3.5px;text-transform:uppercase;
+  color:rgba(201,169,110,.6);
   margin-bottom:28px;
 }
-.hero-h1 em{font-style:italic;color:rgba(242,237,230,.55)}
-.hero-sub{
-  font-family:var(--font);font-size:14px;font-weight:300;
-  color:rgba(242,237,230,.55);line-height:1.85;
-  max-width:420px;margin-bottom:44px;letter-spacing:.2px;
+.creator-text{
+  font-size:13px;font-weight:300;
+  color:rgba(237,233,226,.55);
+  line-height:2.05;
+  letter-spacing:.25px;
 }
-.hero-actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-.btn-primary{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:var(--font);font-size:10px;font-weight:500;
-  letter-spacing:3px;text-transform:uppercase;
-  color:var(--bg);background:var(--gold);
-  padding:16px 32px;transition:all .3s;
+.creator-text p{margin-bottom:20px}
+.creator-text p:last-child{margin-bottom:0}
+@media(max-width:600px){
+  .creator{grid-template-columns:1fr;gap:28px}
+  .creator-portrait{width:140px;aspect-ratio:1/1;border-radius:0}
 }
-.btn-primary:hover{background:var(--gold2);transform:translateY(-2px)}
-.btn-ghost{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:var(--font);font-size:10px;font-weight:400;
-  letter-spacing:3px;text-transform:uppercase;
-  color:rgba(242,237,230,.55);
-  border:1px solid rgba(242,237,230,.2);padding:15px 28px;
-  transition:all .3s;
-}
-.btn-ghost:hover{color:var(--text);border-color:rgba(242,237,230,.5)}
-.hero-indicators{
-  display:flex;gap:48px;margin-top:64px;padding-top:40px;
-  border-top:1px solid rgba(242,237,230,.06);
-}
-.hind{text-align:left}
-.hind-val{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--gold);line-height:1}
-.hind-lbl{font-size:10px;font-weight:400;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-top:6px}
-@media(max-width:640px){.hero-content{padding:0 24px}.hero-indicators{gap:28px}.hind-val{font-size:24px}}
 
-/* ── SECTION ── */
-section{padding:100px 48px}
-.sec-inner{max-width:1200px;margin:0 auto}
-.sec-eyebrow{font-size:10px;font-weight:400;color:var(--gold);text-transform:uppercase;letter-spacing:3px;margin-bottom:16px;display:flex;align-items:center;gap:16px}
-.sec-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
-.sec-h2{font-family:var(--serif);font-size:clamp(32px,4vw,60px);font-weight:300;color:var(--text);line-height:1.05;margin-bottom:16px;letter-spacing:-.5px}
-.sec-sub{font-size:14px;font-weight:300;color:var(--muted);max-width:500px;line-height:1.85}
-@media(max-width:640px){section{padding:72px 24px}}
-
-/* ── EXPERIENCES (FEATURED) ── */
-.exp-grid{display:grid;grid-template-columns:2fr 1fr;gap:1px;margin-top:56px;background:var(--border)}
-.exp-main{background:var(--bg2);position:relative;overflow:hidden;cursor:pointer;min-height:480px;display:flex;flex-direction:column;justify-content:flex-end}
-.exp-main-img{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;transition:transform .7s ease}
-.exp-main:hover .exp-main-img{transform:scale(1.04)}
-.exp-main-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,7,9,.95) 0%,rgba(8,7,9,.3) 50%,transparent 100%)}
-.exp-main-body{position:relative;z-index:2;padding:40px}
-.exp-tag{font-size:9px;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:3px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.exp-tag::before{content:'';width:16px;height:1px;background:var(--gold)}
-.exp-title{font-family:var(--serif);font-size:clamp(22px,3vw,36px);font-weight:300;color:var(--text);line-height:1.15;margin-bottom:12px}
-.exp-desc{font-size:12px;font-weight:300;color:rgba(242,237,230,.5);line-height:1.75;margin-bottom:18px;max-width:400px}
-.exp-meta{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;display:flex;gap:16px}
-.exp-side{display:flex;flex-direction:column;gap:1px}
-.exp-mini{background:var(--bg2);padding:28px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:background .2s;flex:1}
-.exp-mini:hover{background:var(--surface)}
-.exp-mini-img{width:100%;aspect-ratio:4/3;object-fit:cover;margin-bottom:18px}
-.exp-mini-tag{font-size:9px;color:var(--gold);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
-.exp-mini-title{font-family:var(--serif);font-size:17px;font-weight:400;color:var(--text);line-height:1.3;margin-bottom:8px}
-.exp-mini-date{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
-@media(max-width:900px){.exp-grid{grid-template-columns:1fr}.exp-main{min-height:360px}.exp-side{flex-direction:row}}
-@media(max-width:600px){.exp-side{flex-direction:column}}
-
-/* ── PHILOSOPHY (3-col text) ── */
-.phi-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:56px}
-.phi-col{}
-.phi-num{font-family:var(--serif);font-size:60px;font-weight:300;color:rgba(201,169,110,.12);line-height:1;margin-bottom:-12px}
-.phi-title{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--text);margin-bottom:14px}
-.phi-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.85}
-@media(max-width:900px){.phi-cols{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.phi-cols{grid-template-columns:1fr}}
-
-/* ── ARTICLE GRID ── */
-.arts-filter-row{display:flex;gap:0;margin-bottom:40px;border-bottom:1px solid var(--border)}
-.afilter{font-size:10px;font-weight:400;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);padding:12px 20px;border-bottom:1px solid transparent;cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;font-family:var(--font);transition:all .2s;margin-bottom:-1px}
-.afilter.active,.afilter:hover{color:var(--text);border-bottom-color:var(--gold)}
-.arts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
-.art-card{background:var(--surface);display:flex;flex-direction:column;cursor:pointer;transition:background .2s}
-.art-card:hover{background:var(--surface2)}
-.art-card-img{width:100%;aspect-ratio:3/2;object-fit:cover;background:var(--bg2)}
-.art-card-body{padding:22px;flex:1;display:flex;flex-direction:column}
-.art-card-cat{font-size:9px;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:10px}
-.art-card-title{font-family:var(--serif);font-size:17px;font-weight:400;color:var(--text);line-height:1.4;margin-bottom:10px;flex:1}
-.art-card-meta{font-size:10px;color:var(--muted);display:flex;justify-content:space-between;margin-top:auto;padding-top:14px;border-top:1px solid var(--border);text-transform:uppercase;letter-spacing:1px}
-.art-read{font-size:10px;color:var(--gold);letter-spacing:1.5px}
-@media(max-width:900px){.arts-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:540px){.arts-grid{grid-template-columns:1fr}}
-
-/* ── CREATOR ── */
-.creator-wrap{
-  display:grid;grid-template-columns:300px 1fr;gap:64px;align-items:start;
-  margin-top:64px;
+/* NEWSLETTER */
+.nl-section{
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
 }
-.creator-left{}
-.creator-portrait{
-  width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,#1c1820,#2a2430);
-  position:relative;overflow:hidden;margin-bottom:24px;
+.nl-inner{
+  max-width:680px;margin:0 auto;
+  padding:72px 40px;
+  text-align:center;
 }
-.creator-portrait img{width:100%;height:100%;object-fit:cover;opacity:.8;transition:opacity .4s}
-.creator-portrait:hover img{opacity:1}
-.creator-initial{
-  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-family:var(--serif);font-size:80px;font-weight:300;color:rgba(201,169,110,.2);
+.nl-label{
+  font-size:10px;font-weight:400;
+  letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:20px;
 }
-.creator-name-card{padding:0 0 0 0}
-.creator-label{font-size:9px;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:3px;margin-bottom:6px}
-.creator-name{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--text);margin-bottom:4px}
-.creator-role{font-size:12px;font-weight:300;color:var(--muted);letter-spacing:.5px}
-.creator-right p{font-size:14px;font-weight:300;color:rgba(242,237,230,.65);line-height:1.9;margin-bottom:20px}
-.creator-right h3{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--text);margin:36px 0 14px}
-@media(max-width:900px){.creator-wrap{grid-template-columns:1fr}.creator-portrait{max-width:240px}}
-
-/* ── NEWSLETTER ── */
-.nl{position:relative;overflow:hidden;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 48px}
-.nl::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(201,169,110,.04) 0%,transparent 70%);pointer-events:none}
-.nl-inner{max-width:560px;margin:0 auto;text-align:center;position:relative}
-.nl-eyebrow{font-size:10px;font-weight:400;color:var(--gold);text-transform:uppercase;letter-spacing:3px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:16px}
-.nl-eyebrow::before,.nl-eyebrow::after{content:'';flex:1;max-width:48px;height:1px;background:var(--gold)}
-.nl-h2{font-family:var(--serif);font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--text);line-height:1.05;margin-bottom:14px;letter-spacing:-.3px}
-.nl-sub{font-size:13px;font-weight:300;color:var(--muted);line-height:1.85;margin-bottom:36px}
-.nl-form{display:flex;gap:0;max-width:440px;margin:0 auto}
-.nl-input{flex:1;min-width:0;font-family:var(--font);font-size:13px;color:var(--text);background:var(--bg2);border:1px solid var(--border);border-right:none;padding:14px 20px;outline:none;transition:border-color .2s;letter-spacing:.3px}
+.nl-h2{
+  font-family:var(--serif);
+  font-size:clamp(28px,5vw,48px);font-weight:300;
+  color:var(--text);
+  line-height:1.1;
+  margin-bottom:14px;
+}
+.nl-sub{
+  font-size:13px;font-weight:300;
+  color:var(--muted);
+  line-height:1.85;
+  margin-bottom:36px;
+}
+.nl-form{display:flex;gap:0;max-width:400px;margin:0 auto}
+.nl-input{
+  flex:1;min-width:0;
+  font-family:var(--sans);font-size:13px;
+  color:var(--text);
+  background:var(--bg);
+  border:1px solid rgba(255,255,255,.1);
+  border-right:none;
+  padding:12px 18px;outline:none;
+  transition:border-color .2s;
+  letter-spacing:.2px;
+}
 .nl-input:focus{border-color:var(--gold)}
 .nl-input::placeholder{color:var(--muted)}
-.nl-btn{font-family:var(--font);font-size:10px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--bg);background:var(--gold);border:none;padding:14px 28px;cursor:pointer;white-space:nowrap;transition:background .2s;flex-shrink:0}
-.nl-btn:hover{background:var(--gold2)}
-#nl-confirm{display:none;font-size:13px;color:var(--gold);margin-top:14px;font-style:italic;font-family:var(--serif)}
-@media(max-width:640px){.nl{padding:72px 24px}.nl-form{flex-direction:column}.nl-input{border-right:1px solid var(--border)}.nl-btn{margin-top:1px}}
+.nl-btn{
+  font-family:var(--sans);font-size:10px;font-weight:500;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--bg);background:var(--gold);
+  border:none;padding:12px 22px;
+  cursor:pointer;flex-shrink:0;
+  transition:opacity .2s;
+}
+.nl-btn:hover{opacity:.85}
+#nl-ok{display:none;font-size:13px;color:var(--gold);margin-top:14px;font-family:var(--serif);font-style:italic}
+@media(max-width:600px){
+  .nl-inner{padding:56px 24px}
+  .nl-form{flex-direction:column}
+  .nl-input{border-right:1px solid rgba(255,255,255,.1)}
+  .nl-btn{margin-top:1px}
+}
 
-/* ── FOOTER ── */
-footer{background:var(--bg2);border-top:1px solid var(--border);padding:64px 48px 32px}
-.footer-inner{max-width:1200px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:48px}
-.footer-brand{font-family:var(--serif);font-size:22px;font-weight:300;letter-spacing:4px;text-transform:uppercase;color:var(--text);margin-bottom:14px}
-.footer-brand span{color:var(--gold)}
-.footer-desc{font-size:12px;font-weight:300;color:var(--muted);line-height:1.85;max-width:300px;margin-bottom:0}
-.footer-col-title{font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:3px;color:rgba(242,237,230,.3);margin-bottom:18px}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:11px}
-.footer-links a{font-size:12px;font-weight:300;color:var(--muted);transition:color .2s;letter-spacing:.3px}
+/* FOOTER */
+footer{
+  max-width:680px;margin:0 auto;
+  padding:48px 40px 40px;
+  display:flex;justify-content:space-between;align-items:flex-end;
+  flex-wrap:wrap;gap:24px;
+}
+.footer-brand{
+  font-family:var(--serif);
+  font-size:16px;font-weight:300;
+  letter-spacing:3px;text-transform:uppercase;
+  color:rgba(237,233,226,.3);
+}
+.footer-brand em{color:var(--gold);font-style:normal}
+.footer-copy{font-size:10px;color:rgba(237,233,226,.2);letter-spacing:.5px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{font-size:10px;color:var(--muted);letter-spacing:.5px;transition:color .2s}
 .footer-links a:hover{color:var(--gold)}
-.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.footer-copy{font-size:10px;font-weight:300;color:rgba(242,237,230,.2);letter-spacing:.5px}
-.footer-legal{display:flex;gap:24px}
-.footer-legal a{font-size:10px;font-weight:300;color:rgba(242,237,230,.2);transition:color .2s}
-.footer-legal a:hover{color:var(--gold)}
-@media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr};footer{padding:48px 24px 24px}}
-@media(max-width:540px){.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}}
+@media(max-width:600px){footer{padding:40px 24px;flex-direction:column;align-items:flex-start}}
 </style>
 </head>
 <body>
 
-<!-- PRELOADER -->
-<div id="preloader">
-  <div class="pre-wordmark">Kanona Projects</div>
-  <div class="pre-line"></div>
-  <div class="pre-tagline">Experiential Events</div>
-</div>
-
 <!-- NAV -->
-<nav class="nav" id="main-nav">
-  <a href="./" class="nav-logo">Kanona <span>Projects</span></a>
-  <div class="nav-links" id="nav-links">
-    <a href="./#experiences" class="nav-link">Experiences</a>
+<nav class="nav">
+  <a href="./" class="nav-logo">Kanona <em>Projects</em></a>
+  <div class="nav-right">
+    <a href="./#experiments" class="nav-link">Experiments</a>
     <a href="./#philosophy" class="nav-link">Philosophy</a>
-    <a href="./#articles" class="nav-link">Archive</a>
-    <a href="./about.html" class="nav-link">About</a>
     <a href="./#newsletter" class="nav-cta">The Letter</a>
   </div>
-  <button class="nav-mob" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(242,237,230,.6)" stroke-width="1.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-  </button>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <canvas id="hero-canvas"></canvas>
-  <div class="hero-bg">
-    <img src="https://images.pexels.com/photos/1267325/pexels-photo-1267325.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Intimate dinner setting" loading="eager" onerror="this.style.display='none'">
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-overlay2"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Experiential Design</div>
-    <h1 class="hero-h1">
-      Events that<br><em>stay with you</em>
-    </h1>
-    <p class="hero-sub">Sensory design, intimate gatherings, and the architecture of unforgettable evenings. For curious minds who want more from a room.</p>
-    <div class="hero-actions">
-      <a href="./#experiences" class="btn-primary">
-        Explore Experiences
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <a href="./#philosophy" class="btn-ghost">Our Philosophy</a>
-    </div>
-    <div class="hero-indicators">
-      <div class="hind"><div class="hind-val">12+</div><div class="hind-lbl">Years in Design</div></div>
-      <div class="hind"><div class="hind-val">400+</div><div class="hind-lbl">Evenings Curated</div></div>
-      <div class="hind"><div class="hind-val">One</div><div class="hind-lbl">Experience at a Time</div></div>
-    </div>
-  </div>
+  <div class="hero-rule"></div>
+  <div class="hero-eyebrow">Kanona Projects</div>
+  <h1 class="hero-h1">Evenings<br>designed to<br><em>linger.</em></h1>
+  <p class="hero-sub">Writing on the deliberate architecture of sensory experience. The scent, the silence, the light, the room, the people.</p>
+  <a href="./#experiments" class="hero-down">
+    Begin reading
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+  </a>
 </div>
 
-<!-- FEATURED EXPERIENCES -->
-<section id="experiences" style="padding-bottom:60px">
-  <div class="sec-inner">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:0;flex-wrap:wrap;gap:16px">
-      <div>
-        <div class="sec-eyebrow">Featured</div>
-        <h2 class="sec-h2">Recent<br>Experiences</h2>
-      </div>
-      <a href="./#articles" style="font-family:var(--font);font-size:10px;font-weight:400;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">
-        Full Archive
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
-    <div class="exp-grid" id="exp-grid">
-      <!-- JS populated -->
-      <div class="exp-main" style="background:var(--surface)"></div>
-      <div class="exp-side"><div class="exp-mini" style="flex:1"></div><div class="exp-mini" style="flex:1"></div></div>
-    </div>
+<hr class="divider">
+
+<!-- EXPERIMENTS -->
+<section class="section" id="experiments">
+  <div class="section-label">Experiments</div>
+  <div class="exp-list" id="exp-list">
+    <!-- populated by JS -->
   </div>
 </section>
+
+<hr class="divider">
 
 <!-- PHILOSOPHY -->
-<section id="philosophy" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-  <div class="sec-inner">
-    <div class="sec-eyebrow">Guiding Principles</div>
-    <h2 class="sec-h2">What We<br>Believe About<br>a Room</h2>
-    <p class="sec-sub">Every gathering is a composition. Like music, what is left out determines what is felt. These are the principles that guide every event Kanona Projects builds.</p>
-    <div class="phi-cols">
-      <div class="phi-col">
-        <div class="phi-num">01</div>
-        <h3 class="phi-title">Scent is the first impression</h3>
-        <p class="phi-desc">Before guests see the room or hear the music, they smell it. A single note of cedar, white tea, or aged wood tells the body where it is before the mind catches up. We design the olfactory layer first.</p>
+<section class="section" id="philosophy">
+  <div class="section-label">What We Believe</div>
+  <div class="phi-list">
+    <div class="phi-item">
+      <div class="phi-n">01</div>
+      <div class="phi-body">
+        <div class="phi-h">Scent is the first sentence</div>
+        <p class="phi-p">Before guests see the room or hear the music, they smell it. A single note of cedar, white tea, or aged wood tells the body where it is before the mind catches up. We design the olfactory layer first.</p>
       </div>
-      <div class="phi-col">
-        <div class="phi-num">02</div>
-        <h3 class="phi-title">Silence is not empty</h3>
-        <p class="phi-desc">The pause before the first note of a string quartet. The quiet between courses when conversation drops to a murmur. These moments carry more weight than the sounds that surround them. We protect them.</p>
+    </div>
+    <div class="phi-item">
+      <div class="phi-n">02</div>
+      <div class="phi-body">
+        <div class="phi-h">Silence is not empty</div>
+        <p class="phi-p">The pause before the first note of a string quartet. The quiet between courses when conversation drops to a murmur. These moments carry more weight than the sounds that surround them. We protect them.</p>
       </div>
-      <div class="phi-col">
-        <div class="phi-num">03</div>
-        <h3 class="phi-title">The guest list is the event</h3>
-        <p class="phi-desc">Ten people who have something genuine to offer each other will create a more memorable evening than a hundred who share only an invitation. Curation starts with who is in the room.</p>
+    </div>
+    <div class="phi-item">
+      <div class="phi-n">03</div>
+      <div class="phi-body">
+        <div class="phi-h">The guest list is the event</div>
+        <p class="phi-p">Ten people who have something genuine to offer each other will create a more memorable evening than a hundred who share only an invitation. Curation starts with who is in the room.</p>
       </div>
-      <div class="phi-col">
-        <div class="phi-num">04</div>
-        <h3 class="phi-title">Darkness earns the light</h3>
-        <p class="phi-desc">A room that is uniformly bright is a room without drama. We use deep shadow to make a candle feel like a moment worth remembering. Contrast is the vocabulary of atmosphere.</p>
+    </div>
+    <div class="phi-item">
+      <div class="phi-n">04</div>
+      <div class="phi-body">
+        <div class="phi-h">Darkness earns the light</div>
+        <p class="phi-p">A room that is uniformly bright is a room without drama. We use deep shadow to make a candle feel like a moment worth remembering. Contrast is the vocabulary of atmosphere.</p>
       </div>
-      <div class="phi-col">
-        <div class="phi-num">05</div>
-        <h3 class="phi-title">Music is architecture</h3>
-        <p class="phi-desc">The playlist is not background. It is structure. We treat the sound environment as a timeline - a score that moves the evening through arrival, peak, and departure with intention and care.</p>
+    </div>
+    <div class="phi-item">
+      <div class="phi-n">05</div>
+      <div class="phi-body">
+        <div class="phi-h">Music is architecture</div>
+        <p class="phi-p">The playlist is not background. It is structure. We treat the sound environment as a score that moves the evening through arrival, peak, and departure with intention.</p>
       </div>
-      <div class="phi-col">
-        <div class="phi-num">06</div>
-        <h3 class="phi-title">Nothing happens twice</h3>
-        <p class="phi-desc">The best events are genuinely unrepeatable. The specific combination of people, room, weather, conversation, and moment cannot be recreated. We design for the one occasion, not the template.</p>
+    </div>
+    <div class="phi-item">
+      <div class="phi-n">06</div>
+      <div class="phi-body">
+        <div class="phi-h">Nothing happens twice</div>
+        <p class="phi-p">The specific combination of people, room, weather, and conversation cannot be recreated. We design for the one occasion, not the template.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ARTICLES -->
-<section id="articles">
-  <div class="sec-inner">
-    <div class="sec-eyebrow">Archive</div>
-    <h2 class="sec-h2" style="margin-bottom:32px">Writing on<br>Experience</h2>
-    <div class="arts-filter-row">
-      <button class="afilter active" onclick="filterArts(this,'all')">All</button>
-      <button class="afilter" onclick="filterArts(this,'atmosphere')">Atmosphere</button>
-      <button class="afilter" onclick="filterArts(this,'sensory')">Sensory</button>
-      <button class="afilter" onclick="filterArts(this,'dinner')">Dining</button>
-      <button class="afilter" onclick="filterArts(this,'music')">Music</button>
-    </div>
-    <div class="arts-grid" id="arts-grid">
-      <div class="art-card" style="opacity:.3"><div class="art-card-img" style="height:160px;background:var(--bg2)"></div><div class="art-card-body"><div class="art-card-cat">Loading</div><div class="art-card-title">Fetching experiences...</div></div></div>
-    </div>
-    <div style="text-align:center;margin-top:48px">
-      <button id="load-more-btn" class="btn-ghost" style="display:none" onclick="loadMore()">Load More</button>
-    </div>
-  </div>
-</section>
+<hr class="divider">
 
 <!-- CREATOR -->
-<section style="background:var(--bg2);border-top:1px solid var(--border);padding-top:80px;padding-bottom:80px">
-  <div class="sec-inner">
-    <div class="sec-eyebrow">The Mind Behind It</div>
-    <div class="creator-wrap">
-      <div class="creator-left">
-        <div class="creator-portrait">
-          <div class="creator-initial">KS</div>
-        </div>
-        <div class="creator-name-card">
-          <div class="creator-label">Curator</div>
-          <div class="creator-name">Kani Sedighi</div>
-          <div class="creator-role">Experiential Event Curator &amp; Creative Director</div>
-        </div>
-      </div>
-      <div class="creator-right">
-        <h2 class="sec-h2" style="margin-bottom:24px">Designing for<br><em style="font-style:italic;color:rgba(242,237,230,.55)">what remains</em></h2>
-        <p>I design events as sensory experiences - where the scent of a room, the weight of silence before music begins, and the specific warmth of candlelight are as deliberate as the guest list. Every detail is a choice about what feeling a person carries home.</p>
-        <p>This work started with a simple observation: most gatherings are organized around logistics rather than experience. The food, the venue, the timing - these receive the attention. The atmosphere, the emotional arc of the evening, the quality of the silence between courses - these are left to chance.</p>
-        <h3>What Kanona Projects Does</h3>
-        <p>We work with people who want a gathering to become a memory. The curious minds who feel the difference between a room that has been thought about and one that has simply been booked. Who notice when music shifts the temperature of a conversation, or when the right scent makes a space feel private even when it is not.</p>
-        <p>The writing here is an extension of that work - an attempt to describe what makes an evening stay with you, and how the decisions behind it get made. Not a guide, exactly. More like thinking out loud from the inside of the practice.</p>
-        <p style="margin-top:32px"><a href="./about.html" style="font-family:var(--font);font-size:10px;font-weight:400;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:8px;transition:color .2s" onmouseover="this.style.color='var(--gold2)'" onmouseout="this.style.color='var(--gold)'">
-          More About Kani
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a></p>
+<section class="section">
+  <div class="creator">
+    <div class="creator-portrait">
+      <img src="https://media.licdn.com/dms/image/v2/D5603AQGaRyPZftmGEw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1675404601711?e=1780531200&v=beta&t=pZOkSp0O4rBPghbMpoaI1SXQdDcu6etPymqgUORCvCU" alt="Kani Sedighi" loading="lazy" onerror="this.parentElement.style.background='var(--surface)'">
+    </div>
+    <div class="creator-info">
+      <div class="creator-name">Kani Sedighi</div>
+      <div class="creator-role">Experiential Curator</div>
+      <div class="creator-text">
+        <p>I design gatherings as sensory experiments. The scent of a room, the weight of silence before music begins, the specific warmth of a single candle - these are as deliberate as the guest list. Every detail is a decision about what feeling a person carries home.</p>
+        <p>This work started with a simple observation: most gatherings are organized around logistics rather than experience. The food, the venue, the timing receive the attention. The atmosphere, the emotional arc, the quality of the silence between courses are left to chance. Kanona Projects does not leave those things to chance.</p>
+        <p>The writing here is an extension of that practice - an attempt to describe what makes an evening stay with you, and how the decisions behind it are made.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- NEWSLETTER -->
-<div class="nl" id="newsletter">
+<div class="nl-section" id="newsletter">
   <div class="nl-inner">
-    <div class="nl-eyebrow">The Kanona Letter</div>
-    <h2 class="nl-h2">One experience<br>described in full.</h2>
-    <p class="nl-sub">Monthly. A single evening - the scent we chose, the music we built, the guest dynamics we designed for, and what we were thinking when we put it together.</p>
-    <form class="nl-form" onsubmit="nlSubmit(event)">
-      <input type="email" id="nl-email" class="nl-input" placeholder="your@email.com">
+    <div class="nl-label">The Kanona Letter</div>
+    <h2 class="nl-h2">One experiment<br>described in full.</h2>
+    <p class="nl-sub">Monthly. A single evening - the scent chosen, the music built, the guest dynamics considered, and what we were thinking when we put it together.</p>
+    <form class="nl-form" onsubmit="return nlSub(event)">
+      <input type="email" class="nl-input" id="nl-email" placeholder="your@email.com" required>
       <button type="submit" class="nl-btn">Subscribe</button>
     </form>
-    <p id="nl-confirm">Thank you. The first letter arrives soon.</p>
+    <p id="nl-ok">Thank you. The first letter arrives soon.</p>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand">Kanona <span>Projects</span></div>
-        <p class="footer-desc">Experiential event curation for curious minds who want more from an evening. Each gathering designed as a sensory composition - unrepeatable by intention.</p>
-      </div>
-      <div>
-        <div class="footer-col-title">Navigate</div>
-        <ul class="footer-links">
-          <li><a href="./#experiences">Experiences</a></li>
-          <li><a href="./#philosophy">Philosophy</a></li>
-          <li><a href="./#articles">Archive</a></li>
-          <li><a href="./about.html">About Kani</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Themes</div>
-        <ul class="footer-links">
-          <li><a href="#">Sensory Design</a></li>
-          <li><a href="#">Intimate Dinners</a></li>
-          <li><a href="#">Sound Architecture</a></li>
-          <li><a href="./#newsletter">The Letter</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Kanona Projects. Curated by Kani Sedighi.</span>
-      <div class="footer-legal">
-        <a href="./privacy.html">Privacy</a>
-        <a href="./terms.html">Terms</a>
-      </div>
-    </div>
+  <div>
+    <div class="footer-brand">Kanona <em>Projects</em></div>
+    <div class="footer-copy" style="margin-top:8px">© 2026 Kani Sedighi</div>
+  </div>
+  <div class="footer-links">
+    <a href="./#experiments">Experiments</a>
+    <a href="./#philosophy">Philosophy</a>
+    <a href="./about.html">About</a>
+    <a href="./#newsletter">The Letter</a>
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script>
-// Preloader
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('preloader').classList.add('fade');
-  }, 2200);
-});
+var KANONA_ARTS=[
+  {slug:'the-anatomy-of-a-kanona-dinner',category:'Atmosphere',title:'The Anatomy of a Kanona Experiment: How Every Sense Is Designed',date:'May 14, 2026',meta_description:'Before the food arrives, the room has already told you what kind of evening this will be. We break down the deliberate choices behind each sensory layer.',author:'Kani Sedighi'},
+  {slug:'why-we-choose-dark',category:'Design',title:'Why We Choose Darkness: The Case for Low Light at the Table',date:'May 7, 2026',meta_description:'Candlelight is not nostalgia. It is a tool for slowing perception, reducing self-consciousness, and making strangers feel like they have always known each other.',author:'Kani Sedighi'},
+  {slug:'scent-as-memory-cedar-and-white-tea',category:'Sensory',title:'Scent as Memory: On Cedar, White Tea, and the First Impression',date:'Apr 29, 2026',meta_description:'Olfaction reaches the limbic system before any other sense. The fragrance at the door is not decoration - it is the first sentence of the evening.',author:'Kani Sedighi'},
+  {slug:'the-guest-list-as-craft',category:'Curation',title:'The Guest List as Craft: Who You Put in a Room Is the Art',date:'Apr 20, 2026',meta_description:'We have never accepted a booking simply because the seat was available. The chemistry of a table is as considered as the menu.',author:'Kani Sedighi'},
+  {slug:'music-at-dinner-the-invisible-architecture',category:'Sound',title:'Music at Dinner: The Invisible Architecture of a Meal',date:'Apr 12, 2026',meta_description:'The tempo at which guests eat, how long they linger over a glass, when conversation deepens - all shaped by what is playing and at what volume.',author:'Kani Sedighi'},
+];
 
-// Nav scroll
-const nav = document.getElementById('main-nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 80);
-}, { passive: true });
-
-// Article filter
-let allArts = [], activeFilter = 'all', shown = 0;
-const PAGE = 9;
-
-const CAT_KW = {
-  atmosphere: ['atmosphere','room','light','darkness','mood','setting','space','venue','design'],
-  sensory:    ['scent','smell','touch','texture','taste','sensory','sense','feel','candle','incense'],
-  dinner:     ['dinner','dining','food','meal','table','course','menu','culinary','feast','wine'],
-  music:      ['music','sound','silence','playlist','score','audio','noise','song','instrument','acoustic'],
-};
-
-function catMatch(a, cat) {
-  if (cat === 'all') return true;
-  const txt = ((a.title||'')+(a.category||'')+(a.meta_description||'')).toLowerCase();
-  return (CAT_KW[cat]||[]).some(k => txt.includes(k));
+async function loadArticles(){
+  var arts=KANONA_ARTS;
+  try{
+    var r=await fetch('./articles.json');
+    if(!r.ok)throw new Error();
+    var data=await r.json();
+    if(data&&data.length)arts=data;
+  }catch(e){}
+  renderList(arts);
 }
 
-function filterArts(btn, cat) {
-  document.querySelectorAll('.afilter').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  activeFilter = cat;
-  shown = PAGE;
-  renderArts();
+function renderList(arts){
+  var el=document.getElementById('exp-list');
+  if(!el)return;
+  el.innerHTML=arts.map(function(a,i){
+    var n=i<9?'0'+(i+1):(i+1)+'';
+    return '<a class="exp-item" href="./'+a.slug+'/"><div class="exp-num">'+n+'</div><div class="exp-body"><div class="exp-cat">'+(a.category||'Experiment')+'</div><div class="exp-title">'+a.title+'</div><div class="exp-desc">'+(a.meta_description||'').slice(0,120)+'</div><div class="exp-meta"><span>'+(a.date||'')+'</span><span class="exp-read">Read</span></div></div></a>';
+  }).join('');
 }
 
-function loadMore() {
-  shown += PAGE;
-  renderArts();
-}
-
-function renderArts() {
-  const agrid = document.getElementById('arts-grid');
-  const lmBtn = document.getElementById('load-more-btn');
-  if (!agrid) return;
-  const filtered = allArts.filter(a => catMatch(a, activeFilter));
-  const visible = filtered.slice(0, shown);
-  if (!visible.length) {
-    agrid.innerHTML = '<div style="grid-column:1/-1;padding:60px;text-align:center;font-size:13px;color:var(--muted);font-style:italic;font-family:var(--serif)">No pieces in this category yet.</div>';
-    lmBtn.style.display = 'none';
-    return;
-  }
-  agrid.innerHTML = visible.map(a => `
-    <a href="./${a.slug}/" class="art-card" style="text-decoration:none">
-      <img class="art-card-img" src="${a.image||''}" alt="${a.title||''}" loading="lazy" onerror="this.style.cssText='height:160px;background:var(--bg2)'">
-      <div class="art-card-body">
-        <div class="art-card-cat">${a.category||'Experiential'}</div>
-        <div class="art-card-title">${a.title||''}</div>
-        <div class="art-card-meta">
-          <span>${a.date ? new Date(a.date).toLocaleDateString('en-US',{month:'long',year:'numeric'}) : ''}</span>
-          <span class="art-read">Read</span>
-        </div>
-      </div>
-    </a>`).join('');
-  lmBtn.style.display = shown < filtered.length ? 'inline-flex' : 'none';
-}
-
-// Load articles
-async function loadArticles() {
-  try {
-    const r = await fetch('./articles.json');
-    if (!r.ok) throw new Error('no articles');
-    const arts = await r.json();
-    if (!arts || !arts.length) throw new Error('empty');
-    allArts = arts;
-    shown = PAGE;
-
-    // Featured experiences grid
-    const grid = document.getElementById('exp-grid');
-    if (grid) {
-      const main = arts[0];
-      const subs = arts.slice(1, 3);
-      grid.innerHTML = `
-        <a href="./${main.slug}/" class="exp-main" style="text-decoration:none">
-          ${main.image ? `<img class="exp-main-img" src="${main.image}" alt="${main.title||''}" loading="lazy">` : '<div style="position:absolute;inset:0;background:var(--surface2)"></div>'}
-          <div class="exp-main-overlay"></div>
-          <div class="exp-main-body">
-            <div class="exp-tag">${main.category||'Experience'}</div>
-            <div class="exp-title">${main.title||''}</div>
-            <div class="exp-desc">${(main.meta_description||'').slice(0,140)}</div>
-            <div class="exp-meta"><span>${main.date||''}</span><span>${main.author||'Kani Sedighi'}</span></div>
-          </div>
-        </a>
-        <div class="exp-side">
-          ${subs.map(a=>`
-            <a href="./${a.slug}/" class="exp-mini" style="text-decoration:none">
-              ${a.image?`<img class="exp-mini-img" src="${a.image}" alt="${a.title||''}" loading="lazy">`:'<div class="exp-mini-img" style="background:var(--surface2)"></div>'}
-              <div class="exp-mini-tag">${a.category||'Experience'}</div>
-              <div class="exp-mini-title">${a.title||''}</div>
-              <div class="exp-mini-date">${a.date||''}</div>
-            </a>`).join('')}
-        </div>`;
-    }
-    renderArts();
-  } catch(e) {
-    const KANONA_ARTS = [
-      {slug:'the-anatomy-of-a-kanona-dinner',category:'Atmosphere',title:'The Anatomy of a Kanona Dinner: How Every Sense Is Designed',date:'May 14, 2026',image:'https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?auto=compress&cs=tinysrgb&w=900',meta_description:'Before the food arrives, the room has already told you what kind of evening this will be. We break down the deliberate choices behind each sensory layer.',author:'Kani Sedighi'},
-      {slug:'why-we-choose-dark',category:'Design',title:'Why We Choose Darkness: The Case for Low Light at the Table',date:'May 7, 2026',image:'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=900',meta_description:'Candlelight is not nostalgia. It is a tool for slowing perception, reducing self-consciousness, and making strangers feel like they have always known each other.',author:'Kani Sedighi'},
-      {slug:'scent-as-memory-cedar-and-white-tea',category:'Sensory',title:'Scent as Memory: On Cedar, White Tea, and the First Impression',date:'Apr 29, 2026',image:'https://images.pexels.com/photos/3270223/pexels-photo-3270223.jpeg?auto=compress&cs=tinysrgb&w=900',meta_description:'Olfaction reaches the limbic system before any other sense. The fragrance at the door is not decoration - it is the first sentence of the evening.',author:'Kani Sedighi'},
-      {slug:'the-guest-list-as-craft',category:'Curation',title:'The Guest List as Craft: Who You Put in a Room Is the Art',date:'Apr 20, 2026',image:'https://images.pexels.com/photos/1709003/pexels-photo-1709003.jpeg?auto=compress&cs=tinysrgb&w=900',meta_description:'We have never accepted a booking simply because the seat was available. The chemistry of a table is as considered as the menu. Here is how we think about it.',author:'Kani Sedighi'},
-      {slug:'music-at-dinner-the-invisible-architecture',category:'Sound',title:'Music at Dinner: The Invisible Architecture of a Meal',date:'Apr 12, 2026',image:'https://images.pexels.com/photos/1047442/pexels-photo-1047442.jpeg?auto=compress&cs=tinysrgb&w=900',meta_description:'The tempo at which guests eat, how long they linger over a glass, when conversation deepens - all of this is shaped by what is playing and at what volume.',author:'Kani Sedighi'},
-    ];
-    allArts = KANONA_ARTS;
-    shown = PAGE;
-    const grid = document.getElementById('exp-grid');
-    if (grid) {
-      const main = KANONA_ARTS[0];
-      const subs = KANONA_ARTS.slice(1,3);
-      grid.innerHTML = `
-        <a href="./${main.slug}/" class="exp-main" style="text-decoration:none">
-          <img class="exp-main-img" src="${main.image}" alt="${main.title}" loading="lazy" onerror="this.style.cssText='background:var(--surface2)'">
-          <div class="exp-main-overlay"></div>
-          <div class="exp-main-body">
-            <div class="exp-tag">${main.category}</div>
-            <div class="exp-title">${main.title}</div>
-            <div class="exp-desc">${main.meta_description.slice(0,140)}</div>
-            <div class="exp-meta"><span>${main.date}</span><span>${main.author}</span></div>
-          </div>
-        </a>
-        <div class="exp-side">
-          ${subs.map(a=>`<a href="./${a.slug}/" class="exp-mini" style="text-decoration:none"><img class="exp-mini-img" src="${a.image}" alt="${a.title}" loading="lazy" onerror="this.style.cssText='background:var(--surface2)'"><div class="exp-mini-tag">${a.category}</div><div class="exp-mini-title">${a.title}</div><div class="exp-mini-date">${a.date}</div></a>`).join('')}
-        </div>`;
-    }
-    renderArts();
-  }
-}
-loadArticles();
-
-// Newsletter
-function nlSubmit(e) {
+function nlSub(e){
   e.preventDefault();
-  const em = document.getElementById('nl-email');
-  if (em && em.value.includes('@')) {
-    em.parentElement.style.display = 'none';
-    document.getElementById('nl-confirm').style.display = 'block';
-  }
+  document.querySelector('.nl-form').style.display='none';
+  document.getElementById('nl-ok').style.display='block';
+  return false;
 }
 
-// Three.js - floating ambient particles
-(function initThree() {
-  const canvas = document.getElementById('hero-canvas');
-  if (!canvas || typeof THREE === 'undefined') return;
-  const hero = canvas.parentElement;
-  const W = hero.offsetWidth, H = hero.offsetHeight;
-  canvas.width = W; canvas.height = H;
-  canvas.style.opacity = '0.45';
-
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  renderer.setSize(W, H);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(55, W / H, 0.1, 1000);
-  camera.position.z = 100;
-
-  // Warm gold particles - like embers or candlelight
-  const N = 180;
-  const positions = new Float32Array(N * 3);
-  const vels = [];
-  const sizes = new Float32Array(N);
-
-  for (let i = 0; i < N; i++) {
-    positions[i*3]   = (Math.random() - 0.5) * 220;
-    positions[i*3+1] = (Math.random() - 0.5) * 130;
-    positions[i*3+2] = (Math.random() - 0.5) * 80;
-    vels.push({
-      x: (Math.random() - 0.5) * 0.04,
-      y: Math.random() * 0.05 + 0.01, // mostly drift upward
-    });
-    sizes[i] = Math.random() * 1.5 + 0.5;
-  }
-
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  const mat = new THREE.PointsMaterial({
-    color: 0xc9a96e,
-    size: 1.2,
-    transparent: true,
-    opacity: 0.55,
-    sizeAttenuation: true,
-  });
-  scene.add(new THREE.Points(geo, mat));
-
-  // Faint connection lines
-  const lineGeo = new THREE.BufferGeometry();
-  const linePos = new Float32Array(N * N * 6);
-  lineGeo.setAttribute('position', new THREE.BufferAttribute(linePos, 3));
-  const lineMat = new THREE.LineBasicMaterial({ color: 0xc9a96e, transparent: true, opacity: 0.06 });
-  const lines = new THREE.LineSegments(lineGeo, lineMat);
-  scene.add(lines);
-
-  let t = 0;
-  function animate() {
-    requestAnimationFrame(animate);
-    t += 0.005;
-    const pos = geo.attributes.position.array;
-    for (let i = 0; i < N; i++) {
-      pos[i*3]   += vels[i].x + Math.sin(t + i) * 0.008;
-      pos[i*3+1] += vels[i].y;
-      if (pos[i*3] > 110 || pos[i*3] < -110) vels[i].x *= -1;
-      if (pos[i*3+1] > 70) pos[i*3+1] = -65 + Math.random() * 10;
-    }
-    geo.attributes.position.needsUpdate = true;
-
-    // Update connections
-    const lp = lineGeo.attributes.position.array;
-    let idx = 0;
-    const maxD = 28;
-    for (let i = 0; i < N && idx < lp.length - 6; i++) {
-      for (let j = i+1; j < N && idx < lp.length - 6; j++) {
-        const dx = pos[i*3]-pos[j*3], dy = pos[i*3+1]-pos[j*3+1];
-        if (dx*dx + dy*dy < maxD*maxD) {
-          lp[idx++]=pos[i*3]; lp[idx++]=pos[i*3+1]; lp[idx++]=pos[i*3+2];
-          lp[idx++]=pos[j*3]; lp[idx++]=pos[j*3+1]; lp[idx++]=pos[j*3+2];
-        }
-      }
-    }
-    while (idx < lp.length) lp[idx++] = 0;
-    lineGeo.attributes.position.needsUpdate = true;
-    lineGeo.setDrawRange(0, idx / 3);
-
-    renderer.render(scene, camera);
-  }
-  animate();
-
-  window.addEventListener('resize', () => {
-    const nW = hero.offsetWidth, nH = hero.offsetHeight;
-    camera.aspect = nW / nH;
-    camera.updateProjectionMatrix();
-    renderer.setSize(nW, nH);
-  });
-})();
+loadArticles();
 </script>
 </body>
 </html>
