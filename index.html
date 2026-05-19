@@ -128,35 +128,40 @@ body::before{
   margin-bottom:56px;
 }
 .hero-h1{
-  font-family:var(--serif);
-  font-size:clamp(11px,1.2vw,16px);
+  font-family:var(--sans);
+  font-size:9px;
   font-weight:300;
-  line-height:2.6;
-  letter-spacing:14px;
+  line-height:1;
+  letter-spacing:6px;
   text-transform:uppercase;
-  color:rgba(232,226,217,.55);
+  color:rgba(232,226,217,.38);
   margin-bottom:0;
 }
 .hero-h1 i{
   display:block;
+  font-family:var(--serif);
   font-style:italic;
-  font-size:clamp(28px,4vw,48px);
+  font-size:clamp(32px,5vw,56px);
   font-weight:300;
-  letter-spacing:2px;
+  letter-spacing:1px;
   text-transform:none;
   color:var(--text);
   line-height:1.1;
-  margin:10px 0 6px;
+  margin:16px 0 18px;
 }
 .hero-h1 span{
   display:block;
-  font-size:clamp(11px,1.2vw,16px);
-  font-weight:300;
-  letter-spacing:14px;
-  text-transform:uppercase;
-  color:rgba(232,226,217,.22);
-  font-style:normal;
   font-family:var(--sans);
+  font-style:normal;
+  font-size:8px;
+  font-weight:300;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:rgba(232,226,217,.18);
+}
+@media(max-width:600px){
+  .hero-h1{letter-spacing:4px}
+  .hero-h1 span{letter-spacing:3px}
 }
 .hero-sub{
   font-size:10px;font-weight:300;
@@ -181,8 +186,7 @@ body::before{
 }
 @keyframes track-breathe{0%,100%{opacity:.3}50%{opacity:.8}}
 @media(max-width:600px){
-  .hero-content{padding:64px 24px 52px}
-  .hero-h1{font-size:clamp(40px,13vw,68px);letter-spacing:-1px}
+  .hero-content{padding:64px 28px 52px}
 }
 
 /* ── SHARED LAYOUT ── */
@@ -350,29 +354,32 @@ body::before{
   gap:60px;align-items:start;
 }
 .creator-img-wrap{
-  width:200px;
-  aspect-ratio:2/3;
+  width:190px;
+  aspect-ratio:3/4;
   position:relative;
   flex-shrink:0;
 }
+.creator-img-wrap::before{
+  content:'';
+  position:absolute;
+  top:10px;left:10px;right:-10px;bottom:-10px;
+  border:1px solid rgba(196,160,93,.2);
+  z-index:0;
+  pointer-events:none;
+}
 .creator-img-wrap img{
+  position:relative;z-index:1;
   width:100%;height:100%;
   object-fit:cover;object-position:center top;
   display:block;
-  filter:grayscale(20%) contrast(1.06) brightness(.9) sepia(8%);
-  transition:filter .7s;
-  -webkit-mask-image:radial-gradient(ellipse 88% 92% at 50% 46%, black 48%, transparent 100%);
-  mask-image:radial-gradient(ellipse 88% 92% at 50% 46%, black 48%, transparent 100%);
+  filter:grayscale(15%) contrast(1.05) brightness(.88);
+  transition:filter .6s;
 }
-.creator-img-wrap:hover img{filter:grayscale(0%) contrast(1.03) brightness(.95) sepia(4%)}
-.creator-img-wrap::before{
-  content:'';position:absolute;inset:-1px;z-index:1;pointer-events:none;
-  border-radius:50%;
-  box-shadow:inset 0 0 40px 10px var(--bg);
-}
+.creator-img-wrap:hover img{filter:grayscale(0%) contrast(1.02) brightness(.94)}
 .creator-img-wrap::after{
-  content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
-  background:radial-gradient(ellipse 60% 55% at 30% 25%, rgba(196,160,93,.07), transparent 65%);
+  content:'';position:absolute;
+  inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(to bottom, transparent 60%, rgba(5,4,7,.55) 100%);
 }
 .creator-role{
   font-size:8px;letter-spacing:5px;text-transform:uppercase;
@@ -780,21 +787,29 @@ var FALLBACK=[
   {slug:'silence-between-courses',category:'Ritual',title:'The Silence Between Courses: Why We Stop Talking and Start Feeling',date:'Mar 2026',meta_description:'There is a moment mid-meal when conversation dips below a murmur. We design for that moment, not around it.'},
 ];
 
-function renderArts(arts){
+function renderArts(arts, liveslugs){
   var el=document.getElementById('exp-grid');
   if(!el)return;
+  var live=liveslugs||[];
   var arr='<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
   el.innerHTML=arts.map(function(a,i){
     var n=(i+1)<10?'0'+(i+1):''+(i+1);
     var desc=(a.meta_description||'').slice(0,110);
     if((a.meta_description||'').length>110)desc+='...';
-    return '<a class="exp-card" href="./'+a.slug+'/">'
+    /* only make clickable if it's a real published article */
+    var isReal=live.indexOf(a.slug)!==-1;
+    var tag=isReal?'a':'div';
+    var href=isReal?' href="./'+a.slug+'/"':'';
+    var style=isReal?'':' style="cursor:default;opacity:.45"';
+    return '<'+tag+' class="exp-card"'+href+style+'>'
       +'<div class="exp-n">'+n+'</div>'
       +'<div class="exp-tag">'+(a.category||'Experiment')+'</div>'
       +'<div class="exp-title">'+a.title+'</div>'
       +'<div class="exp-desc">'+desc+'</div>'
-      +'<div class="exp-foot"><span>'+(a.date||'')+'</span><span class="exp-read">Read '+arr+'</span></div>'
-      +'</a>';
+      +'<div class="exp-foot"><span>'+(a.date||'')+'</span>'
+      +(isReal?'<span class="exp-read">Read '+arr+'</span>':'<span style="font-size:8px;letter-spacing:2px;color:rgba(196,160,93,.3);text-transform:uppercase">Soon</span>')
+      +'</div>'
+      +'</'+tag+'>';
   }).join('');
 }
 
@@ -804,9 +819,9 @@ fetch('./articles.json')
     var slugs=(live||[]).map(function(a){return a.slug;});
     var extra=FALLBACK.filter(function(a){return slugs.indexOf(a.slug)===-1;});
     var merged=(live&&live.length?live:[]).concat(extra);
-    renderArts(merged.length?merged:FALLBACK);
+    renderArts(merged.length?merged:FALLBACK, slugs);
   })
-  .catch(function(){renderArts(FALLBACK);});
+  .catch(function(){renderArts(FALLBACK,[]);});
 
 /* ── NEWSLETTER ── */
 var HUB=(typeof KAVALSIA_HUB_URL!=='undefined'?KAVALSIA_HUB_URL:'').replace(/\/$/,'');
