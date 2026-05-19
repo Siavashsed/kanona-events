@@ -1,344 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>About Kani Sedighi - Kanona Projects</title>
-<meta name="description" content="Experiential event curation for curious minds who want more from an evening.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>About — Kanona Projects</title>
+<meta name="description" content="Kani Sedighi is an experiential event curator and the founder of Kanona Projects. An ongoing series of experiments in atmosphere, sensory design, and the architecture of evenings.">
+<meta name="theme-color" content="#050407">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{  --bg:#080709;--bg2:#0e0c10;--sur:#141218;
-  --pri:#c9a96e;--pri2:#a8883d;
-  --txt:#f2ede6;--mut:#8a7a6a;--brd:#2a2430;
-  --fh:system-ui,sans-serif;--fb:system-ui,sans-serif;--fm:monospace;--fh:Lora,Georgia,serif;}
-body{font-family:var(--fb);background:var(--bg);color:var(--txt);font-size:15px;line-height:1.8}
-a{color:var(--pri);text-decoration:none}a:hover{text-decoration:underline}
-.ln{display:flex;align-items:center;justify-content:space-between;padding:18px 52px;border-bottom:1px solid var(--brd);background:var(--bg);position:sticky;top:0;z-index:99}
-.ln-brand{font-family:var(--fh);font-size:22px;font-weight:700;color:var(--txt);text-decoration:none}
-.ln-brand em{color:var(--pri);font-style:normal}
-.ln-nav{display:flex;gap:28px}.ln-nav a{font-size:13px;color:var(--mut);font-weight:500;text-decoration:none}.ln-nav a:hover{color:var(--txt)}
-/* hero */
-.lah{background:var(--bg2);border-bottom:2px solid var(--brd);padding:52px 52px 44px}
-.lah-top{display:flex;align-items:center;gap:32px;margin-bottom:28px}
-.lah-avi{width:80px;height:80px;border-radius:50%;background:var(--pri);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:26px;font-weight:700;color:#fff;flex-shrink:0;border:3px solid var(--bg)}
-.lah h1{font-family:var(--fh);font-size:clamp(22px,3vw,36px);font-weight:700;margin-bottom:4px;color:var(--txt)}
-.lah-role{font-size:14px;color:var(--pri);font-weight:600}
-.lah-cat{font-size:12px;color:var(--mut);margin-top:4px}
-.lah-stats{display:flex;gap:14px;flex-wrap:wrap}
-.lah-stat{background:var(--bg);border:1px solid var(--brd);border-radius:8px;padding:12px 18px;text-align:center}
-.lah-stat-num{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--pri)}
-.lah-stat-lbl{font-size:10px;color:var(--mut);margin-top:2px;text-transform:uppercase;letter-spacing:1px}
-/* layout */
-.la-layout{display:grid;grid-template-columns:1fr 300px;gap:48px;max-width:1160px;margin:0 auto;padding:52px 52px}
-.la-sec{margin-bottom:44px}
-.la-sec-hd{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--pri)}
-.la-p{color:var(--mut);line-height:1.9;margin-bottom:16px}
-/* quote */
-.la-quote{border-left:3px solid var(--pri);padding:12px 20px;margin:4px 0 24px;background:var(--bg2);border-radius:0 6px 6px 0}
-.la-quote p{font-family:var(--fh);font-size:16px;color:var(--txt);line-height:1.7;font-style:italic}
-/* invest grid */
-.la-inv{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.la-inv-card{border:1px solid var(--brd);border-radius:8px;padding:14px 16px;display:flex;gap:10px;align-items:flex-start;transition:border-color .2s}.la-inv-card:hover{border-color:var(--pri)}
-.la-inv-icon{color:var(--pri);flex-shrink:0;margin-top:2px}
-.la-inv-head{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:3px}
-.la-inv-body{font-size:12px;color:var(--mut);line-height:1.65}
-/* journey timeline */
-.laj{padding:44px 52px;border-bottom:1px solid var(--brd);background:var(--bg2)}
-.laj-inner{max-width:1160px;margin:0 auto}
-.laj-hd{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--mut);margin-bottom:28px}
-.laj-items{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
-.laj-items::before{content:'';position:absolute;top:12px;left:0;right:0;height:2px;background:var(--brd);z-index:0}
-.laj-item{display:flex;flex-direction:column;gap:8px;padding-top:0;position:relative;z-index:1;padding-right:14px}
-.laj-dot{width:26px;height:26px;border-radius:50%;background:var(--pri);border:3px solid var(--bg2);flex-shrink:0}
-.laj-year{font-family:var(--fh);font-size:13px;font-weight:700;color:var(--pri);margin-top:4px}
-.laj-text{font-size:12px;color:var(--mut);line-height:1.65}
-/* philosophy banner */
-.la-philo{background:var(--pri);padding:40px 52px;text-align:center;border-top:1px solid rgba(0,0,0,.1)}
-.la-philo blockquote{font-family:var(--fh);font-size:clamp(16px,2.2vw,22px);font-style:italic;color:#fff;max-width:760px;margin:0 auto;line-height:1.6}
-.la-philo cite{display:block;margin-top:12px;font-size:11px;color:rgba(255,255,255,.7);font-style:normal;letter-spacing:1.5px;text-transform:uppercase}
-/* methodology */
-.la-steps{display:flex;flex-direction:column;gap:16px}
-.la-step{display:flex;gap:14px}
-.la-step-dot{width:28px;height:28px;border-radius:50%;background:var(--pri);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
-.la-step-head{font-family:var(--fh);font-size:15px;font-weight:700;color:var(--txt);margin-bottom:4px}
-.la-step-body{font-size:13px;color:var(--mut);line-height:1.7}
-/* sidebar */
-.la-side{}
-.la-card{background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:22px;margin-bottom:18px}
-.la-card-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--pri);margin-bottom:12px}
-/* nl */
-.la-nl{background:var(--pri);border-radius:10px;padding:24px;margin-bottom:18px;color:#fff}
-.la-nl h3{font-family:var(--fh);font-size:18px;font-weight:700;margin-bottom:6px}
-.la-nl p{font-size:12px;opacity:.88;margin-bottom:14px}
-.la-nl-in{width:100%;border:none;border-radius:6px;padding:10px 12px;font-size:13px;margin-bottom:8px;outline:none;background:rgba(255,255,255,.95)}
-.la-nl-btn{width:100%;background:#1c1a14;color:#fff;border:none;border-radius:6px;padding:10px;font-size:13px;font-weight:700;cursor:pointer;transition:opacity .2s}.la-nl-btn:hover{opacity:.85}
-/* footer */
-.lfb{padding:24px 52px;border-top:1px solid var(--brd);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.lfb-copy{font-size:12px;color:var(--mut)}.lfb-links{display:flex;gap:20px}.lfb-links a{font-size:12px;color:var(--mut);text-decoration:none}.lfb-links a:hover{color:var(--pri)}
-@media(max-width:1024px){.la-layout{grid-template-columns:1fr}}
-@media(max-width:768px){.ln{padding:14px 16px}.lah{padding:32px 16px 28px}.lah-top{flex-direction:column;gap:16px}.la-layout{padding:32px 16px;gap:28px}.la-inv{grid-template-columns:1fr}.laj{padding:32px 16px}.laj-items{grid-template-columns:1fr 1fr;gap:24px}.laj-items::before{display:none}.la-philo{padding:32px 16px}.lfb{padding:20px 16px;flex-direction:column;text-align:center}}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+:root{
+  --bg:#050407;
+  --bg2:#090710;
+  --surface:#0e0b15;
+  --gold:#c4a05d;
+  --text:#e8e2d9;
+  --text2:rgba(232,226,217,.6);
+  --muted:#6a6058;
+  --muted2:rgba(106,96,88,.45);
+  --border:rgba(255,255,255,.055);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* grain */
+body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;opacity:.028;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;background:rgba(5,4,7,.96);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.nav-logo{font-family:var(--serif);font-size:13px;font-weight:300;letter-spacing:7px;text-transform:uppercase;color:var(--text)}
+.nav-logo em{color:var(--gold);font-style:normal}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-link{font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);font-weight:400;transition:color .3s}
+.nav-link:hover{color:var(--text)}
+.nav-cta{font-size:8px;letter-spacing:3px;text-transform:uppercase;font-weight:400;color:var(--bg);background:var(--gold);padding:8px 18px;transition:opacity .2s}
+.nav-cta:hover{opacity:.82}
+@media(max-width:700px){.nav{padding:0 20px}.nav-link:not(.nav-cta){display:none}}
+
+/* LAYOUT */
+.wrap{max-width:740px;margin:0 auto;padding:0 44px}
+@media(max-width:600px){.wrap{padding:0 22px}}
+
+.section-rule{display:flex;align-items:center;gap:0;max-width:740px;margin:0 auto;padding:0 44px}
+.section-rule::before,.section-rule::after{content:'';flex:1;height:1px;background:var(--border)}
+.section-rule-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.35;margin:0 18px}
+@media(max-width:600px){.section-rule{padding:0 22px}}
+
+.sect-label{font-size:7.5px;letter-spacing:6px;text-transform:uppercase;color:rgba(196,160,93,.38);margin-bottom:48px;display:flex;align-items:center;gap:12px}
+.sect-label::before{content:'';width:16px;height:1px;background:var(--gold);opacity:.3;flex-shrink:0}
+
+/* HERO */
+.page-hero{padding:148px 0 88px;text-align:center}
+.page-hero-eyebrow{font-size:7px;letter-spacing:9px;text-transform:uppercase;color:rgba(196,160,93,.3);margin-bottom:32px}
+.page-hero-h1{font-family:var(--serif);font-size:clamp(36px,6vw,72px);font-weight:300;line-height:1;letter-spacing:-.5px;color:var(--text);margin-bottom:24px}
+.page-hero-h1 i{color:rgba(232,226,217,.3);font-style:italic}
+.page-hero-sub{font-size:11px;font-weight:300;color:var(--muted);line-height:2.4;letter-spacing:.5px;max-width:300px;margin:0 auto}
+
+/* PORTRAIT FEATURE */
+.portrait-section{padding:0 0 88px}
+.portrait-inner{
+  display:grid;
+  grid-template-columns:240px 1fr;
+  gap:72px;align-items:start;
+}
+.portrait-wrap{width:240px;aspect-ratio:3/4;position:relative;flex-shrink:0}
+.portrait-wrap::before{content:'';position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;border:1px solid rgba(196,160,93,.18);z-index:0;pointer-events:none}
+.portrait-wrap img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:grayscale(15%) contrast(1.05) brightness(.88);transition:filter .6s}
+.portrait-wrap:hover img{filter:grayscale(0%) contrast(1.02) brightness(.94)}
+.portrait-wrap::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(to bottom,transparent 65%,rgba(5,4,7,.5) 100%)}
+.portrait-info{}
+.portrait-role{font-size:8px;letter-spacing:5px;text-transform:uppercase;color:rgba(196,160,93,.4);margin-bottom:10px}
+.portrait-name{font-family:var(--serif);font-size:clamp(32px,4.5vw,52px);font-weight:300;color:var(--text);line-height:1;margin-bottom:32px;letter-spacing:.1px}
+.portrait-text{font-size:11.5px;font-weight:300;color:var(--text2);line-height:2.3;letter-spacing:.2px}
+.portrait-text p{margin-bottom:22px}
+.portrait-text p:last-child{margin-bottom:0}
+@media(max-width:680px){.portrait-inner{grid-template-columns:1fr;gap:32px}.portrait-wrap{width:140px;aspect-ratio:3/4}}
+
+/* PULL QUOTE */
+.pull{padding:72px 0;text-align:center}
+.pull-text{font-family:var(--serif);font-size:clamp(18px,3vw,30px);font-weight:300;font-style:italic;color:var(--text2);line-height:1.5;letter-spacing:.1px;max-width:520px;margin:0 auto 20px}
+.pull-attr{font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--muted2)}
+
+/* APPROACH GRID */
+.approach-section{padding:0 0 88px}
+.approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+.approach-item{padding:36px 28px;background:var(--bg)}
+.approach-n{font-family:var(--serif);font-size:28px;font-weight:300;color:rgba(196,160,93,.14);letter-spacing:-1px;line-height:1;margin-bottom:20px}
+.approach-h{font-family:var(--serif);font-size:clamp(15px,1.8vw,20px);font-weight:300;color:var(--text);line-height:1.25;margin-bottom:12px}
+.approach-p{font-size:11px;font-weight:300;color:var(--muted);line-height:2.2;letter-spacing:.15px}
+@media(max-width:620px){.approach-grid{grid-template-columns:1fr}.approach-item{padding:28px 20px}}
+
+/* TIMELINE */
+.timeline{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border)}
+.tl-item{display:grid;grid-template-columns:80px 1fr;gap:0 28px;padding:32px 0;border-bottom:1px solid var(--border)}
+.tl-year{font-family:var(--serif);font-size:11px;font-weight:300;color:var(--gold);opacity:.45;letter-spacing:2px;padding-top:3px;text-align:right}
+.tl-body{}
+.tl-title{font-family:var(--serif);font-size:clamp(15px,1.8vw,19px);font-weight:300;color:var(--text);margin-bottom:8px;line-height:1.2}
+.tl-desc{font-size:11px;font-weight:300;color:var(--muted);line-height:2.1;letter-spacing:.15px}
+@media(max-width:560px){.tl-item{grid-template-columns:54px 1fr;gap:0 14px}}
+
+/* NEWSLETTER */
+.nl-section{background:var(--surface);border-top:1px solid var(--border)}
+.nl-section::before{content:'';display:block;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);opacity:.18}
+.nl-inner{max-width:740px;margin:0 auto;padding:88px 44px 76px;text-align:center}
+.nl-label{font-size:7.5px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);opacity:.5;margin-bottom:28px}
+.nl-h2{font-family:var(--serif);font-size:clamp(26px,5vw,48px);font-weight:300;color:var(--text);line-height:1.05;margin-bottom:18px;letter-spacing:-.3px}
+.nl-sub{font-size:11.5px;font-weight:300;color:var(--muted);line-height:2.2;margin-bottom:44px;max-width:340px;margin-left:auto;margin-right:auto}
+.nl-form{display:flex;max-width:400px;margin:0 auto}
+.nl-input{flex:1;min-width:0;font-family:var(--sans);font-size:12px;color:var(--text);background:var(--bg);border:1px solid rgba(255,255,255,.09);border-right:none;padding:13px 18px;outline:none;transition:border-color .25s;letter-spacing:.2px;-webkit-appearance:none}
+.nl-input:focus{border-color:rgba(196,160,93,.4)}
+.nl-input::placeholder{color:var(--muted)}
+.nl-btn{font-family:var(--sans);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--bg);background:var(--gold);border:none;padding:13px 22px;cursor:pointer;flex-shrink:0;transition:opacity .2s;-webkit-appearance:none}
+.nl-btn:hover{opacity:.82}
+.nl-ok{display:none;font-family:var(--serif);font-size:17px;font-style:italic;color:var(--gold);margin-top:24px}
+@media(max-width:600px){.nl-inner{padding:64px 22px 56px}.nl-form{flex-direction:column}.nl-input{border-right:1px solid rgba(255,255,255,.09);border-bottom:none}}
+
+/* FOOTER */
+.site-footer{border-top:1px solid var(--border);padding:52px 44px 40px;max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px}
+.footer-brand{font-family:var(--serif);font-size:13px;font-weight:300;letter-spacing:5px;text-transform:uppercase;color:rgba(232,226,217,.2)}
+.footer-brand em{color:var(--gold);font-style:normal;opacity:.45}
+.footer-copy{font-size:9px;color:rgba(232,226,217,.16);letter-spacing:.4px;margin-top:6px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end}
+.footer-links a{font-size:9px;color:var(--muted);letter-spacing:.5px;transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+@media(max-width:600px){.site-footer{padding:40px 22px;flex-direction:column;align-items:flex-start;gap:20px}.footer-links{justify-content:flex-start;gap:14px}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}
 </style>
 </head>
 <body>
 
-<nav class="ln">
-  <a href="./" class="ln-brand">Kanona <em>Projects</em></a>
-  <nav class="ln-nav">
-    <a href="./">Home</a>
-    <a href="about.html">About</a>
-  </nav>
+<nav class="nav">
+  <a href="./" class="nav-logo">Kanona <em>&nbsp;Projects</em></a>
+  <div class="nav-links">
+    <a href="./#writing" class="nav-link">Writing</a>
+    <a href="./#philosophy" class="nav-link">Philosophy</a>
+    <a href="./about.html" class="nav-link" style="color:var(--gold)">About</a>
+    <a href="./#newsletter" class="nav-cta">The Letter</a>
+  </div>
 </nav>
 
-<div class="lah">
-  <div class="lah-top">
-    <div class="lah-avi">KS</div>
-    <div>
-      <h1>Kani Sedighi</h1>
-      <div class="lah-role">Experiential Event Curator & Creative Director</div>
-      <div class="lah-cat">Experiential Events & Atmosphere</div>
-    </div>
-  </div>
-  <div class="lah-stats">
-    <div class="lah-stat"><div class="lah-stat-num">15+</div><div class="lah-stat-lbl">Yrs Investing</div></div><div class="lah-stat"><div class="lah-stat-num">CFP</div><div class="lah-stat-lbl">Certified</div></div><div class="lah-stat"><div class="lah-stat-num">Retired 41</div><div class="lah-stat-lbl">Passive Income</div></div><div class="lah-stat"><div class="lah-stat-num">4</div><div class="lah-stat-lbl">Income Streams</div></div>
+<!-- HERO -->
+<div class="page-hero">
+  <div class="wrap">
+    <div class="page-hero-eyebrow">Kanona Projects &nbsp;&middot;&nbsp; Founded 2024</div>
+    <h1 class="page-hero-h1">The people<br>behind the <i>atmosphere.</i></h1>
+    <p class="page-hero-sub">An ongoing series of experiments in sensory design, intimate gatherings, and the deliberate architecture of evenings that stay with you.</p>
   </div>
 </div>
 
-<!-- hero-banner -->
-<div id="pxl-wrap" style="width:100%;height:220px;overflow:hidden;position:relative;background:var(--bg2);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);">
-  <img id="pxl-img" style="width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s;display:block;" alt="">
-  <a id="pxl-cred" href="https://www.pexels.com" target="_blank" rel="noopener" style="position:absolute;bottom:6px;right:10px;font-size:10px;color:rgba(255,255,255,.5);opacity:0;transition:opacity .6s;text-decoration:none;">Photo: Pexels</a>
-</div>
+<div class="section-rule"><div class="section-rule-dot"></div></div>
 
-<!-- JOURNEY TIMELINE -->
-<div class="laj">
-  <div class="laj-inner">
-    <div class="laj-hd">The Journey</div>
-    <div class="laj-items">
-      <div class="laj-item"><div class="laj-dot"></div><div class="laj-year">Age 26</div><div class="laj-text">Opened first brokerage account. Started with index funds and small monthly contributions.</div></div><div class="laj-item"><div class="laj-dot"></div><div class="laj-year">Age 30</div><div class="laj-text">First dividend payment. Small, but proof the strategy was real.</div></div><div class="laj-item"><div class="laj-dot"></div><div class="laj-year">Age 35</div><div class="laj-text">CFP designation earned. Passive income crossed $1,000/month for the first time.</div></div><div class="laj-item"><div class="laj-dot"></div><div class="laj-year">Age 39</div><div class="laj-text">Launched a digital product. Added a fourth income stream without adding working hours.</div></div><div class="laj-item"><div class="laj-dot"></div><div class="laj-year">Age 41</div><div class="laj-text">Financial independence reached. Left traditional employment.</div></div>
+<!-- PORTRAIT & BIO -->
+<section style="padding:88px 0 0">
+  <div class="wrap">
+    <div class="portrait-section">
+      <div class="portrait-inner reveal">
+        <div class="portrait-wrap">
+          <img src="https://media.licdn.com/dms/image/v2/D5603AQGaRyPZftmGEw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1675404601711?e=1780531200&v=beta&t=pZOkSp0O4rBPghbMpoaI1SXQdDcu6etPymqgUORCvCU" alt="Kani Sedighi" loading="lazy" onerror="this.parentElement.style.background='#0e0b15';this.style.display='none'">
+        </div>
+        <div class="portrait-info">
+          <div class="portrait-role">Experiential Curator &nbsp;&middot;&nbsp; Creative Director</div>
+          <div class="portrait-name">Kani Sedighi</div>
+          <div class="portrait-text">
+            <p>I did not start by designing events. I started by noticing what made certain evenings impossible to forget and others impossible to remember - and realizing the difference was almost never the food or the venue.</p>
+            <p>It was the scent when you walked in. The specific temperature of the light. The silence that settled between the second and third course. The fact that the ten people in the room had something real to offer each other.</p>
+            <p>Kanona Projects is my attempt to make those things intentional. To treat atmosphere the way a composer treats a score - as structure, not decoration.</p>
+            <p>The writing on this site is part of the practice. An attempt to articulate what we are building before we build it, and what we learned after we did.</p>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
+
+<div class="section-rule"><div class="section-rule-dot"></div></div>
+
+<!-- PULL QUOTE -->
+<div class="wrap">
+  <div class="pull reveal">
+    <p class="pull-text">"An event is not a gathering of people. It is a gathering of moments - and the architect's job is to make sure each one is worth keeping."</p>
+    <p class="pull-attr">Kani Sedighi &nbsp;&middot;&nbsp; Kanona Projects</p>
   </div>
 </div>
 
-<!-- PHILOSOPHY BANNER -->
-<div class="la-philo">
-  <blockquote>"Experiential Events Designed to Last a Lifetime"</blockquote>
-  <cite>Kani Sedighi · Experiential Event Curator & Creative Director</cite>
-</div>
+<div class="section-rule"><div class="section-rule-dot"></div></div>
 
-<div class="la-layout">
-
-  <div class="la-main">
-
-    <div class="la-sec">
-      <div class="la-sec-hd">Background</div>
-      <p class="la-p">I started in the events industry at twenty-three as a venue coordinator for a mid-size conference center. The job required managing vendor relationships, coordinating setups, and serving as the on-site problem solver for planners often running events for the first time. In three years I watched hundreds of events and catalogued everything that went wrong and why.</p>
-    <p class="la-p">I launched my own event production company at twenty-nine with a small team focused on corporate and private events above a certain production value. The business grew steadily because we were reliable in a way that is apparently rare in the industry - vendors showed up, timelines held, and the client's vision was actually executed rather than approximated.</p>
-    <p class="la-p">Six hundred events over twelve years covers a lot of ground: corporate conferences, product launches, fundraising galas, large private celebrations, and formats in between. The root causes of failures are remarkably consistent. Budget overruns almost always trace to scope not clearly defined in the contract phase. Day-of chaos almost always traces to vendor communication inadequate in the weeks before the event.</p>
-    <p class="la-p">What I find missing in event planning content is the insider perspective on vendor relationships. How caterers actually price, where the margin is in a production quote, what a venue coordinator can and will do for you depending on their incentives. This information is not secret - it lives with people who have spent years on the other side of the table.</p>
-    <p class="la-p">Kanona Events is the manual I assembled from twelve years of production experience. The budgeting frameworks, the vendor selection criteria, the timeline architecture that distinguishes professional events from amateur ones. Whether you are a professional planner building your process or a host running your first large event, the goal is the same.</p>
-    </div>
-
-    <div class="la-quote">
-      <p>"Experiential Events Designed to Last a Lifetime"</p>
-    </div>
-
-    <div class="la-sec">
-      <div class="la-sec-hd">What I Cover</div>
-      <div class="la-inv">
-        <div class="la-inv-card"><div class="la-inv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div><div class="la-inv-head">Dividend Investing</div><div class="la-inv-body">High-quality companies with consistent payout histories.</div></div></div><div class="la-inv-card"><div class="la-inv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="la-inv-head">REITs</div><div class="la-inv-body">Real estate investment trusts for income without direct property management.</div></div></div><div class="la-inv-card"><div class="la-inv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div><div><div class="la-inv-head">Index Funds</div><div class="la-inv-body">The low-cost, tax-efficient core that outperforms most active strategies.</div></div></div><div class="la-inv-card"><div class="la-inv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><div class="la-inv-head">Digital Income</div><div class="la-inv-body">Products that generate recurring revenue once built and marketed.</div></div></div><div class="la-inv-card"><div class="la-inv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="la-inv-head">Fixed Income</div><div class="la-inv-body">Capital preservation and portfolio stability for when equities fall.</div></div></div><div class="la-inv-card"><div class="la-inv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div><div class="la-inv-head">Tax-Advantaged Accounts</div><div class="la-inv-body">Strategic use of registered accounts - the part most content gets wrong.</div></div></div>
+<!-- APPROACH -->
+<section style="padding:88px 0 0">
+  <div class="wrap">
+    <div class="sect-label reveal">The Approach</div>
+    <div class="approach-section">
+      <div class="approach-grid reveal">
+        <div class="approach-item">
+          <div class="approach-n">01</div>
+          <div class="approach-h">Sensory First</div>
+          <p class="approach-p">Every Kanona event begins with the olfactory layer. We choose the scent before we choose the menu. The fragrance at the door is the first sentence - and first sentences are not written last.</p>
+        </div>
+        <div class="approach-item">
+          <div class="approach-n">02</div>
+          <div class="approach-h">Deliberate Silence</div>
+          <p class="approach-p">We design for the pauses. The moment before the music begins. The quiet between courses. Most event planners fill these spaces. We protect them.</p>
+        </div>
+        <div class="approach-item">
+          <div class="approach-n">03</div>
+          <div class="approach-h">Curated Presence</div>
+          <p class="approach-p">We have never filled a seat simply because it was available. Who is in the room determines what happens in the room. The guest list is written like a story - with tension, contrast, and resolution.</p>
+        </div>
+        <div class="approach-item">
+          <div class="approach-n">04</div>
+          <div class="approach-h">No Templates</div>
+          <p class="approach-p">The specific combination of people, weather, light, and conversation that made a Kanona evening what it was cannot be reproduced. We design for the one occasion. Nothing is repeated.</p>
+        </div>
       </div>
     </div>
-
-    <div class="la-sec">
-      <div class="la-sec-hd">How I Approach Experiential Events & Atmosphere</div>
-      <div class="la-steps">
-        <div class="la-step"><div class="la-step-dot">1</div><div><div class="la-step-head">Start with what the evidence shows</div><div class="la-step-body">Before applying any strategy, understand what the research actually supports - not what popular sources claim.</div></div></div><div class="la-step"><div class="la-step-dot">2</div><div><div class="la-step-head">Layer complexity deliberately</div><div class="la-step-body">Add one new layer at a time. Understand each piece before moving to the next.</div></div></div><div class="la-step"><div class="la-step-dot">3</div><div><div class="la-step-head">Run the realistic numbers</div><div class="la-step-body">Most projections skip the hard parts: time, cost, and real-world friction. Do the honest math first.</div></div></div><div class="la-step"><div class="la-step-dot">4</div><div><div class="la-step-head">Structure beats hustle</div><div class="la-step-body">How you organize your approach matters as much as what you do. Systems compound over time.</div></div></div><div class="la-step"><div class="la-step-dot">5</div><div><div class="la-step-head">Accept the realistic timeline</div><div class="la-step-body">Meaningful results take time. Those who succeed are the ones who stopped looking for shortcuts.</div></div></div>
-      </div>
-    </div>
-
-    <div class="la-sec">
-      <div class="la-sec-hd">About Kanona Projects</div>
-      <p class="la-p">Sensory design, intimate gatherings, and the architecture of unforgettable evenings. For those who want more from a room.</p>
-      <p class="la-p">Experiential event curation for curious minds who want more from an evening.</p>
-    </div>
-
-    <div class="la-sec">
-      <div class="la-sec-hd">Contributors</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-        <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
-      <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">TN</div>
-      <div>
-        <div style="font-size:14px;font-weight:700;color:var(--txt)">Tom Nakamura</div>
-        <div style="font-size:11px;color:var(--pri);margin-bottom:5px;font-weight:600">Data Contributor</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.6">Ex-quant at a Chicago prop firm. Builds custom scrapers and datasets, then writes about what the data actually shows.</div>
-      </div>
-    </div>
-    <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
-      <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">AO</div>
-      <div>
-        <div style="font-size:14px;font-weight:700;color:var(--txt)">Amara Okafor</div>
-        <div style="font-size:11px;color:var(--pri);margin-bottom:5px;font-weight:600">Strategy Contributor</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.6">Portfolio manager background. Writes about position sizing, risk management, and the behavioral side of long-term investing.</div>
-      </div>
-    </div>
-    <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
-      <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">JT</div>
-      <div>
-        <div style="font-size:14px;font-weight:700;color:var(--txt)">James Thorne</div>
-        <div style="font-size:11px;color:var(--pri);margin-bottom:5px;font-weight:600">Technical Contributor</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.6">Full-stack developer who switched to financial writing. Covers the engineering reality behind products and platforms.</div>
-      </div>
-    </div>
-    <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
-      <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">MW</div>
-      <div>
-        <div style="font-size:14px;font-weight:700;color:var(--txt)">Marcus Webb</div>
-        <div style="font-size:11px;color:var(--pri);margin-bottom:5px;font-weight:600">Senior Contributor</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.6">15 years in institutional sales at two major banks. Writes about macro dynamics and how they translate to retail positioning.</div>
-      </div>
-    </div>
-      </div>
-    </div>
-
-    <div class="la-sec">
-      <div class="la-sec-hd">Reader Comments</div>
-      <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:4px 20px">
-        <div style="padding:14px 0;border-bottom:1px solid var(--brd)">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">R</div>
-        <span style="font-size:13px;font-weight:600;color:var(--txt)">Raj P.</span>
-        <span style="font-size:10px;color:var(--mut);margin-left:auto">Verified reader</span>
-      </div>
-      <div style="font-size:13px;color:var(--txt);line-height:1.65;padding-left:36px">The data-first approach here is exactly what I was looking for. Most analysis I find online is opinion dressed up as research.</div>
-    </div>
-    <div style="padding:14px 0;border-bottom:1px solid var(--brd)">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">J</div>
-        <span style="font-size:13px;font-weight:600;color:var(--txt)">Julia M.</span>
-        <span style="font-size:10px;color:var(--mut);margin-left:auto">Verified reader</span>
-      </div>
-      <div style="font-size:13px;color:var(--txt);line-height:1.65;padding-left:36px">Bookmarked every major article this site has published. My actual reference library for this topic, not just casual reading.</div>
-    </div>
-    <div style="padding:14px 0;border-bottom:1px solid var(--brd)">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">B</div>
-        <span style="font-size:13px;font-weight:600;color:var(--txt)">Brett W.</span>
-        <span style="font-size:10px;color:var(--mut);margin-left:auto">Verified reader</span>
-      </div>
-      <div style="font-size:13px;color:var(--txt);line-height:1.65;padding-left:36px">I appreciate that corrections get made openly and visibly. That kind of intellectual honesty is rare and worth rewarding with attention.</div>
-    </div>
-    <div style="padding:14px 0;border-bottom:1px solid var(--brd)">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">O</div>
-        <span style="font-size:13px;font-weight:600;color:var(--txt)">Omar K.</span>
-        <span style="font-size:10px;color:var(--mut);margin-left:auto">Verified reader</span>
-      </div>
-      <div style="font-size:13px;color:var(--txt);line-height:1.65;padding-left:36px">I have read things here that changed how I think about the field. That is a high bar and this site clears it regularly.</div>
-    </div>
-    <div style="padding:14px 0;border-bottom:none">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">M</div>
-        <span style="font-size:13px;font-weight:600;color:var(--txt)">Mike H.</span>
-        <span style="font-size:10px;color:var(--mut);margin-left:auto">Verified reader</span>
-      </div>
-      <div style="font-size:13px;color:var(--txt);line-height:1.65;padding-left:36px">The level of detail here is what keeps me coming back. You actually back up the claims instead of just asserting them.</div>
-    </div>
-      </div>
-    </div>
-
   </div>
+</section>
 
-  <aside class="la-side">
+<div style="height:88px"></div>
+<div class="section-rule"><div class="section-rule-dot"></div></div>
 
-    <div class="la-nl">
-      <h3>The Kanona Letter</h3>
-      <p>One experience a month, described in full. Scent, sound, texture, and what we were thinking when we built it.</p>
-      <form id="la-nl-form" onsubmit="nlSub(event)">
-        <input type="email" class="la-nl-in" placeholder="your@email.com" required>
-        <button type="submit" class="la-nl-btn">Join the letter</button>
+<!-- TIMELINE -->
+<section style="padding:88px 0 88px">
+  <div class="wrap">
+    <div class="sect-label reveal">The Work</div>
+    <div class="timeline">
+      <div class="reveal" style="--d:.05s">
+        <div class="tl-item">
+          <div class="tl-year">2024</div>
+          <div class="tl-body">
+            <div class="tl-title">Kanona Projects Founded</div>
+            <p class="tl-desc">The first private dinner experiment. Twelve guests, one evening, no agenda. The scent was white tea and cedar. We have not repeated that combination since.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="--d:.1s">
+        <div class="tl-item">
+          <div class="tl-year">2025</div>
+          <div class="tl-body">
+            <div class="tl-title">The Sound Architecture Series</div>
+            <p class="tl-desc">Three consecutive evenings, each with an identical guest list and menu - but a different sound environment. The dinners felt like three different cities.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="--d:.15s">
+        <div class="tl-item">
+          <div class="tl-year">2025</div>
+          <div class="tl-body">
+            <div class="tl-title">The Writing Practice Begins</div>
+            <p class="tl-desc">The first piece published on Kanona Projects: an account of how scent shapes memory at private dinners, and why the right fragrance choice outlasts any menu.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="--d:.2s">
+        <div class="tl-item">
+          <div class="tl-year">2026</div>
+          <div class="tl-body">
+            <div class="tl-title">The Kanona Letter Launched</div>
+            <p class="tl-desc">Monthly. One experiment described in full - the scent chosen, the music built, the guest dynamics considered, and what we were thinking when we designed it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <div class="nl-section">
+    <div class="nl-inner">
+      <div class="nl-label reveal">The Kanona Letter</div>
+      <h2 class="nl-h2 reveal reveal-d1">One experiment<br><i>described in full.</i></h2>
+      <p class="nl-sub reveal reveal-d2">Monthly. The scent chosen, the music built, the guest dynamics considered, and what we were thinking when we designed it.</p>
+      <form class="nl-form reveal" id="nl-form" onsubmit="return nlSub(event)" novalidate>
+        <input class="nl-input" type="email" id="nl-email" placeholder="your@email.com" autocomplete="email" required>
+        <button class="nl-btn" type="submit" id="nl-btn">Subscribe</button>
       </form>
+      <p class="nl-ok" id="nl-ok">Thank you. The first letter arrives soon.</p>
     </div>
-
-    <div class="la-card">
-      <div class="la-card-lbl">Credentials</div>
-      <p style="font-size:13px;color:var(--mut);line-height:1.8;margin-bottom:8px">Experiential Event Curator & Creative Director</p>
-      <p style="font-size:13px;color:var(--mut);line-height:1.8">No product affiliations. No sponsored recommendations. No incentive to tell you anything other than what the math actually shows.</p>
-    </div>
-
-    <div class="la-card">
-      <div class="la-card-lbl">Topics Covered</div>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
-        <li style="font-size:13px;color:var(--mut);display:flex;align-items:center;gap:8px"><span style="color:var(--pri);font-weight:700">→</span> Dividend Investing</li>
-        <li style="font-size:13px;color:var(--mut);display:flex;align-items:center;gap:8px"><span style="color:var(--pri);font-weight:700">→</span> REIT Analysis</li>
-        <li style="font-size:13px;color:var(--mut);display:flex;align-items:center;gap:8px"><span style="color:var(--pri);font-weight:700">→</span> Index Fund Strategy</li>
-        <li style="font-size:13px;color:var(--mut);display:flex;align-items:center;gap:8px"><span style="color:var(--pri);font-weight:700">→</span> Tax Optimization</li>
-        <li style="font-size:13px;color:var(--mut);display:flex;align-items:center;gap:8px"><span style="color:var(--pri);font-weight:700">→</span> Early Retirement Math</li>
-        <li style="font-size:13px;color:var(--mut);display:flex;align-items:center;gap:8px"><span style="color:var(--pri);font-weight:700">→</span> Income Portfolio Design</li>
-      </ul>
-    </div>
-
-    <div class="la-card" id="la-recent-card">
-      <div class="la-card-lbl">Recent Articles</div>
-      <div id="la-recent-list" style="display:flex;flex-direction:column;gap:10px"></div>
-    </div>
-
-  </aside>
-</div>
-
-<div class="lfb">
-  <span class="lfb-copy">© Kanona Projects</span>
-  <div class="lfb-links">
-    <a href="./">Home</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="sms.html">SMS Policy</a><a href="meta-policy.html">Meta Policy</a>
   </div>
-</div>
+</section>
+
+<footer class="site-footer">
+  <div>
+    <div class="footer-brand">Kanona <em>Projects</em></div>
+    <div class="footer-copy">&copy; 2026 Kani Sedighi &nbsp;&middot;&nbsp; Experiential Event Curation</div>
+  </div>
+  <nav class="footer-links">
+    <a href="./">Home</a>
+    <a href="./#writing">Writing</a>
+    <a href="./#philosophy">Philosophy</a>
+    <a href="./#newsletter">Newsletter</a>
+    <a href="./privacy.html">Privacy</a>
+    <a href="./terms.html">Terms</a>
+  </nav>
+</footer>
 
 <script>
-function nlSub(e){e.preventDefault();document.getElementById('la-nl-form').innerHTML='<div style="color:#fff;font-weight:600;padding:6px 0">Welcome to the letter.</div>';}
-async function loadRecent(){
-  try{
-    const r=await fetch('./articles.json');if(!r.ok)return;
-    const posts=await r.json();
-    const el=document.getElementById('la-recent-list');
-    if(el)el.innerHTML=posts.slice(0,4).map(p=>`<a href="./${p.slug||'#'}/" style="text-decoration:none;display:block;border-bottom:1px solid var(--brd);padding-bottom:8px"><div style="font-family:'Lora',Georgia,serif;font-size:13px;font-weight:600;color:var(--txt);line-height:1.4;margin-bottom:3px">${p.title}</div><div style="font-size:10px;color:var(--mut)">${p.date_iso||''}</div></a>`).join('');
-  }catch(e){}
-}
-loadRecent();
-/* banner loader: pexels → unsplash → picsum */
 (function(){
-  var el=document.getElementById('pxl-img');
-  var cr=document.getElementById('pxl-cred');
-  if(!el)return;
-  var SOURCES=['pexels', 'unsplash'];
-  var Q=encodeURIComponent('event planning celebration gala corporate dinner');
-  var FALLBACK='https://picsum.photos/seed/578/1400/400';
-  function showImg(src,cred){
-    el.onload=function(){el.style.opacity='1';if(cred&&cr){cr.textContent=cred;cr.style.opacity='1';}};
-    el.src=src;
-  }
-  function tryUnsplash(){
-    var uk=localStorage.getItem('unsplashKey');
-    if(!uk){showImg(FALLBACK,'');return;}
-    fetch('https://api.unsplash.com/photos/random?query='+Q+'&count=1&orientation=landscape&client_id='+uk)
-      .then(function(r){return r.json();}).then(function(d){
-        var p=Array.isArray(d)?d[0]:d;
-        if(p&&p.urls&&p.urls.regular){showImg(p.urls.regular,'Photo: '+((p.user&&p.user.name)||'Unsplash')+' / Unsplash');}
-        else{showImg(FALLBACK,'');}
-      }).catch(function(){showImg(FALLBACK,'');});
-  }
-  function tryPexels(){
-    var k=localStorage.getItem('pexelsKey');
-    if(!k){if(SOURCES.indexOf('unsplash')>=0)tryUnsplash();else showImg(FALLBACK,'');return;}
-    fetch('https://api.pexels.com/v1/search?query='+Q+'&per_page=5&orientation=landscape',{headers:{Authorization:k}})
-      .then(function(r){return r.json();}).then(function(d){
-        if(d.photos&&d.photos[0]){showImg(d.photos[0].src.large,'Photo: Pexels');}
-        else if(SOURCES.indexOf('unsplash')>=0){tryUnsplash();}
-        else{showImg(FALLBACK,'');}
-      }).catch(function(){if(SOURCES.indexOf('unsplash')>=0)tryUnsplash();else showImg(FALLBACK,'');});
-  }
-  if(SOURCES.indexOf('pexels')>=0){tryPexels();}
-  else if(SOURCES.indexOf('unsplash')>=0){tryUnsplash();}
-  else{showImg(FALLBACK,'');}
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 })();
+
+var HUB=(typeof KAVALSIA_HUB_URL!=='undefined'?KAVALSIA_HUB_URL:'').replace(/\/$/,'');
+function nlSub(e){
+  e.preventDefault();
+  var email=document.getElementById('nl-email').value.trim();
+  var btn=document.getElementById('nl-btn');
+  if(!email)return false;
+  btn.disabled=true;btn.textContent='...';
+  if(HUB){
+    fetch(HUB+'/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,list_id:23})})
+      .then(function(r){if(r.ok){document.getElementById('nl-form').style.display='none';document.getElementById('nl-ok').style.display='block';}else throw 0;})
+      .catch(function(){btn.disabled=false;btn.textContent='Subscribe';});
+  }else{
+    setTimeout(function(){document.getElementById('nl-form').style.display='none';document.getElementById('nl-ok').style.display='block';},250);
+  }
+  return false;
+}
 </script>
-</body></html>
+</body>
+</html>
