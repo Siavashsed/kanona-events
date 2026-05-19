@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>About — Kanona Projects</title>
-<meta name="description" content="Kani Sedighi is an experiential event curator and the founder of Kanona Projects. An ongoing series of experiments in atmosphere, sensory design, and the architecture of evenings.">
-<meta name="theme-color" content="#050407">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About - Kanona Projects</title>
+<meta name="description" content="About Kanona Projects: Experiential event curation for curious minds who want more from an evening.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
@@ -16,301 +16,758 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   --bg:#050407;
   --bg2:#090710;
   --surface:#0e0b15;
+  --surface2:#140f1d;
   --gold:#c4a05d;
+  --gold2:#9a7c3c;
+  --gold-dim:rgba(196,160,93,.14);
   --text:#e8e2d9;
   --text2:rgba(232,226,217,.6);
   --muted:#6a6058;
   --muted2:rgba(106,96,88,.45);
   --border:rgba(255,255,255,.055);
+  --border2:rgba(255,255,255,.09);
   --serif:'Cormorant Garamond',Georgia,serif;
   --sans:'Inter',system-ui,sans-serif;
   --ease:cubic-bezier(.22,1,.36,1);
 }
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  font-size:13px;
+  line-height:1.75;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
 a{color:inherit;text-decoration:none}
 
-/* grain */
-body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;opacity:.028;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
+/* grain overlay */
+body::before{
+  content:'';
+  position:fixed;inset:0;z-index:1000;
+  pointer-events:none;
+  opacity:.028;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+}
 
-/* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;background:rgba(5,4,7,.96);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
-.nav-logo{font-family:var(--serif);font-size:13px;font-weight:300;letter-spacing:7px;text-transform:uppercase;color:var(--text)}
+/* ── NAV ── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:58px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 52px;
+  border-bottom:1px solid transparent;
+  transition:background .5s, border-color .5s;
+}
+.nav.scrolled{
+  background:rgba(5,4,7,.94);
+  border-bottom-color:var(--border);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+}
+.nav-logo{
+  font-family:var(--serif);
+  font-size:13px;font-weight:300;
+  letter-spacing:7px;text-transform:uppercase;
+  color:var(--text);
+}
 .nav-logo em{color:var(--gold);font-style:normal}
-.nav-links{display:flex;align-items:center;gap:28px}
-.nav-link{font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);font-weight:400;transition:color .3s}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-link{
+  font-size:8px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--muted);font-weight:400;
+  transition:color .3s;
+}
 .nav-link:hover{color:var(--text)}
-.nav-cta{font-size:8px;letter-spacing:3px;text-transform:uppercase;font-weight:400;color:var(--bg);background:var(--gold);padding:8px 18px;transition:opacity .2s}
+.nav-cta{
+  font-size:8px;letter-spacing:3px;text-transform:uppercase;
+  font-weight:400;
+  color:var(--bg);background:var(--gold);
+  padding:8px 18px;
+  transition:opacity .2s;
+}
 .nav-cta:hover{opacity:.82}
-@media(max-width:700px){.nav{padding:0 20px}.nav-link:not(.nav-cta){display:none}}
+@media(max-width:700px){
+  .nav{padding:0 20px}
+  .nav-links .nav-link{display:none}
+}
 
-/* LAYOUT */
+/* ── HERO ── */
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+#gl{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  pointer-events:none;z-index:0;
+  transition:opacity .8s;
+}
+.hero-vignette{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 45%, transparent 20%, rgba(5,4,7,.7) 100%),
+    linear-gradient(to bottom, rgba(5,4,7,.3) 0%, transparent 30%, transparent 70%, rgba(5,4,7,.8) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  text-align:center;
+  padding:80px 32px 60px;
+  max-width:640px;width:100%;
+  will-change:transform;
+}
+.hero-eyebrow{
+  font-size:7px;letter-spacing:9px;text-transform:uppercase;
+  color:rgba(196,160,93,.3);
+  margin-bottom:56px;
+}
+.hero-h1{
+  font-family:var(--sans);
+  font-size:9px;
+  font-weight:300;
+  line-height:1;
+  letter-spacing:6px;
+  text-transform:uppercase;
+  color:rgba(232,226,217,.38);
+  margin-bottom:0;
+}
+.hero-h1 i{
+  display:block;
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:clamp(32px,5vw,56px);
+  font-weight:300;
+  letter-spacing:1px;
+  text-transform:none;
+  color:var(--text);
+  line-height:1.1;
+  margin:16px 0 18px;
+}
+.hero-h1 span{
+  display:block;
+  font-family:var(--sans);
+  font-style:normal;
+  font-size:8px;
+  font-weight:300;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:rgba(232,226,217,.18);
+}
+@media(max-width:600px){
+  .hero-h1{letter-spacing:4px}
+  .hero-h1 span{letter-spacing:3px}
+}
+.hero-sub{
+  font-size:10px;font-weight:300;
+  color:rgba(106,96,88,.55);
+  line-height:2.6;
+  letter-spacing:1.2px;
+  max-width:260px;
+  margin:32px auto 56px;
+}
+.hero-scroll{
+  display:inline-flex;flex-direction:column;align-items:center;gap:8px;
+  background:none;border:none;cursor:pointer;
+  color:var(--muted2);
+  font-family:var(--sans);font-size:7px;letter-spacing:4px;text-transform:uppercase;
+  transition:color .3s;
+}
+.hero-scroll:hover{color:var(--gold)}
+.hero-scroll-track{
+  width:1px;height:44px;
+  background:linear-gradient(to bottom,var(--gold),transparent);
+  animation:track-breathe 2.4s ease-in-out infinite;
+}
+@keyframes track-breathe{0%,100%{opacity:.3}50%{opacity:.8}}
+@media(max-width:600px){
+  .hero-content{padding:64px 28px 52px}
+}
+
+/* ── SHARED LAYOUT ── */
 .wrap{max-width:740px;margin:0 auto;padding:0 44px}
 @media(max-width:600px){.wrap{padding:0 22px}}
 
-.section-rule{display:flex;align-items:center;gap:0;max-width:740px;margin:0 auto;padding:0 44px}
-.section-rule::before,.section-rule::after{content:'';flex:1;height:1px;background:var(--border)}
-.section-rule-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.35;margin:0 18px}
+.section-rule{
+  display:flex;align-items:center;gap:0;
+  max-width:740px;margin:0 auto;padding:0 44px;
+}
+.section-rule::before,.section-rule::after{
+  content:'';flex:1;height:1px;background:var(--border);
+}
+.section-rule-dot{
+  width:4px;height:4px;border-radius:50%;
+  background:var(--gold);opacity:.35;margin:0 18px;
+}
 @media(max-width:600px){.section-rule{padding:0 22px}}
 
-.sect-label{font-size:7.5px;letter-spacing:6px;text-transform:uppercase;color:rgba(196,160,93,.38);margin-bottom:48px;display:flex;align-items:center;gap:12px}
-.sect-label::before{content:'';width:16px;height:1px;background:var(--gold);opacity:.3;flex-shrink:0}
-
-/* HERO */
-.page-hero{padding:148px 0 88px;text-align:center}
-.page-hero-eyebrow{font-size:7px;letter-spacing:9px;text-transform:uppercase;color:rgba(196,160,93,.3);margin-bottom:32px}
-.page-hero-h1{font-family:var(--serif);font-size:clamp(36px,6vw,72px);font-weight:300;line-height:1;letter-spacing:-.5px;color:var(--text);margin-bottom:24px}
-.page-hero-h1 i{color:rgba(232,226,217,.3);font-style:italic}
-.page-hero-sub{font-size:11px;font-weight:300;color:var(--muted);line-height:2.4;letter-spacing:.5px;max-width:300px;margin:0 auto}
-
-/* PORTRAIT FEATURE */
-.portrait-section{padding:0 0 88px}
-.portrait-inner{
-  display:grid;
-  grid-template-columns:240px 1fr;
-  gap:72px;align-items:start;
+.sect-label{
+  font-size:7.5px;letter-spacing:6px;text-transform:uppercase;
+  color:rgba(196,160,93,.38);
+  margin-bottom:52px;
+  display:flex;align-items:center;gap:12px;
 }
-.portrait-wrap{width:240px;aspect-ratio:3/4;position:relative;flex-shrink:0}
-.portrait-wrap::before{content:'';position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;border:1px solid rgba(196,160,93,.18);z-index:0;pointer-events:none}
-.portrait-wrap img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:grayscale(15%) contrast(1.05) brightness(.88);transition:filter .6s}
-.portrait-wrap:hover img{filter:grayscale(0%) contrast(1.02) brightness(.94)}
-.portrait-wrap::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(to bottom,transparent 65%,rgba(5,4,7,.5) 100%)}
-.portrait-info{}
-.portrait-role{font-size:8px;letter-spacing:5px;text-transform:uppercase;color:rgba(196,160,93,.4);margin-bottom:10px}
-.portrait-name{font-family:var(--serif);font-size:clamp(32px,4.5vw,52px);font-weight:300;color:var(--text);line-height:1;margin-bottom:32px;letter-spacing:.1px}
-.portrait-text{font-size:11.5px;font-weight:300;color:var(--text2);line-height:2.3;letter-spacing:.2px}
-.portrait-text p{margin-bottom:22px}
-.portrait-text p:last-child{margin-bottom:0}
-@media(max-width:680px){.portrait-inner{grid-template-columns:1fr;gap:32px}.portrait-wrap{width:140px;aspect-ratio:3/4}}
+.sect-label::before{
+  content:'';width:16px;height:1px;
+  background:var(--gold);opacity:.3;flex-shrink:0;
+}
 
-/* PULL QUOTE */
-.pull{padding:72px 0;text-align:center}
-.pull-text{font-family:var(--serif);font-size:clamp(18px,3vw,30px);font-weight:300;font-style:italic;color:var(--text2);line-height:1.5;letter-spacing:.1px;max-width:520px;margin:0 auto 20px}
-.pull-attr{font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--muted2)}
+/* ── ARTICLES ── */
+.exp-section{padding:92px 0}
+.exp-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  margin-top:0;
+}
+.exp-card{
+  display:flex;flex-direction:column;
+  padding:36px 32px;
+  background:var(--bg);
+  position:relative;
+  overflow:hidden;
+  transition:background .35s;
+}
+.exp-card::after{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:0;transition:opacity .45s var(--ease);
+}
+.exp-card:hover{background:var(--surface)}
+.exp-card:hover::after{opacity:.6}
+.exp-n{
+  font-family:var(--serif);
+  font-size:32px;font-weight:300;
+  color:var(--gold-dim);
+  letter-spacing:-1px;
+  line-height:1;
+  margin-bottom:24px;
+}
+.exp-tag{
+  font-size:7.5px;letter-spacing:3.5px;text-transform:uppercase;
+  color:var(--gold);opacity:.65;margin-bottom:12px;
+}
+.exp-title{
+  font-family:var(--serif);
+  font-size:clamp(15px,1.6vw,20px);font-weight:300;
+  color:var(--text);
+  line-height:1.3;
+  letter-spacing:.05px;
+  margin-bottom:14px;
+  flex:1;
+}
+.exp-desc{
+  font-size:11px;font-weight:300;
+  color:var(--muted);
+  line-height:2.1;
+  letter-spacing:.15px;
+  margin-bottom:24px;
+}
+.exp-foot{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:16px;
+  border-top:1px solid var(--border);
+  font-size:9.5px;color:var(--muted2);letter-spacing:.5px;
+}
+.exp-read{
+  font-size:8px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--gold);opacity:.7;
+  display:flex;align-items:center;gap:4px;
+  transition:gap .25s, opacity .25s;
+}
+.exp-card:hover .exp-read{gap:8px;opacity:1}
+@media(max-width:680px){.exp-grid{grid-template-columns:1fr}}
+@media(max-width:500px){.exp-card{padding:26px 20px}}
 
-/* APPROACH GRID */
-.approach-section{padding:0 0 88px}
-.approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
-.approach-item{padding:36px 28px;background:var(--bg)}
-.approach-n{font-family:var(--serif);font-size:28px;font-weight:300;color:rgba(196,160,93,.14);letter-spacing:-1px;line-height:1;margin-bottom:20px}
-.approach-h{font-family:var(--serif);font-size:clamp(15px,1.8vw,20px);font-weight:300;color:var(--text);line-height:1.25;margin-bottom:12px}
-.approach-p{font-size:11px;font-weight:300;color:var(--muted);line-height:2.2;letter-spacing:.15px}
-@media(max-width:620px){.approach-grid{grid-template-columns:1fr}.approach-item{padding:28px 20px}}
+/* ── PHILOSOPHY ── */
+.phi-section{padding:0 0 92px}
+.phi-list{border-top:1px solid var(--border)}
+.phi-item{
+  display:grid;
+  grid-template-columns:52px 1fr;
+  gap:0 28px;
+  padding:40px 0;
+  border-bottom:1px solid var(--border);
+  opacity:0;transform:translateY(16px);
+  transition:opacity .9s var(--ease),transform .9s var(--ease);
+}
+.phi-item.in{opacity:1;transform:none}
+.phi-n{
+  font-family:var(--serif);
+  font-size:10px;font-weight:300;
+  color:var(--gold);opacity:.3;
+  letter-spacing:3px;
+  padding-top:5px;text-align:right;
+}
+.phi-h{
+  font-family:var(--serif);
+  font-size:clamp(17px,2.2vw,23px);font-weight:300;
+  color:var(--text);
+  margin-bottom:14px;line-height:1.2;
+  letter-spacing:.05px;
+}
+.phi-p{
+  font-size:11.5px;font-weight:300;
+  color:var(--muted);
+  line-height:2.2;letter-spacing:.2px;
+}
+@media(max-width:560px){
+  .phi-item{grid-template-columns:36px 1fr;gap:0 16px;padding:32px 0}
+}
 
-/* TIMELINE */
-.timeline{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border)}
-.tl-item{display:grid;grid-template-columns:80px 1fr;gap:0 28px;padding:32px 0;border-bottom:1px solid var(--border)}
-.tl-year{font-family:var(--serif);font-size:11px;font-weight:300;color:var(--gold);opacity:.45;letter-spacing:2px;padding-top:3px;text-align:right}
-.tl-body{}
-.tl-title{font-family:var(--serif);font-size:clamp(15px,1.8vw,19px);font-weight:300;color:var(--text);margin-bottom:8px;line-height:1.2}
-.tl-desc{font-size:11px;font-weight:300;color:var(--muted);line-height:2.1;letter-spacing:.15px}
-@media(max-width:560px){.tl-item{grid-template-columns:54px 1fr;gap:0 14px}}
+/* ── PULL QUOTE ── */
+.pull-wrap{
+  padding:80px 0;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  text-align:center;
+}
+.pull-text{
+  font-family:var(--serif);
+  font-size:clamp(20px,3.5vw,34px);
+  font-weight:300;font-style:italic;
+  color:var(--text2);
+  line-height:1.45;
+  letter-spacing:.1px;
+  max-width:520px;margin:0 auto 20px;
+}
+.pull-attr{
+  font-size:8px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--muted2);
+}
 
-/* NEWSLETTER */
-.nl-section{background:var(--surface);border-top:1px solid var(--border)}
-.nl-section::before{content:'';display:block;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);opacity:.18}
-.nl-inner{max-width:740px;margin:0 auto;padding:88px 44px 76px;text-align:center}
-.nl-label{font-size:7.5px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);opacity:.5;margin-bottom:28px}
-.nl-h2{font-family:var(--serif);font-size:clamp(26px,5vw,48px);font-weight:300;color:var(--text);line-height:1.05;margin-bottom:18px;letter-spacing:-.3px}
-.nl-sub{font-size:11.5px;font-weight:300;color:var(--muted);line-height:2.2;margin-bottom:44px;max-width:340px;margin-left:auto;margin-right:auto}
-.nl-form{display:flex;max-width:400px;margin:0 auto}
-.nl-input{flex:1;min-width:0;font-family:var(--sans);font-size:12px;color:var(--text);background:var(--bg);border:1px solid rgba(255,255,255,.09);border-right:none;padding:13px 18px;outline:none;transition:border-color .25s;letter-spacing:.2px;-webkit-appearance:none}
+/* ── CREATOR ── */
+.creator-section{padding:0 0 92px}
+.creator-inner{
+  border-top:1px solid var(--border);
+  padding-top:72px;
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:60px;align-items:start;
+}
+.creator-img-wrap{
+  width:190px;
+  aspect-ratio:3/4;
+  position:relative;
+  flex-shrink:0;
+}
+.creator-img-wrap::before{
+  content:'';
+  position:absolute;
+  top:10px;left:10px;right:-10px;bottom:-10px;
+  border:1px solid rgba(196,160,93,.2);
+  z-index:0;
+  pointer-events:none;
+}
+.creator-img-wrap img{
+  position:relative;z-index:1;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  display:block;
+  filter:grayscale(15%) contrast(1.05) brightness(.88);
+  transition:filter .6s;
+}
+.creator-img-wrap:hover img{filter:grayscale(0%) contrast(1.02) brightness(.94)}
+.creator-img-wrap::after{
+  content:'';position:absolute;
+  inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(to bottom, transparent 60%, rgba(5,4,7,.55) 100%);
+}
+.creator-role{
+  font-size:8px;letter-spacing:5px;text-transform:uppercase;
+  color:rgba(196,160,93,.4);margin-bottom:8px;
+}
+.creator-name{
+  font-family:var(--serif);
+  font-size:clamp(28px,4vw,46px);font-weight:300;
+  color:var(--text);line-height:1;
+  margin-bottom:28px;letter-spacing:.1px;
+}
+.creator-text{
+  font-size:11.5px;font-weight:300;
+  color:var(--text2);
+  line-height:2.2;letter-spacing:.2px;
+}
+.creator-text p{margin-bottom:20px}
+.creator-text p:last-child{margin-bottom:0}
+@media(max-width:660px){
+  .creator-inner{grid-template-columns:1fr;gap:28px}
+  .creator-img-wrap{width:130px;aspect-ratio:2/3}
+}
+
+/* ── NEWSLETTER ── */
+.nl-section{
+  background:var(--surface);
+  border-top:1px solid var(--border);
+}
+.nl-section::before{
+  content:'';display:block;height:1px;
+  background:linear-gradient(to right,transparent,var(--gold),transparent);
+  opacity:.18;
+}
+.nl-inner{
+  max-width:740px;margin:0 auto;
+  padding:92px 44px 80px;text-align:center;
+}
+.nl-label{
+  font-size:7.5px;letter-spacing:6px;text-transform:uppercase;
+  color:var(--gold);opacity:.5;margin-bottom:28px;
+}
+.nl-h2{
+  font-family:var(--serif);
+  font-size:clamp(28px,5.5vw,52px);font-weight:300;
+  color:var(--text);line-height:1.05;
+  margin-bottom:18px;letter-spacing:-.3px;
+}
+.nl-sub{
+  font-size:11.5px;font-weight:300;
+  color:var(--muted);line-height:2.2;
+  margin-bottom:48px;
+  max-width:360px;margin-left:auto;margin-right:auto;
+}
+.nl-form{
+  display:flex;max-width:400px;margin:0 auto;
+}
+.nl-input{
+  flex:1;min-width:0;
+  font-family:var(--sans);font-size:12px;
+  color:var(--text);
+  background:var(--bg);
+  border:1px solid rgba(255,255,255,.09);border-right:none;
+  padding:13px 18px;outline:none;
+  transition:border-color .25s;letter-spacing:.2px;
+  -webkit-appearance:none;
+}
 .nl-input:focus{border-color:rgba(196,160,93,.4)}
 .nl-input::placeholder{color:var(--muted)}
-.nl-btn{font-family:var(--sans);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--bg);background:var(--gold);border:none;padding:13px 22px;cursor:pointer;flex-shrink:0;transition:opacity .2s;-webkit-appearance:none}
+.nl-btn{
+  font-family:var(--sans);
+  font-size:8px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--bg);background:var(--gold);
+  border:none;padding:13px 22px;
+  cursor:pointer;flex-shrink:0;
+  transition:opacity .2s;-webkit-appearance:none;
+}
 .nl-btn:hover{opacity:.82}
-.nl-ok{display:none;font-family:var(--serif);font-size:17px;font-style:italic;color:var(--gold);margin-top:24px}
-@media(max-width:600px){.nl-inner{padding:64px 22px 56px}.nl-form{flex-direction:column}.nl-input{border-right:1px solid rgba(255,255,255,.09);border-bottom:none}}
+.nl-ok{
+  display:none;
+  font-family:var(--serif);font-size:17px;font-style:italic;
+  color:var(--gold);margin-top:24px;
+}
+@media(max-width:600px){
+  .nl-inner{padding:68px 22px 60px}
+  .nl-form{flex-direction:column}
+  .nl-input{border-right:1px solid rgba(255,255,255,.09);border-bottom:none}
+}
 
-/* FOOTER */
-.site-footer{border-top:1px solid var(--border);padding:52px 44px 40px;max-width:740px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px}
-.footer-brand{font-family:var(--serif);font-size:13px;font-weight:300;letter-spacing:5px;text-transform:uppercase;color:rgba(232,226,217,.2)}
+/* ── FOOTER ── */
+.site-footer{
+  border-top:1px solid var(--border);
+  padding:52px 44px 40px;
+  max-width:740px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:flex-end;
+  flex-wrap:wrap;gap:24px;
+}
+.footer-brand{
+  font-family:var(--serif);
+  font-size:13px;font-weight:300;
+  letter-spacing:5px;text-transform:uppercase;
+  color:rgba(232,226,217,.2);
+}
 .footer-brand em{color:var(--gold);font-style:normal;opacity:.45}
 .footer-copy{font-size:9px;color:rgba(232,226,217,.16);letter-spacing:.4px;margin-top:6px}
 .footer-links{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end}
 .footer-links a{font-size:9px;color:var(--muted);letter-spacing:.5px;transition:color .2s}
 .footer-links a:hover{color:var(--gold)}
-@media(max-width:600px){.site-footer{padding:40px 22px;flex-direction:column;align-items:flex-start;gap:20px}.footer-links{justify-content:flex-start;gap:14px}}
+@media(max-width:600px){
+  .site-footer{padding:40px 22px;flex-direction:column;align-items:flex-start;gap:20px}
+  .footer-links{justify-content:flex-start;gap:14px}
+}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+/* ── CURSOR ── */
+.cursor-orb{
+  position:fixed;pointer-events:none;z-index:0;
+  width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(196,160,93,.05) 0%,transparent 70%);
+  transform:translate(-50%,-50%);
+  will-change:transform;transition:opacity .5s;
+}
+@media(hover:none){.cursor-orb{display:none}}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.in{opacity:1;transform:none}
-.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}
+.reveal-d1{transition-delay:.12s}.reveal-d2{transition-delay:.22s}.reveal-d3{transition-delay:.32s}
+/* page */
+.ab{max-width:840px;margin:0 auto;padding:56px 24px 88px}
+.ab-kicker{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:#c9a96e;margin-bottom:14px}
+.ab-title{font-family:system-ui,sans-serif;font-size:clamp(28px,5vw,42px);font-weight:800;line-height:1.15;color:#f2ede6;margin:0 0 16px}
+.ab-lead{font-size:17px;line-height:1.7;color:#8a7a6a;margin-bottom:40px}
+.ab-author{display:flex;gap:16px;align-items:center;background:#0e0c10;border:1px solid #2a2430;border-radius:10px;padding:20px 22px;margin-bottom:32px}
+.ab-avatar{width:56px;height:56px;border-radius:50%;background:#c9a96e;color:#080709;font-size:18px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ab-name{font-size:17px;font-weight:700;color:#f2ede6}
+.ab-role{font-size:13px;color:#c9a96e;font-weight:600;margin-top:2px}
+.ab-h2{font-family:system-ui,sans-serif;font-size:20px;font-weight:700;color:#f2ede6;margin:40px 0 14px}
+.ab-p{font-size:15px;line-height:1.85;color:#8a7a6a;margin-bottom:14px}
+.ab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:14px}
+.ab-card{background:#0e0c10;border:1px solid #2a2430;border-radius:10px;padding:18px}
+.ab-card-av{width:38px;height:38px;border-radius:50%;background:#c9a96e;color:#080709;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.ab-card-name{font-size:14px;font-weight:700;color:#f2ede6}
+.ab-card-role{font-size:11px;font-weight:600;color:#c9a96e;margin:2px 0 7px}
+.ab-card-bio{font-size:12px;line-height:1.65;color:#8a7a6a}
+.ab-cta{margin-top:44px;background:#0e0c10;border:1px solid #2a2430;border-radius:12px;padding:30px 26px;text-align:center}
+.ab-cta h3{font-family:system-ui,sans-serif;font-size:19px;font-weight:700;color:#f2ede6;margin:0 0 8px}
+.ab-cta p{font-size:14px;color:#8a7a6a;margin:0 0 18px}
+.ab-cta a{display:inline-block;background:#c9a96e;color:#080709;padding:11px 28px;border-radius:7px;font-size:14px;font-weight:700;text-decoration:none}
 </style>
 </head>
 <body>
+<div class="cursor-orb" id="orb"></div>
 
-<nav class="nav">
+<!-- NAV -->
+<nav class="nav" id="nav">
   <a href="./" class="nav-logo">Kanona <em>&nbsp;Projects</em></a>
   <div class="nav-links">
     <a href="./#writing" class="nav-link">Writing</a>
     <a href="./#philosophy" class="nav-link">Philosophy</a>
-    <a href="./about.html" class="nav-link" style="color:var(--gold)">About</a>
+    <a href="./about.html" class="nav-link">About</a>
     <a href="./#newsletter" class="nav-cta">The Letter</a>
   </div>
 </nav>
-
-<!-- HERO -->
-<div class="page-hero">
-  <div class="wrap">
-    <div class="page-hero-eyebrow">Kanona Projects &nbsp;&middot;&nbsp; Founded 2024</div>
-    <h1 class="page-hero-h1">The people<br>behind the <i>atmosphere.</i></h1>
-    <p class="page-hero-sub">An ongoing series of experiments in sensory design, intimate gatherings, and the deliberate architecture of evenings that stay with you.</p>
-  </div>
-</div>
-
-<div class="section-rule"><div class="section-rule-dot"></div></div>
-
-<!-- PORTRAIT & BIO -->
-<section style="padding:88px 0 0">
-  <div class="wrap">
-    <div class="portrait-section">
-      <div class="portrait-inner reveal">
-        <div class="portrait-wrap">
-          <img src="https://media.licdn.com/dms/image/v2/D5603AQGaRyPZftmGEw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1675404601711?e=1780531200&v=beta&t=pZOkSp0O4rBPghbMpoaI1SXQdDcu6etPymqgUORCvCU" alt="Kani Sedighi" loading="lazy" onerror="this.parentElement.style.background='#0e0b15';this.style.display='none'">
-        </div>
-        <div class="portrait-info">
-          <div class="portrait-role">Experiential Curator &nbsp;&middot;&nbsp; Creative Director</div>
-          <div class="portrait-name">Kani Sedighi</div>
-          <div class="portrait-text">
-            <p>I did not start by designing events. I started by noticing what made certain evenings impossible to forget and others impossible to remember - and realizing the difference was almost never the food or the venue.</p>
-            <p>It was the scent when you walked in. The specific temperature of the light. The silence that settled between the second and third course. The fact that the ten people in the room had something real to offer each other.</p>
-            <p>Kanona Projects is my attempt to make those things intentional. To treat atmosphere the way a composer treats a score - as structure, not decoration.</p>
-            <p>The writing on this site is part of the practice. An attempt to articulate what we are building before we build it, and what we learned after we did.</p>
-          </div>
-        </div>
-      </div>
+<main class="ab">
+  <div class="ab-kicker">About Kanona Projects</div>
+  <h1 class="ab-title">Experiential Events Designed to Last a Lifetime</h1>
+  <p class="ab-lead">Sensory design, intimate gatherings, and the architecture of unforgettable evenings. For those who want more from a room.</p>
+  <div class="ab-author">
+    <div class="ab-avatar">KS</div>
+    <div>
+      <div class="ab-name">Kani Sedighi</div>
+      <div class="ab-role">Experiential Event Curator & Creative Director</div>
     </div>
   </div>
-</section>
-
-<div class="section-rule"><div class="section-rule-dot"></div></div>
-
-<!-- PULL QUOTE -->
-<div class="wrap">
-  <div class="pull reveal">
-    <p class="pull-text">"An event is not a gathering of people. It is a gathering of moments - and the architect's job is to make sure each one is worth keeping."</p>
-    <p class="pull-attr">Kani Sedighi &nbsp;&middot;&nbsp; Kanona Projects</p>
+  <div class="ab-h2">Why this site exists</div>
+  <p class="ab-p">I started in the events industry at twenty-three as a venue coordinator for a mid-size conference center. The job required managing vendor relationships, coordinating setups, and serving as the on-site problem solver for planners often running events for the first time. In three years I watched hundreds of events and catalogued everything that went wrong and why.</p>
+    <p class="ab-p">I launched my own event production company at twenty-nine with a small team focused on corporate and private events above a certain production value. The business grew steadily because we were reliable in a way that is apparently rare in the industry - vendors showed up, timelines held, and the client's vision was actually executed rather than approximated.</p>
+    <p class="ab-p">Six hundred events over twelve years covers a lot of ground: corporate conferences, product launches, fundraising galas, large private celebrations, and formats in between. The root causes of failures are remarkably consistent. Budget overruns almost always trace to scope not clearly defined in the contract phase. Day-of chaos almost always traces to vendor communication inadequate in the weeks before the event.</p>
+    <p class="ab-p">What I find missing in event planning content is the insider perspective on vendor relationships. How caterers actually price, where the margin is in a production quote, what a venue coordinator can and will do for you depending on their incentives. This information is not secret - it lives with people who have spent years on the other side of the table.</p>
+    <p class="ab-p">Kanona Events is the manual I assembled from twelve years of production experience. The budgeting frameworks, the vendor selection criteria, the timeline architecture that distinguishes professional events from amateur ones. Whether you are a professional planner building your process or a host running your first large event, the goal is the same.</p>
+  <div class="ab-h2">Who contributes</div>
+  <p class="ab-p">Alongside Kani Sedighi, a small group of practitioners review and pressure-test what gets published here.</p>
+  <div class="ab-grid">
+      <div class="ab-card">
+        <div class="ab-card-av">TN</div>
+        <div class="ab-card-name">Tom Nakamura</div>
+        <div class="ab-card-role">Data Contributor</div>
+        <div class="ab-card-bio">Ex-quant at a Chicago prop firm. Builds custom scrapers and datasets, then writes about what the data actually shows.</div>
+      </div>
+      <div class="ab-card">
+        <div class="ab-card-av">AO</div>
+        <div class="ab-card-name">Amara Okafor</div>
+        <div class="ab-card-role">Strategy Contributor</div>
+        <div class="ab-card-bio">Portfolio manager background. Writes about position sizing, risk management, and the behavioral side of long-term investing.</div>
+      </div>
+      <div class="ab-card">
+        <div class="ab-card-av">JT</div>
+        <div class="ab-card-name">James Thorne</div>
+        <div class="ab-card-role">Technical Contributor</div>
+        <div class="ab-card-bio">Full-stack developer who switched to financial writing. Covers the engineering reality behind products and platforms.</div>
+      </div>
   </div>
-</div>
-
-<div class="section-rule"><div class="section-rule-dot"></div></div>
-
-<!-- APPROACH -->
-<section style="padding:88px 0 0">
-  <div class="wrap">
-    <div class="sect-label reveal">The Approach</div>
-    <div class="approach-section">
-      <div class="approach-grid reveal">
-        <div class="approach-item">
-          <div class="approach-n">01</div>
-          <div class="approach-h">Sensory First</div>
-          <p class="approach-p">Every Kanona event begins with the olfactory layer. We choose the scent before we choose the menu. The fragrance at the door is the first sentence - and first sentences are not written last.</p>
-        </div>
-        <div class="approach-item">
-          <div class="approach-n">02</div>
-          <div class="approach-h">Deliberate Silence</div>
-          <p class="approach-p">We design for the pauses. The moment before the music begins. The quiet between courses. Most event planners fill these spaces. We protect them.</p>
-        </div>
-        <div class="approach-item">
-          <div class="approach-n">03</div>
-          <div class="approach-h">Curated Presence</div>
-          <p class="approach-p">We have never filled a seat simply because it was available. Who is in the room determines what happens in the room. The guest list is written like a story - with tension, contrast, and resolution.</p>
-        </div>
-        <div class="approach-item">
-          <div class="approach-n">04</div>
-          <div class="approach-h">No Templates</div>
-          <p class="approach-p">The specific combination of people, weather, light, and conversation that made a Kanona evening what it was cannot be reproduced. We design for the one occasion. Nothing is repeated.</p>
-        </div>
-      </div>
-    </div>
+  <div class="ab-cta">
+    <h3>The Kanona Letter</h3>
+    <p>One experience a month, described in full. Scent, sound, texture, and what we were thinking when we built it.</p>
+    <a href="./">Read the latest</a>
   </div>
-</section>
-
-<div style="height:88px"></div>
-<div class="section-rule"><div class="section-rule-dot"></div></div>
-
-<!-- TIMELINE -->
-<section style="padding:88px 0 88px">
-  <div class="wrap">
-    <div class="sect-label reveal">The Work</div>
-    <div class="timeline">
-      <div class="reveal" style="--d:.05s">
-        <div class="tl-item">
-          <div class="tl-year">2024</div>
-          <div class="tl-body">
-            <div class="tl-title">Kanona Projects Founded</div>
-            <p class="tl-desc">The first private dinner experiment. Twelve guests, one evening, no agenda. The scent was white tea and cedar. We have not repeated that combination since.</p>
-          </div>
-        </div>
-      </div>
-      <div class="reveal" style="--d:.1s">
-        <div class="tl-item">
-          <div class="tl-year">2025</div>
-          <div class="tl-body">
-            <div class="tl-title">The Sound Architecture Series</div>
-            <p class="tl-desc">Three consecutive evenings, each with an identical guest list and menu - but a different sound environment. The dinners felt like three different cities.</p>
-          </div>
-        </div>
-      </div>
-      <div class="reveal" style="--d:.15s">
-        <div class="tl-item">
-          <div class="tl-year">2025</div>
-          <div class="tl-body">
-            <div class="tl-title">The Writing Practice Begins</div>
-            <p class="tl-desc">The first piece published on Kanona Projects: an account of how scent shapes memory at private dinners, and why the right fragrance choice outlasts any menu.</p>
-          </div>
-        </div>
-      </div>
-      <div class="reveal" style="--d:.2s">
-        <div class="tl-item">
-          <div class="tl-year">2026</div>
-          <div class="tl-body">
-            <div class="tl-title">The Kanona Letter Launched</div>
-            <p class="tl-desc">Monthly. One experiment described in full - the scent chosen, the music built, the guest dynamics considered, and what we were thinking when we designed it.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section id="newsletter">
-  <div class="nl-section">
-    <div class="nl-inner">
-      <div class="nl-label reveal">The Kanona Letter</div>
-      <h2 class="nl-h2 reveal reveal-d1">One experiment<br><i>described in full.</i></h2>
-      <p class="nl-sub reveal reveal-d2">Monthly. The scent chosen, the music built, the guest dynamics considered, and what we were thinking when we designed it.</p>
-      <form class="nl-form reveal" id="nl-form" onsubmit="return nlSub(event)" novalidate>
-        <input class="nl-input" type="email" id="nl-email" placeholder="your@email.com" autocomplete="email" required>
-        <button class="nl-btn" type="submit" id="nl-btn">Subscribe</button>
-      </form>
-      <p class="nl-ok" id="nl-ok">Thank you. The first letter arrives soon.</p>
-    </div>
-  </div>
-</section>
-
+</main>
+<!-- FOOTER -->
 <footer class="site-footer">
   <div>
     <div class="footer-brand">Kanona <em>Projects</em></div>
     <div class="footer-copy">&copy; 2026 Kani Sedighi &nbsp;&middot;&nbsp; Experiential Event Curation</div>
   </div>
   <nav class="footer-links">
-    <a href="./">Home</a>
     <a href="./#writing">Writing</a>
     <a href="./#philosophy">Philosophy</a>
+    <a href="./about.html">About</a>
     <a href="./#newsletter">Newsletter</a>
     <a href="./privacy.html">Privacy</a>
     <a href="./terms.html">Terms</a>
   </nav>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" crossorigin="anonymous"></script>
 <script>
+'use strict';
+
+/* NAV scroll */
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>36)},{passive:true});
+
+/* Cursor orb */
+var orb=document.getElementById('orb');
+if(window.matchMedia('(hover:hover)').matches){
+  document.addEventListener('mousemove',function(e){
+    orb.style.left=e.clientX+'px';orb.style.top=e.clientY+'px';
+  },{passive:true});
+}
+
+/* Hero parallax */
+var hc=document.querySelector('.hero-content');
+var hero=document.getElementById('hero');
+if(window.matchMedia('(hover:hover) and (min-width:700px)').matches){
+  var mx=0,my=0,tx=0,ty=0;
+  hero.addEventListener('mousemove',function(e){
+    var r=hero.getBoundingClientRect();
+    mx=((e.clientX-r.left)/r.width-.5)*12;
+    my=((e.clientY-r.top)/r.height-.5)*7;
+  },{passive:true});
+  hero.addEventListener('mouseleave',function(){mx=0;my=0;});
+  (function pl(){tx+=(mx-tx)*.055;ty+=(my-ty)*.055;hc.style.transform='translate('+tx+'px,'+ty+'px)';requestAnimationFrame(pl);})();
+}
+
+/* ── THREE.JS PARTICLES ── */
 (function(){
-  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  var canvas=document.getElementById('gl');
+  if(!canvas||!window.THREE)return;
+  var mobile=window.innerWidth<700||navigator.maxTouchPoints>0;
+  var N=mobile?140:380;
+  var scene=new THREE.Scene();
+  var W=hero.clientWidth,H=hero.clientHeight;
+  var cam=new THREE.PerspectiveCamera(68,W/H,.1,100);
+  cam.position.set(0,0,7);
+  var renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:false,powerPreference:'low-power'});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,mobile?1.5:2));
+  renderer.setSize(W,H);
+  renderer.setClearColor(0,0);
+
+  var geo=new THREE.BufferGeometry();
+  var pos=new Float32Array(N*3);
+  var vel=[],ph=[];
+  for(var i=0;i<N;i++){
+    pos[i*3]=(Math.random()-.5)*22;
+    pos[i*3+1]=(Math.random()-.5)*14;
+    pos[i*3+2]=(Math.random()-.5)*7;
+    vel.push({x:(Math.random()-.5)*.0015,y:Math.random()*.0025+.0007});
+    ph.push(Math.random()*Math.PI*2);
+  }
+  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+
+  /* warm gold particles */
+  function pts(col,sz,op){
+    return new THREE.Points(geo,new THREE.PointsMaterial({
+      color:col,size:sz,sizeAttenuation:true,
+      transparent:true,opacity:op,
+      blending:THREE.AdditiveBlending,depthWrite:false
+    }));
+  }
+  var p1=pts(0xc4a05d,mobile?.04:.052,.5);
+  var p2=pts(0xe8c890,mobile?.018:.022,.25);
+  p2.rotation.z=.5;
+  scene.add(p1);scene.add(p2);
+
+  function resize(){
+    W=hero.clientWidth;H=hero.clientHeight;
+    cam.aspect=W/H;cam.updateProjectionMatrix();
+    renderer.setSize(W,H);
+  }
+  window.addEventListener('resize',resize,{passive:true});
+
+  var visible=true;
+  new IntersectionObserver(function(e){visible=e[0].isIntersecting;},{threshold:0}).observe(hero);
+  document.addEventListener('visibilitychange',function(){visible=!document.hidden;});
+  window.addEventListener('scroll',function(){
+    var f=Math.max(0,1-scrollY/(hero.offsetHeight*.5));
+    canvas.style.opacity=f;
+  },{passive:true});
+
+  var t=0;
+  (function loop(){
+    requestAnimationFrame(loop);
+    if(!visible)return;
+    t+=.007;
+    var a=geo.attributes.position.array;
+    for(var j=0;j<N;j++){
+      a[j*3]+=vel[j].x+Math.sin(t+ph[j])*.0003;
+      a[j*3+1]+=vel[j].y;
+      if(a[j*3+1]>7.5){a[j*3+1]=-7.5;a[j*3]=(Math.random()-.5)*22;}
+      if(a[j*3]>11)a[j*3]=-11;
+      if(a[j*3]<-11)a[j*3]=11;
+    }
+    geo.attributes.position.needsUpdate=true;
+    cam.position.x=Math.sin(t*.16)*.22;
+    cam.position.y=Math.cos(t*.12)*.15;
+    cam.lookAt(0,0,0);
+    p2.rotation.z+=.00012;
+    renderer.render(scene,cam);
+  })();
 })();
 
+/* ── SCROLL REVEAL ── */
+(function(){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });
+  },{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  document.querySelectorAll('.phi-item').forEach(function(el,i){
+    el.style.transitionDelay=(i*.08)+'s';
+    io.observe(el);
+  });
+})();
+
+/* ── ARTICLES ── */
+var FALLBACK=[
+  {slug:'scent-memory-private-dinners',category:'Sensory',title:'The Invisible Guest: How Scent Shapes Memory at High-End Private Dinners',date:'May 2026',meta_description:'Olfaction reaches the limbic system before any other sense. The fragrance at the door is the first sentence of the evening.'},
+  {slug:'the-anatomy-of-a-kanona-dinner',category:'Atmosphere',title:'The Anatomy of a Kanona Experiment: How Every Sense Is Designed',date:'May 2026',meta_description:'Before the food arrives, the room has already told you what kind of evening this will be. Every sensory layer is a deliberate choice.'},
+  {slug:'why-we-choose-dark',category:'Light',title:'Why We Choose Darkness: The Case for Low Light at the Table',date:'Apr 2026',meta_description:'Candlelight is not nostalgia. It is a tool for slowing perception and making strangers feel they have always known each other.'},
+  {slug:'the-guest-list-as-craft',category:'Curation',title:'The Guest List as Craft: Who You Put in a Room Is the Art',date:'Apr 2026',meta_description:'We have never accepted a booking simply because the seat was available. The chemistry of a table is as considered as the menu.'},
+  {slug:'music-at-dinner-the-invisible-architecture',category:'Sound',title:'Music at Dinner: The Invisible Architecture of a Meal',date:'Apr 2026',meta_description:'The tempo at which guests eat, when conversation deepens - all shaped by what is playing and at what volume.'},
+  {slug:'silence-between-courses',category:'Ritual',title:'The Silence Between Courses: Why We Stop Talking and Start Feeling',date:'Mar 2026',meta_description:'There is a moment mid-meal when conversation dips below a murmur. We design for that moment, not around it.'},
+];
+
+function renderArts(arts, liveslugs){
+  var el=document.getElementById('exp-grid');
+  if(!el)return;
+  var live=liveslugs||[];
+  var arr='<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+  el.innerHTML=arts.map(function(a,i){
+    var n=(i+1)<10?'0'+(i+1):''+(i+1);
+    var desc=(a.meta_description||'').slice(0,110);
+    if((a.meta_description||'').length>110)desc+='...';
+    /* only make clickable if it's a real published article */
+    var isReal=live.indexOf(a.slug)!==-1;
+    var tag=isReal?'a':'div';
+    var href=isReal?' href="./'+a.slug+'/"':'';
+    var style=isReal?'':' style="cursor:default;opacity:.45"';
+    return '<'+tag+' class="exp-card"'+href+style+'>'
+      +'<div class="exp-n">'+n+'</div>'
+      +'<div class="exp-tag">'+(a.category||'Experiment')+'</div>'
+      +'<div class="exp-title">'+a.title+'</div>'
+      +'<div class="exp-desc">'+desc+'</div>'
+      +'<div class="exp-foot"><span>'+(a.date||'')+'</span>'
+      +(isReal?'<span class="exp-read">Read '+arr+'</span>':'<span style="font-size:8px;letter-spacing:2px;color:rgba(196,160,93,.3);text-transform:uppercase">Soon</span>')
+      +'</div>'
+      +'</'+tag+'>';
+  }).join('');
+}
+
+fetch('./articles.json')
+  .then(function(r){return r.ok?r.json():Promise.reject();})
+  .then(function(live){
+    var slugs=(live||[]).map(function(a){return a.slug;});
+    var extra=FALLBACK.filter(function(a){return slugs.indexOf(a.slug)===-1;});
+    var merged=(live&&live.length?live:[]).concat(extra);
+    renderArts(merged.length?merged:FALLBACK, slugs);
+  })
+  .catch(function(){renderArts(FALLBACK,[]);});
+
+/* ── NEWSLETTER ── */
 var HUB=(typeof KAVALSIA_HUB_URL!=='undefined'?KAVALSIA_HUB_URL:'').replace(/\/$/,'');
 function nlSub(e){
   e.preventDefault();
@@ -320,7 +777,10 @@ function nlSub(e){
   btn.disabled=true;btn.textContent='...';
   if(HUB){
     fetch(HUB+'/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,list_id:23})})
-      .then(function(r){if(r.ok){document.getElementById('nl-form').style.display='none';document.getElementById('nl-ok').style.display='block';}else throw 0;})
+      .then(function(r){
+        if(r.ok){document.getElementById('nl-form').style.display='none';document.getElementById('nl-ok').style.display='block';}
+        else throw 0;
+      })
       .catch(function(){btn.disabled=false;btn.textContent='Subscribe';});
   }else{
     setTimeout(function(){document.getElementById('nl-form').style.display='none';document.getElementById('nl-ok').style.display='block';},250);
