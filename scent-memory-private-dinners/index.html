@@ -1297,6 +1297,86 @@ body::before{
 }@media(max-width:760px){
   .nav{padding:0 22px}
   .nav-links .nav-link{display:none}
+}@media(max-width:760px){
+  .hero-frame{width:38px;height:38px}
+  .hero-frame.tl,.hero-frame.tr{top:74px}
+  .hero-frame.tl,.hero-frame.bl{left:22px}
+  .hero-frame.tr,.hero-frame.br{right:22px}
+  .hero-frame.bl,.hero-frame.br{bottom:38px}
+}@media(max-width:600px){
+  .hero-meta{gap:14px;font-size:8px;letter-spacing:1.8px;flex-wrap:wrap}
+}@keyframes track-breathe{0%,100%{opacity:.3}50%{opacity:.75}}@media(max-width:600px){
+  .hero-content{padding:72px 26px 56px}
+}@media(max-width:600px){.wrap{padding:0 24px}}@media(max-width:600px){.section-rule{padding:0 24px}}@media(max-width:760px){
+  .story-grid{grid-template-columns:1fr;gap:32px}
+  .story-section{padding:80px 0 72px}
+}@media(max-width:760px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat{padding:40px 24px}
+  .stat:nth-child(2){border-right:none}
+  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--border)}
+}@media(max-width:860px){.svc-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){
+  .svc-grid{grid-template-columns:1fr}
+  .services-section{padding:80px 0}
+}@media(max-width:600px){
+  .proc-item{grid-template-columns:56px 1fr;gap:0 22px;padding:36px 0}
+  .proc-n{font-size:30px}
+}@media(max-width:860px){.exp-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){
+  .exp-grid{grid-template-columns:1fr}
+  .exp-card{padding:30px 22px}
+  .exp-section{padding:80px 0}
+}@media(max-width:760px){
+  .phi-list{grid-template-columns:1fr;gap:0}
+}@media(max-width:560px){
+  .phi-item{grid-template-columns:38px 1fr;gap:0 16px;padding:30px 0}
+}@media(max-width:760px){
+  .creator-inner{grid-template-columns:1fr;gap:32px}
+  .creator-img-wrap{width:170px;aspect-ratio:2/3}
+  .creator-section{padding:80px 0}
+}@media(max-width:600px){.faq-section{padding:0 0 80px}}@media(max-width:600px){
+  .nl-inner{padding:76px 24px 68px}
+  .nl-form{flex-direction:column;gap:11px}
+  .nl-input{border-right:1px solid var(--border2);border-bottom:1px solid var(--border2)}
+  .nl-btn{padding:15px 24px}
+}@media(max-width:760px){
+  .footer-top{grid-template-columns:1fr 1fr;gap:36px;padding:56px 24px 44px}
+  .footer-bottom-inner{padding:22px 24px}
+}@media(max-width:480px){
+  .footer-top{grid-template-columns:1fr}
+}@media(hover:none){.cursor-orb{display:none}}@media(max-width:600px){
+  .ornament-divider{padding:36px 24px}
+  .ornament-divider svg{width:64px;margin:0 14px}
+}@keyframes flicker{
+  0%,100%{opacity:.85;transform:translate(-50%,-50%) scale(1,1)}
+  50%{opacity:1;transform:translate(-50%,-50%) scale(1.04,1.08)}
+}@media(max-width:760px){
+  .atelier-grid{grid-template-columns:1fr;gap:40px}
+  .atelier-visual{aspect-ratio:5/4;max-height:360px}
+  .atelier-section{padding:0 0 80px}
+}@media(prefers-reduced-motion:reduce){
+.reveal,.phi-item{opacity:1!important;transform:none!important}
+}
+:root{
+  --bg:#050407;
+  --bg2:#090710;
+  --surface:#0e0b15;
+  --surface2:#140f1d;
+  --gold:#c4a05d;
+  --gold2:#9a7c3c;
+  --gold-dim:rgba(196,160,93,.14);
+  --text:#e8e2d9;
+  --text2:rgba(232,226,217,.6);
+  --muted:#6a6058;
+  --muted2:rgba(106,96,88,.45);
+  --border:rgba(255,255,255,.055);
+  --border2:rgba(255,255,255,.09);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --maxw:1240px;
+}@media(max-width:760px){
+  .nav{padding:0 22px}
+  .nav-links .nav-link{display:none}
 }
 
 /* ── HERO ── */
@@ -1992,7 +2072,7 @@ p{margin-bottom:18px;color:#aaa;line-height:1.75}
   </div>
 </nav>
 <article itemscope itemtype="https://schema.org/Article"><div class="art">
-  <div class="meta"><a href="../" style="color:#555">← Home</a> &nbsp;·&nbsp; <time datetime="2026-05-18"><time datetime="2026-05-18">May 18, 2026</time></time> &nbsp;·&nbsp; Experiential Events & Atmosphere</div>
+  <div class="meta"><a href="../" style="color:#555">← Home</a> &nbsp;·&nbsp; <time datetime="2026-05-18"><time datetime="2026-05-18"><time datetime="2026-05-18">May 18, 2026</time></time></time> &nbsp;·&nbsp; Experiential Events & Atmosphere</div>
   <h1>The Invisible Guest: How Scent Shapes Memory at High-End Private Dinners</h1>
   <div style="font-size:13px;color:#555;margin-bottom:24px">By <strong style="color:#aaa">Kani Sedighi</strong></div>
   <img src="https://images.pexels.com/photos/36029879/pexels-photo-36029879.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Intimate candlelit private dinner table with soft warm lighting and glassware casting shadows on white linen" loading="lazy" style="width:100%;height:400px;object-fit:cover;border-radius:8px;margin:28px 0"><p style="font-size:11px;color:#555;margin:-16px 0 20px">Photo by Mimi / Pexels</p>
@@ -2144,6 +2224,7 @@ p{margin-bottom:18px;color:#aaa;line-height:1.75}
 <!-- FOOTER -->
 <!-- FOOTER -->
 <!-- FOOTER -->
+<!-- FOOTER --></article>
 <!-- FOOTER --></article>
 <!-- FOOTER --></article>
 <!-- FOOTER -->
