@@ -7,7 +7,7 @@
     "date_iso": "2026-05-20",
     "date_display": "May 20, 2026",
     "text": "This is spot-on. I went to a private dinner in Napa last month where they piped in this subtle lavender scent during the aperitif course, and I swear it made me more relaxed and open to conversation. The host was clearly thinking about every sensory detail.",
-    "likes": 8
+    "likes": 2
   },
   {
     "id": "c2962",
@@ -17,36 +17,6 @@
     "date_iso": "2026-05-23",
     "date_display": "May 23, 2026",
     "text": "Question: how do you balance scent so it doesn't overpower the food aromas? I'd imagine that's tricky at a dinner event where smell is half the dining experience.",
-    "likes": 11
-  },
-  {
-    "id": "c3625",
-    "name": "James W.",
-    "initials": "JW",
-    "color": "#f97316",
-    "date_iso": "2026-05-26",
-    "date_display": "May 26, 2026",
-    "text": "I disagree that scent is 'invisible.' When it's done wrong at these fancy events, that artificial floral smell is all anyone notices. Less is definitely more.",
-    "likes": 5
-  },
-  {
-    "id": "c4388",
-    "name": "Sophie B.",
-    "initials": "SB",
-    "color": "#f97316",
-    "date_iso": "2026-05-29",
-    "date_display": "May 29, 2026",
-    "text": "The memory connection is real. A friend's wedding reception used a custom scent inspired by the couple's honeymoon destination, and now whenever I smell it, I'm transported back to that night. Genius move for experiential design.",
-    "likes": 9
-  },
-  {
-    "id": "c5463",
-    "name": "David K.",
-    "initials": "DK",
-    "color": "#a78bfa",
-    "date_iso": "2026-06-02",
-    "date_display": "Jun 2, 2026",
-    "text": "Great article but would have loved more specifics on which scents work best for different menu types or time of day. Any recommendations?",
-    "likes": 7
+    "likes": 0
   }
 ]
