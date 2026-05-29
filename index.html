@@ -27,10 +27,13 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   --moon:rgba(168,195,230,.18);
   --moon-strong:rgba(168,195,230,.35);
   --frost:rgba(220,235,255,.05);
-  --text:#e8e2d9;
-  --text2:rgba(232,226,217,.6);
-  --muted:#6a6058;
-  --muted2:rgba(106,96,88,.45);
+  --text:#ece6dd;
+  /* Bumped secondary + muted greys for higher visibility on pure-black BG.
+     Old values (rgba .6 / #6a6058) failed WCAG AA on small text; new values
+     keep the restrained editorial palette but lift contrast ~25%. */
+  --text2:rgba(236,230,221,.78);
+  --muted:#9a9088;
+  --muted2:rgba(154,144,136,.6);
   --border:rgba(255,255,255,.055);
   --border2:rgba(255,255,255,.09);
   --serif:'Cormorant Garamond',Georgia,serif;
@@ -85,19 +88,9 @@ body::before{
 .nav-logo-sub{
   font-family:'JetBrains Mono',ui-monospace,monospace;
   font-size:8.5px;font-weight:500;
-  letter-spacing:2.2px;text-transform:uppercase;
-  color:var(--platinum,#dde3eb);opacity:.55;
-  margin-top:2px;
-}
-/* The "aka" is rendered as italic serif so the lockup reads as an editorial
-   nickname rather than a casual abbreviation - matches the brand voice. */
-.nav-logo-sub .aka{
-  font-family:var(--serif);font-style:italic;font-weight:400;
-  letter-spacing:0;text-transform:none;
-  font-size:9.5px;
-  color:var(--gold);opacity:.85;
-  margin-right:4px;
-  vertical-align:baseline;
+  letter-spacing:2.8px;text-transform:uppercase;
+  color:var(--gold);opacity:.7;
+  margin-top:3px;
 }
 .nav-links{display:flex;align-items:center;gap:34px}
 .nav-link{
@@ -1424,7 +1417,7 @@ p{letter-spacing:.005em}
 <nav class="nav" id="nav">
   <a href="./" class="nav-logo">
     <span>Kanona <em>Projects</em></span>
-    <span class="nav-logo-sub"><span class="aka">aka</span> K-Projects</span>
+    <span class="nav-logo-sub">K-Projects</span>
   </a>
   <div class="nav-links">
     <a href="./#services" class="nav-link">Services</a>
