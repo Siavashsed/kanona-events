@@ -31,7 +31,8 @@
     "historical": true,
     "available_languages": [
       "en"
-    ]
+    ],
+    "category": "Private Dinners"
   },
   {
     "title": "The Smell of an Empty Room: How Drive-In Experiences Redefined Atmosphere in 2020",
@@ -49,7 +50,8 @@
     "historical": true,
     "available_languages": [
       "en"
-    ]
+    ],
+    "category": "Brand Experiences"
   },
   {
     "title": "The Room That Remembered You: How teamLab's 2024 Borderless Reopening Reshaped Experiential Events",
@@ -68,6 +70,7 @@
     "historical": true,
     "available_languages": [
       "en"
-    ]
+    ],
+    "category": "Brand Experiences"
   }
 ]
