@@ -72,5 +72,40 @@
       "en"
     ],
     "category": "Brand Experiences"
+  },
+  {
+    "title": "The Weight of the Envelope: How Expectation Shapes Experience at Invitation-Only Events",
+    "slug": "psychology-expectation-invitation-only-events",
+    "meta_description": "Kani Sedighi on the psychology of expectation at invitation-only events - how anticipation, scarcity, and atmosphere shape memory before guests arrive.",
+    "date": "May 29, 2026",
+    "date_iso": "2026-05-29",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/19986458/pexels-photo-19986458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "nature.com",
+      "psycnet.apa.org"
+    ],
+    "posted_iso": "2026-05-29",
+    "available_languages": [
+      "en"
+    ]
+  },
+  {
+    "title": "The Year the Room Became the Message: How Refik Anadol's Unsupervised Reshaped Experiential Events in 2022",
+    "slug": "refik-anadol-unsupervised-moma-2022",
+    "meta_description": "Refik Anadol's Unsupervised at MoMA in 2022 changed what experiential events could mean. Here's why it still matters.",
+    "date": "December 07, 2022",
+    "date_iso": "2022-12-07",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/22814093/pexels-photo-22814093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "pewresearch.org",
+      "ncbi.nlm.nih.gov"
+    ],
+    "posted_iso": "2026-05-29",
+    "historical": true,
+    "available_languages": [
+      "en"
+    ]
   }
 ]
