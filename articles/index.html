@@ -1405,6 +1405,34 @@ p{letter-spacing:.005em}
 }@media (prefers-reduced-motion:reduce){
   .atelier-flame{animation:none!important}
   *{transition-duration:.001ms!important;animation-duration:.001ms!important}
+}@media (max-width:760px){
+  .reveal{opacity:0;transform:none;filter:blur(10px);transition:opacity 1s cubic-bezier(.22,1,.36,1),filter 1s cubic-bezier(.22,1,.36,1)}
+  .reveal.in{opacity:1;filter:blur(0)}
+  .phi-item{opacity:0;transform:none;filter:blur(10px);transition:opacity 1s cubic-bezier(.22,1,.36,1),filter 1s cubic-bezier(.22,1,.36,1)}
+  .phi-item.in{opacity:1;filter:blur(0)}
+}
+
+/* ── FOOTER FOG: thin warm mist drifting in just above the footer rule.
+   Sits as a pseudo-element on the footer so it travels with it. Very low
+   opacity, no blur on the content itself - just a soft white-warm haze. */
+.site-footer{position:relative;isolation:isolate}
+.site-footer::before{
+  content:'';
+  position:absolute;
+  top:-40px;left:0;right:0;height:120px;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 60% at 30% 70%, rgba(244,240,232,.04) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 70% at 80% 80%, rgba(196,160,93,.025) 0%, transparent 75%),
+    linear-gradient(180deg, transparent 0%, rgba(244,240,232,.018) 50%, transparent 100%);
+  filter:blur(6px);
+  z-index:-1;
+  animation:footerMist 14s ease-in-out infinite;
+}@keyframes footerMist{
+  0%,100%{transform:translateX(-8px);opacity:.9}
+  50%{transform:translateX(8px);opacity:1}
+}@media (prefers-reduced-motion:reduce){
+  .site-footer::before{animation:none}
 }
 /* page */
 .jr{max-width:1180px;margin:0 auto;padding:48px 28px 120px;color:#f2ede6}
@@ -1579,7 +1607,7 @@ p{letter-spacing:.005em}
     var start=(page-1)*PER_PAGE;
     var slice=rest.slice(start,start+PER_PAGE);
     if(!arr.length){
-      gridEl.innerHTML='<div class="jr-empty"><div class="jr-empty-h">The journal opens soon</div><p class="jr-empty-p">Field notes are in preparation. Subscribe to The Kanona Letter to read the first entries.</p></div>';
+      gridEl.innerHTML='<div class="jr-empty"><div class="jr-empty-h">No entries match your filters</div><p class="jr-empty-p">Try clearing the search or picking a different category above.</p></div>';
       pageEl.style.display='none';
       return;
     }
@@ -1609,7 +1637,18 @@ p{letter-spacing:.005em}
   searchEl.addEventListener('input',function(){clearTimeout(deb);deb=setTimeout(function(){query=searchEl.value;page=1;rerender();},200);});
   prevBtn.addEventListener('click',function(){if(page>1){page--;rerender();window.scrollTo({top:0,behavior:'smooth'});}});
   nextBtn.addEventListener('click',function(){page++;rerender();window.scrollTo({top:0,behavior:'smooth'});});
-  fetch('./articles.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(data){
+  // Archive page lives at /articles/index.html so ./articles.json resolves
+  // to the wrong path. Try both: ../articles.json first (correct path), then
+  // ./articles.json as a fallback for older deploys.
+  function _fetchArts(){
+    return fetch('../articles.json',{cache:'no-store'}).then(function(r){
+      if(r.ok)return r.json();
+      return fetch('./articles.json',{cache:'no-store'}).then(function(r2){
+        if(!r2.ok)throw 0; return r2.json();
+      });
+    });
+  }
+  _fetchArts().then(function(data){
     all=Array.isArray(data)?data.slice():[];
     all.sort(function(a,b){return String(b.date_iso||'').localeCompare(String(a.date_iso||''));});
     // Build categories from actual data
@@ -1622,7 +1661,7 @@ p{letter-spacing:.005em}
     });
     rerender();
   }).catch(function(){
-    gridEl.innerHTML='<div class="jr-empty"><div class="jr-empty-h">The journal opens soon</div><p class="jr-empty-p">Field notes are in preparation. Subscribe to The Kanona Letter to read the first entries.</p></div>';
+    gridEl.innerHTML='<div class="jr-empty"><div class="jr-empty-h">The journal opens soon</div><p class="jr-empty-p">New entries will appear here as they publish. Check back soon.</p></div>';
   });
 })();
 </script>
