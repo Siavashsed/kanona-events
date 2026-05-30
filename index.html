@@ -1408,9 +1408,150 @@ p{letter-spacing:.005em}
 }@media (prefers-reduced-motion:reduce){
   .atelier-flame{animation:none!important}
   *{transition-duration:.001ms!important;animation-duration:.001ms!important}
+}@media (max-width:760px){
+  .reveal{opacity:0;transform:none;filter:blur(10px);transition:opacity 1s cubic-bezier(.22,1,.36,1),filter 1s cubic-bezier(.22,1,.36,1)}
+  .reveal.in{opacity:1;filter:blur(0)}
+  .phi-item{opacity:0;transform:none;filter:blur(10px);transition:opacity 1s cubic-bezier(.22,1,.36,1),filter 1s cubic-bezier(.22,1,.36,1)}
+  .phi-item.in{opacity:1;filter:blur(0)}
+}
+
+/* ── FOOTER FOG: thin warm mist drifting in just above the footer rule.
+   Sits as a pseudo-element on the footer so it travels with it. Very low
+   opacity, no blur on the content itself - just a soft white-warm haze. */
+.site-footer{position:relative;isolation:isolate}
+.site-footer::before{
+  content:'';
+  position:absolute;
+  top:-40px;left:0;right:0;height:120px;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 60% at 30% 70%, rgba(244,240,232,.04) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 70% at 80% 80%, rgba(196,160,93,.025) 0%, transparent 75%),
+    linear-gradient(180deg, transparent 0%, rgba(244,240,232,.018) 50%, transparent 100%);
+  filter:blur(6px);
+  z-index:-1;
+  animation:footerMist 14s ease-in-out infinite;
+}@keyframes footerMist{
+  0%,100%{transform:translateX(-8px);opacity:.9}
+  50%{transform:translateX(8px);opacity:1}
+}@media (prefers-reduced-motion:reduce){
+  .site-footer::before{animation:none}
 }</style>
 </head>
 <body>
+<!-- PRELOADER: smooth charismatic fade-out. Gold hairline that draws across
+     the screen as a single horizontal line, then a tiny serif "Kanona" mark
+     reveals, then everything fades. ~1.4s total. CSS-only, no JS frameworks. -->
+<div id="preloader" aria-hidden="true">
+  <div class="pre-rule"></div>
+  <div class="pre-mark">Kanona <em>Projects</em></div>
+  <div class="pre-sub">A studio of atmosphere</div>
+</div>
+<style>
+#preloader{position:fixed;inset:0;z-index:9999;background:#050407;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .65s cubic-bezier(.22,1,.36,1);pointer-events:auto}
+#preloader.gone{opacity:0;pointer-events:none}
+#preloader .pre-rule{width:0;height:1px;background:linear-gradient(90deg,transparent,#c4a05d 30%,#c4a05d 70%,transparent);animation:preRule 900ms cubic-bezier(.22,1,.36,1) forwards}
+#preloader .pre-mark{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:32px;letter-spacing:.04em;color:#f2ede6;opacity:0;margin-top:22px;animation:preFade 700ms ease 600ms forwards}
+#preloader .pre-mark em{font-style:italic;color:#c4a05d;font-weight:300}
+#preloader .pre-sub{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:#8a7a6a;opacity:0;margin-top:8px;animation:preFade 700ms ease 800ms forwards}@keyframes preRule{0%{width:0}100%{width:min(280px,42vw)}}@keyframes preFade{0%{opacity:0;transform:translateY(4px)}100%{opacity:1;transform:none}}@media (prefers-reduced-motion:reduce){
+  #preloader .pre-rule,#preloader .pre-mark,#preloader .pre-sub{animation:none;width:280px;opacity:1}
+}</style>
+<script>
+(function(){
+  function done(){var p=document.getElementById('preloader');if(p)p.classList.add('gone');setTimeout(function(){if(p&&p.parentNode)p.parentNode.removeChild(p);},700);}
+  if(document.readyState==='complete')setTimeout(done,1400);
+  else window.addEventListener('load',function(){setTimeout(done,1400);});
+})();
+</script>
+
+<!-- AMBIENT SOUND BUTTON - floating, bottom-right. Five curated Solfeggio /
+     ambient frequencies fitting kanona's "atmosphere" brand. Plays via Web
+     Audio API (sine + soft attack envelope). Click again to stop. -->
+<button id="ambient-trigger" aria-label="Play ambient frequency"></button>
+<div id="ambient-menu" role="dialog" aria-hidden="true"></div>
+<style>
+#ambient-trigger{position:fixed;right:22px;bottom:22px;z-index:200;width:48px;height:48px;border-radius:50%;background:rgba(20,15,29,.85);border:1px solid rgba(196,160,93,.4);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#c4a05d;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .25s,border-color .25s,box-shadow .25s}
+#ambient-trigger::before{content:'';width:14px;height:14px;border-radius:50%;background:#c4a05d;opacity:.85;box-shadow:0 0 12px #c4a05d80;transition:transform .35s,box-shadow .35s}
+#ambient-trigger:hover{transform:translateY(-2px);border-color:#c4a05d;box-shadow:0 12px 32px -16px rgba(196,160,93,.4)}
+#ambient-trigger.on{border-color:#c4a05d}
+#ambient-trigger.on::before{animation:ambientPulse 2.4s ease-in-out infinite}@keyframes ambientPulse{0%,100%{transform:scale(1);box-shadow:0 0 12px #c4a05d80}50%{transform:scale(1.18);box-shadow:0 0 22px #c4a05d}}
+#ambient-menu{position:fixed;right:22px;bottom:82px;z-index:201;background:rgba(20,15,29,.96);border:1px solid rgba(196,160,93,.32);border-radius:14px;padding:14px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);min-width:240px;opacity:0;pointer-events:none;transform:translateY(6px);transition:opacity .3s,transform .3s;font-family:'JetBrains Mono',ui-monospace,monospace}
+#ambient-menu.open{opacity:1;pointer-events:auto;transform:none}
+#ambient-menu .am-title{font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:#c4a05d;margin-bottom:12px;text-align:center}
+#ambient-menu .am-list{display:flex;flex-direction:column;gap:2px}
+#ambient-menu .am-btn{background:none;border:none;color:#f2ede6;font-family:inherit;font-size:11.5px;letter-spacing:.06em;padding:9px 12px;cursor:pointer;text-align:left;border-radius:6px;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+#ambient-menu .am-btn:hover{background:rgba(196,160,93,.1)}
+#ambient-menu .am-btn.active{color:#c4a05d;background:rgba(196,160,93,.14)}
+#ambient-menu .am-btn .am-hz{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:13px;opacity:.7}@media(max-width:560px){
+  #ambient-trigger{right:14px;bottom:14px;width:44px;height:44px}
+  #ambient-menu{right:14px;bottom:68px;min-width:220px}
+}</style>
+<script>
+(function(){
+  var btn=document.getElementById('ambient-trigger');
+  var menu=document.getElementById('ambient-menu');
+  if(!btn||!menu)return;
+  var freqs=[
+    {hz:174,label:'Foundation',mood:'grounding low warmth'},
+    {hz:432,label:'Verdure',mood:'cosmic warmth'},
+    {hz:528,label:'Renewal',mood:'transformation tone'},
+    {hz:639,label:'Connection',mood:'relational warmth'},
+    {hz:741,label:'Awakening',mood:'expressive clarity'}
+  ];
+  menu.innerHTML='<div class="am-title">A frequency for the room</div>'+
+    '<div class="am-list">'+freqs.map(function(f,i){
+      return '<button class="am-btn" data-i="'+i+'" data-hz="'+f.hz+'"><span>'+f.label+' <span style="color:#8a7a6a;font-size:9.5px;letter-spacing:.18em">'+f.mood+'</span></span><span class="am-hz">'+f.hz+' Hz</span></button>';
+    }).join('')+'</div>';
+
+  var ctx=null,osc=null,gain=null,currentI=-1,menuOpen=false;
+  function ensureCtx(){if(!ctx)ctx=new (window.AudioContext||window.webkitAudioContext)();return ctx;}
+  function stop(){
+    if(osc){try{gain.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+.4);}catch(_){}setTimeout(function(){try{osc.stop();}catch(_){}osc=null;gain=null;},420);}
+    btn.classList.remove('on');btn.setAttribute('aria-label','Play ambient frequency');
+    menu.querySelectorAll('.am-btn').forEach(function(b){b.classList.remove('active');});
+    currentI=-1;
+  }
+  function play(hz,i){
+    stop();
+    setTimeout(function(){
+      var c=ensureCtx();
+      gain=c.createGain();gain.gain.setValueAtTime(.0001,c.currentTime);gain.gain.exponentialRampToValueAtTime(.07,c.currentTime+1.2);
+      osc=c.createOscillator();osc.type='sine';osc.frequency.value=hz;osc.connect(gain);gain.connect(c.destination);osc.start();
+      btn.classList.add('on');btn.setAttribute('aria-label','Stop ambient frequency');
+      currentI=i;
+      menu.querySelectorAll('.am-btn').forEach(function(b){b.classList.toggle('active',+b.dataset.i===i);});
+    },450);
+  }
+  btn.addEventListener('click',function(){
+    if(currentI>=0){stop();return;}
+    menuOpen=!menuOpen;menu.classList.toggle('open',menuOpen);
+    menu.setAttribute('aria-hidden',menuOpen?'false':'true');
+  });
+  menu.addEventListener('click',function(e){
+    var b=e.target.closest('.am-btn');if(!b)return;
+    var i=+b.dataset.i,hz=+b.dataset.hz;
+    if(currentI===i){stop();menu.classList.remove('open');menuOpen=false;return;}
+    play(hz,i);
+    menu.classList.remove('open');menuOpen=false;
+  });
+  document.addEventListener('click',function(e){
+    if(!menuOpen)return;
+    if(e.target===btn||btn.contains(e.target))return;
+    if(menu.contains(e.target))return;
+    menu.classList.remove('open');menuOpen=false;
+  });
+})();
+</script>
+
+<!-- Hero overlay strengthening for mobile - adds a darker bottom gradient so
+     the hero copy stays readable on phones where the background image takes
+     up more vertical real estate. -->
+<style>@media(max-width:760px){
+  .hero::after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(5,4,7,.35) 0%,rgba(5,4,7,.55) 45%,rgba(5,4,7,.85) 100%)}
+  .hero > *{position:relative;z-index:1}
+  .hero .hero-sub{color:#e8e2d9;opacity:.95}
+}</style>
+
 <div class="cursor-orb" id="orb"></div>
 
 <!-- NAV -->
