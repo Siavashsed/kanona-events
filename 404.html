@@ -963,6 +963,14 @@ body::before{
   color:var(--text);
 }
 .footer-brand em{color:var(--gold);font-style:normal}
+/* "K-Projects" sub - mono caps under the wordmark, mirrors the header lockup */
+.footer-brand-sub{
+  font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-size:8.5px;font-weight:500;
+  letter-spacing:2.8px;text-transform:uppercase;
+  color:var(--gold);opacity:.7;
+  margin-top:4px;
+}
 .footer-tag{
   font-size:11.5px;font-weight:300;
   color:var(--muted);line-height:1.62;
@@ -1412,6 +1420,23 @@ p{letter-spacing:.005em}
   .phi-item.in{opacity:1;filter:blur(0)}
 }
 
+/* ── ARTICLE OVERRIDES (kanona-specific, applied on article pages only)
+   The user wanted articles smaller + softer + more minimalist. Tones down
+   the body type, dials text away from pure white, shrinks headlines, and
+   lifts line-height for the editorial feel. Scoped via data-page-depth=1 so
+   homepage typography is unaffected. */
+body[data-page-depth="1"] .ap{padding:48px 22px 16px;font-feature-settings:"kern","liga","onum"}
+body[data-page-depth="1"] .ap h1{font-size:clamp(26px,3.4vw,38px);line-height:1.08;letter-spacing:-.018em;font-weight:400;color:#e5dfd4;font-family:'Cormorant Garamond',Georgia,serif}
+body[data-page-depth="1"] .ap-deck{font-size:16px;line-height:1.6;color:#b8b0a3;font-style:italic;font-family:'Cormorant Garamond',Georgia,serif;font-weight:300}
+body[data-page-depth="1"] .ap-body{font-size:15.5px;line-height:1.78;color:#cfc8ba;letter-spacing:.005em}
+body[data-page-depth="1"] .ap-body p{color:#bbb4a5;margin-bottom:20px}
+body[data-page-depth="1"] .ap-body p.ap-lede{font-size:17px;color:#d4ccbd;font-weight:400}
+body[data-page-depth="1"] .ap-body h2,body[data-page-depth="1"] .ap-body .art-h2{font-size:21px;letter-spacing:-.012em;color:#e0d9cb;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;margin:42px 0 14px}
+body[data-page-depth="1"] .ap-body h3,body[data-page-depth="1"] .ap-body .art-h3{font-size:17px;color:#d4ccbd;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;letter-spacing:-.008em}
+body[data-page-depth="1"] .ap-pull{font-size:21px;color:#d4ccbd;font-style:italic;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;margin:42px 0;padding-left:18px}
+body[data-page-depth="1"] .ap-concl{font-size:15.5px;color:#cfc8ba;font-family:'Inter',system-ui,sans-serif}
+body[data-page-depth="1"] .ap-kicker{font-size:10px;letter-spacing:.28em;color:#9a8d7d}
+
 /* ── FOOTER FOG: thin warm mist drifting in just above the footer rule.
    Sits as a pseudo-element on the footer so it travels with it. Very low
    opacity, no blur on the content itself - just a soft white-warm haze. */
@@ -1475,6 +1500,7 @@ var b=document.getElementById('e404-back');if(b)b.href=root;})();
   <div class="footer-top">
     <div>
       <div class="footer-brand">Kanona <em>Projects</em></div>
+      <div class="footer-brand-sub">K-Projects</div>
       <p class="footer-tag">An experiential event-curation studio designing evenings built to remain.</p>
     </div>
     <div class="footer-col">
