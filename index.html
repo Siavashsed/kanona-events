@@ -1172,7 +1172,10 @@ body::before{
 }
 
 /* ── LOGO POLISH ── */
-.nav-logo{position:relative;display:inline-block;padding-bottom:4px}
+/* Keep flex-column from the base rule so K-Projects sits BELOW the wordmark
+   instead of beside it. The polish rule used to set display:inline-block,
+   which collapsed the stack on every viewport including mobile. */
+.nav-logo{position:relative;padding-bottom:4px}
 .nav-logo::after{
   content:'';
   position:absolute;left:0;right:0;bottom:0;height:1px;
