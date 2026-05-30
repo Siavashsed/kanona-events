@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Dinner That Became a Reckoning: How Superblue Miami R...</title>
 <meta name="description" content="Kani Sedighi reflects on Superblue Miami's 2021 opening and what its immersive model meant for the future of experiential events.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="alternate icon" href="../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="canonical" href="https://kanonaprojects.com/superblue-miami-2021-experiential-events/"><meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"><meta name="googlebot" content="index,follow"><meta name="keywords" content="Private Dinners"><meta name="author" content="Kani Sedighi"><meta property="article:author" content="Kani Sedighi"><meta name="twitter:creator" content="Kani Sedighi"><meta property="og:site_name" content="Kanona Projects"><meta property="og:title" content="The Dinner That Became a Reckoning: How Superblue Miami Redefined Experiential Events in 2021"><meta property="og:description" content="Kani Sedighi reflects on Superblue Miami&#x27;s 2021 opening and what its immersive model meant for the future of experiential events."><meta property="og:url" content="https://kanonaprojects.com/superblue-miami-2021-experiential-events/"><meta property="og:type" content="article"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="The Dinner That Became a Reckoning: How Superblue Miami Redefined Experiential Events in 2021"><meta name="twitter:description" content="Kani Sedighi reflects on Superblue Miami&#x27;s 2021 opening and what its immersive model meant for the future of experiential events."><meta property="og:image" content="https://images.pexels.com/photos/18545010/pexels-photo-18545010.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"><meta property="og:image:alt" content="The Dinner That Became a Reckoning: How Superblue Miami Redefined Experiential Events in 2021"><meta name="twitter:image" content="https://images.pexels.com/photos/18545010/pexels-photo-18545010.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"><meta property="article:published_time" content="2021-07-28T09:00:00+00:00"><meta property="article:modified_time" content="2026-05-30T09:00:00+00:00"><meta property="article:section" content="Private Dinners"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Event", "headline": "The Dinner That Became a Reckoning: How Superblue Miami Redefined Experiential Events in 2021", "description": "Kani Sedighi reflects on Superblue Miami's 2021 opening and what its immersive model meant for the future of experiential events.", "datePublished": "2021-07-28T09:00:00+00:00", "dateModified": "2026-05-30T09:00:00+00:00", "url": "https://kanonaprojects.com/superblue-miami-2021-experiential-events/", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://kanonaprojects.com/superblue-miami-2021-experiential-events/"}, "inLanguage": "en", "image": ["https://images.pexels.com/photos/18545010/pexels-photo-18545010.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"], "author": {"@type": "Person", "name": "Kani Sedighi", "url": "https://kanonaprojects.com/about.html", "jobTitle": "experiential event curator and creative director", "description": "Kanona Projects is for curious minds who believe a gathering can be more than a social obligation. The people who show up wanting to feel something different - and leave carrying a memory they did not expect."}, "publisher": {"@type": "Organization", "name": "Kanona Projects", "url": "https://kanonaprojects.com/", "logo": {"@type": "ImageObject", "url": "https://kanonaprojects.com/favicon.ico"}}, "articleSection": "Private Dinners", "wordCount": 133, "keywords": "Private Dinners"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://kanonaprojects.com/"}, {"@type": "ListItem", "position": 2, "name": "Private Dinners", "item": "https://kanonaprojects.com/"}, {"@type": "ListItem", "position": 3, "name": "The Dinner That Became a Reckoning: How Superblue Miami Redefined Experiential Events in 2021", "item": "https://kanonaprojects.com/superblue-miami-2021-experiential-events/"}]}</script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -305,7 +309,22 @@ body::before{
   background:linear-gradient(to bottom,var(--gold),transparent);
   animation:track-breathe 3.4s ease-in-out infinite;
 }@keyframes track-breathe{0%,100%{opacity:.3}50%{opacity:.75}}@media(max-width:600px){
-  .hero-content{padding:72px 26px 56px}
+  /* Force hero content to dead-center on mobile - explicit margin + width
+     reset so the flex parent's justify-content actually lands the block
+     centered when the canvas backdrops change layout flow. */
+  .hero-content{
+    padding:72px 22px 56px;
+    margin:0 auto;
+    width:100%;
+    max-width:100%;
+    text-align:center;
+    left:0;right:0;
+  }
+  .hero-h1{margin-left:auto;margin-right:auto;max-width:100%}
+  .hero-h1 i{font-size:clamp(34px,9vw,52px);margin:14px auto 18px;max-width:92vw}
+  .hero-sub{margin:28px auto 40px;max-width:88vw}
+  .hero-actions{justify-content:center;width:100%}
+  .hero-ornament{margin-left:auto;margin-right:auto;display:block}
 }
 
 /* ── SHARED LAYOUT ── */
@@ -416,9 +435,17 @@ body::before{
   letter-spacing:.2px;margin-bottom:18px;
 }
 .story-body p:last-child{margin-bottom:0}@media(max-width:760px){
-  .story-grid{grid-template-columns:1fr;gap:32px}
-  .story-portrait{aspect-ratio:5/4;max-height:320px}
-  .story-section{padding:clamp(72px,10vh,110px) 0}
+  .story-grid{grid-template-columns:1fr;gap:28px}
+  /* Full-width breakout for the portrait image on mobile - cancels the
+     wrap padding so the artwork goes edge-to-edge of the viewport. */
+  .story-portrait{
+    aspect-ratio:4/5;
+    max-height:none;
+    margin-left:-24px;
+    margin-right:-24px;
+    width:calc(100% + 48px);
+  }
+  .story-section{padding:clamp(64px,10vh,100px) 0}
 }
 
 /* ── STATS ── */
@@ -1469,9 +1496,14 @@ body[data-page-depth="1"] .ap-kicker{font-size:10px;letter-spacing:.28em;color:#
    the conclusion + sources block escape the 720px column on wide screens.
    Pin every descendant of .ap to max-width:100% and the wrapper to a hard
    720px so nothing can break out regardless of homepage CSS quirks. */
-.ap,.ap *,.ap-concl,.ap-concl *,.ap-pull,.ap-body,.ap-body *,.ap-deck{box-sizing:border-box;overflow-wrap:break-word;word-wrap:break-word;word-break:normal;hyphens:auto;max-width:100%}
-.ap{max-width:720px;margin:0 auto;padding:56px 24px 24px;font-family:'Inter',system-ui,sans-serif;position:relative;overflow:visible}
-.ap-body,.ap-concl,.ap-deck,.ap-pull{max-width:none;width:auto}
+.ap,.ap *,.ap-concl,.ap-concl *,.ap-pull,.ap-body,.ap-body *,.ap-deck{box-sizing:border-box;overflow-wrap:anywhere;word-wrap:break-word;word-break:normal;hyphens:auto;max-width:100%;min-width:0}
+.ap{max-width:720px !important;margin:0 auto !important;padding:56px 24px 24px;font-family:'Inter',system-ui,sans-serif;position:relative;overflow:hidden;width:100%}
+.ap-body,.ap-concl,.ap-deck,.ap-pull{max-width:100% !important;width:100%;min-width:0}
+/* Defensive: any long URL or unbreakable string inside the article is
+   forced to break so it cannot push the parent column wider than 720px. */
+.ap-body a,.ap-concl a,.ap-pull a{overflow-wrap:anywhere;word-break:break-word}
+body[data-page-depth="1"]{overflow-x:hidden}
+article[itemscope]{display:block;max-width:100%;overflow-x:hidden}
 .ap-kicker{display:flex;align-items:center;gap:12px;font-family:'Cormorant Garamond',Georgia,serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#c4a05d;margin:0 0 26px}
 .ap-kicker::before{content:'';width:28px;height:1px;background:#c4a05d}
 .ap-kicker .ap-sep{opacity:.4;font-weight:400;letter-spacing:1px;color:#7a7068}
