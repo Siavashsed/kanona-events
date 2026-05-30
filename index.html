@@ -966,6 +966,14 @@ body::before{
   color:var(--text);
 }
 .footer-brand em{color:var(--gold);font-style:normal}
+/* "K-Projects" sub - mono caps under the wordmark, mirrors the header lockup */
+.footer-brand-sub{
+  font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-size:8.5px;font-weight:500;
+  letter-spacing:2.8px;text-transform:uppercase;
+  color:var(--gold);opacity:.7;
+  margin-top:4px;
+}
 .footer-tag{
   font-size:11.5px;font-weight:300;
   color:var(--muted);line-height:1.62;
@@ -1415,6 +1423,23 @@ p{letter-spacing:.005em}
   .phi-item.in{opacity:1;filter:blur(0)}
 }
 
+/* ── ARTICLE OVERRIDES (kanona-specific, applied on article pages only)
+   The user wanted articles smaller + softer + more minimalist. Tones down
+   the body type, dials text away from pure white, shrinks headlines, and
+   lifts line-height for the editorial feel. Scoped via data-page-depth=1 so
+   homepage typography is unaffected. */
+body[data-page-depth="1"] .ap{padding:48px 22px 16px;font-feature-settings:"kern","liga","onum"}
+body[data-page-depth="1"] .ap h1{font-size:clamp(26px,3.4vw,38px);line-height:1.08;letter-spacing:-.018em;font-weight:400;color:#e5dfd4;font-family:'Cormorant Garamond',Georgia,serif}
+body[data-page-depth="1"] .ap-deck{font-size:16px;line-height:1.6;color:#b8b0a3;font-style:italic;font-family:'Cormorant Garamond',Georgia,serif;font-weight:300}
+body[data-page-depth="1"] .ap-body{font-size:15.5px;line-height:1.78;color:#cfc8ba;letter-spacing:.005em}
+body[data-page-depth="1"] .ap-body p{color:#bbb4a5;margin-bottom:20px}
+body[data-page-depth="1"] .ap-body p.ap-lede{font-size:17px;color:#d4ccbd;font-weight:400}
+body[data-page-depth="1"] .ap-body h2,body[data-page-depth="1"] .ap-body .art-h2{font-size:21px;letter-spacing:-.012em;color:#e0d9cb;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;margin:42px 0 14px}
+body[data-page-depth="1"] .ap-body h3,body[data-page-depth="1"] .ap-body .art-h3{font-size:17px;color:#d4ccbd;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;letter-spacing:-.008em}
+body[data-page-depth="1"] .ap-pull{font-size:21px;color:#d4ccbd;font-style:italic;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;margin:42px 0;padding-left:18px}
+body[data-page-depth="1"] .ap-concl{font-size:15.5px;color:#cfc8ba;font-family:'Inter',system-ui,sans-serif}
+body[data-page-depth="1"] .ap-kicker{font-size:10px;letter-spacing:.28em;color:#9a8d7d}
+
 /* ── FOOTER FOG: thin warm mist drifting in just above the footer rule.
    Sits as a pseudo-element on the footer so it travels with it. Very low
    opacity, no blur on the content itself - just a soft white-warm haze. */
@@ -1467,14 +1492,26 @@ p{letter-spacing:.005em}
 <!-- AMBIENT SOUND BUTTON - floating, bottom-right. Five curated Solfeggio /
      ambient frequencies fitting kanona's "atmosphere" brand. Plays via Web
      Audio API (sine + soft attack envelope). Click again to stop. -->
-<button id="ambient-trigger" aria-label="Play ambient frequency"></button>
+<button id="ambient-trigger" aria-label="Play ambient frequency">
+  <svg class="amb-wave" viewBox="0 0 40 24" aria-hidden="true">
+    <path d="M2 12 Q 6 4, 10 12 T 18 12 T 26 12 T 34 12 T 42 12" fill="none" stroke="#c4a05d" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>
+</button>
 <div id="ambient-menu" role="dialog" aria-hidden="true"></div>
 <style>
-#ambient-trigger{position:fixed;right:22px;bottom:22px;z-index:200;width:48px;height:48px;border-radius:50%;background:rgba(20,15,29,.85);border:1px solid rgba(196,160,93,.4);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#c4a05d;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .25s,border-color .25s,box-shadow .25s}
-#ambient-trigger::before{content:'';width:14px;height:14px;border-radius:50%;background:#c4a05d;opacity:.85;box-shadow:0 0 12px #c4a05d80;transition:transform .35s,box-shadow .35s}
+#ambient-trigger{position:fixed;right:22px;bottom:22px;z-index:200;width:52px;height:52px;border-radius:50%;background:rgba(20,15,29,.85);border:1px solid rgba(196,160,93,.4);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#c4a05d;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .25s,border-color .25s,box-shadow .25s;padding:0}
+#ambient-trigger .amb-wave{width:26px;height:14px;opacity:.78;transition:opacity .3s}
+#ambient-trigger .amb-wave path{stroke-dasharray:80;stroke-dashoffset:0}
 #ambient-trigger:hover{transform:translateY(-2px);border-color:#c4a05d;box-shadow:0 12px 32px -16px rgba(196,160,93,.4)}
-#ambient-trigger.on{border-color:#c4a05d}
-#ambient-trigger.on::before{animation:ambientPulse 2.4s ease-in-out infinite}@keyframes ambientPulse{0%,100%{transform:scale(1);box-shadow:0 0 12px #c4a05d80}50%{transform:scale(1.18);box-shadow:0 0 22px #c4a05d}}
+#ambient-trigger:hover .amb-wave{opacity:1}
+#ambient-trigger.on{border-color:#c4a05d;box-shadow:0 0 28px rgba(196,160,93,.35)}
+#ambient-trigger.on .amb-wave path{animation:waveFlow 2.4s ease-in-out infinite}@keyframes waveFlow{
+  0%,100%{d:path("M2 12 Q 6 4, 10 12 T 18 12 T 26 12 T 34 12 T 42 12")}
+  50%{d:path("M2 12 Q 6 20, 10 12 T 18 12 T 26 12 T 34 12 T 42 12")}
+}@supports not (d: path("M0 0 L1 1")){
+  #ambient-trigger.on .amb-wave{animation:wavePulse 2.4s ease-in-out infinite}
+  @keyframes wavePulse{0%,100%{transform:scaleY(1);opacity:.7}50%{transform:scaleY(1.6);opacity:1}}
+}
 #ambient-menu{position:fixed;right:22px;bottom:82px;z-index:201;background:rgba(20,15,29,.96);border:1px solid rgba(196,160,93,.32);border-radius:14px;padding:14px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);min-width:240px;opacity:0;pointer-events:none;transform:translateY(6px);transition:opacity .3s,transform .3s;font-family:'JetBrains Mono',ui-monospace,monospace}
 #ambient-menu.open{opacity:1;pointer-events:auto;transform:none}
 #ambient-menu .am-title{font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:#c4a05d;margin-bottom:12px;text-align:center}
@@ -1515,7 +1552,7 @@ p{letter-spacing:.005em}
     stop();
     setTimeout(function(){
       var c=ensureCtx();
-      gain=c.createGain();gain.gain.setValueAtTime(.0001,c.currentTime);gain.gain.exponentialRampToValueAtTime(.07,c.currentTime+1.2);
+      gain=c.createGain();gain.gain.setValueAtTime(.0001,c.currentTime);gain.gain.exponentialRampToValueAtTime(.038,c.currentTime+1.6);
       osc=c.createOscillator();osc.type='sine';osc.frequency.value=hz;osc.connect(gain);gain.connect(c.destination);osc.start();
       btn.classList.add('on');btn.setAttribute('aria-label','Stop ambient frequency');
       currentI=i;
@@ -1985,6 +2022,7 @@ p{letter-spacing:.005em}
   <div class="footer-top">
     <div>
       <div class="footer-brand">Kanona <em>Projects</em></div>
+      <div class="footer-brand-sub">K-Projects</div>
       <p class="footer-tag">An experiential event-curation studio designing evenings built to remain.</p>
     </div>
     <div class="footer-col">
