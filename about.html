@@ -2147,26 +2147,49 @@ if(!REDUCED&&window.matchMedia('(hover:hover)').matches){
       +'</div>';
   }
 
-  function render(arts){
-    if(!arts||!arts.length){emptyState();return;}
-    grid.className='exp-grid';
+  var ALL=[],SHOWN=0,PER_PAGE=6;
+  function cardHTML(a,i){
+    var n=(i+1)<10?'0'+(i+1):''+(i+1);
+    var desc=(a.meta_description||a.description||'');
+    if(desc.length>118)desc=desc.slice(0,118)+'...';
+    var hasImg=a.image&&typeof a.image==='string';
+    var thumb=hasImg?'<div class="exp-thumb has-img"><img src="'+a.image+'" alt="'+(a.title||'').replace(/"/g,'&quot;')+'" loading="lazy" onerror="this.style.display=\'none\'; this.parentNode.classList.remove(\'has-img\');"></div>':'';
     var arrow='<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
-    grid.innerHTML=arts.map(function(a,i){
-      var n=(i+1)<10?'0'+(i+1):''+(i+1);
-      var desc=(a.meta_description||a.description||'');
-      if(desc.length>118)desc=desc.slice(0,118)+'...';
-      var hasImg=a.image&&typeof a.image==='string';
-      var thumb=hasImg?'<div class="exp-thumb has-img"><img src="'+a.image+'" alt="'+(a.title||'').replace(/"/g,'&quot;')+'" loading="lazy" onerror="this.style.display=\'none\'; this.parentNode.classList.remove(\'has-img\');"></div>':'';
-      return '<a class="exp-card" href="./'+a.slug+'/">'
-        +thumb
-        +'<div class="exp-n">'+n+'</div>'
-        +'<div class="exp-tag">'+(a.category||'Journal')+'</div>'
-        +'<div class="exp-title">'+(a.title||'Untitled')+'</div>'
-        +'<div class="exp-desc">'+desc+'</div>'
-        +'<div class="exp-foot"><span>'+(a.date||'')+'</span>'
-        +'<span class="exp-read">Read '+arrow+'</span></div>'
-        +'</a>';
-    }).join('');
+    return '<a class="exp-card" href="./'+a.slug+'/">'
+      +thumb
+      +'<div class="exp-n">'+n+'</div>'
+      +'<div class="exp-tag">'+(a.category||'Journal')+'</div>'
+      +'<div class="exp-title">'+(a.title||'Untitled')+'</div>'
+      +'<div class="exp-desc">'+desc+'</div>'
+      +'<div class="exp-foot"><span>'+(a.date||'')+'</span>'
+      +'<span class="exp-read">Read '+arrow+'</span></div>'
+      +'</a>';
+  }
+  function renderInitial(arts){
+    if(!arts||!arts.length){emptyState();return;}
+    ALL=arts;SHOWN=Math.min(PER_PAGE,arts.length);
+    grid.className='exp-grid';
+    grid.innerHTML=arts.slice(0,SHOWN).map(cardHTML).join('');
+    ensureLoadMoreBtn();
+  }
+  function ensureLoadMoreBtn(){
+    var existing=document.getElementById('exp-loadmore-wrap');
+    if(SHOWN>=ALL.length){if(existing)existing.remove();return;}
+    if(existing)return;
+    var wrap=document.createElement('div');
+    wrap.id='exp-loadmore-wrap';
+    wrap.style.cssText='text-align:center;margin-top:42px;padding:0 20px';
+    wrap.innerHTML='<button id="exp-loadmore" type="button" style="background:transparent;border:1px solid rgba(196,160,93,.55);color:#c4a05d;font-family:\'JetBrains Mono\',ui-monospace,monospace;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;padding:14px 32px;cursor:pointer;border-radius:2px;transition:background .3s,border-color .3s;display:inline-flex;align-items:center;gap:14px"><span>Load more entries</span><span style="display:inline-block;width:18px;height:1px;background:#c4a05d"></span></button>';
+    grid.parentNode.insertBefore(wrap,grid.nextSibling);
+    wrap.querySelector('button').addEventListener('mouseenter',function(){this.style.background='rgba(196,160,93,.08)';this.style.borderColor='#c4a05d';});
+    wrap.querySelector('button').addEventListener('mouseleave',function(){this.style.background='transparent';this.style.borderColor='rgba(196,160,93,.55)';});
+    wrap.querySelector('button').addEventListener('click',function(){
+      var next=Math.min(SHOWN+PER_PAGE,ALL.length);
+      var moreHTML=ALL.slice(SHOWN,next).map(cardHTML).join('');
+      grid.insertAdjacentHTML('beforeend',moreHTML);
+      SHOWN=next;
+      ensureLoadMoreBtn();
+    });
   }
 
   fetch('./articles.json')
@@ -2174,7 +2197,7 @@ if(!REDUCED&&window.matchMedia('(hover:hover)').matches){
     .then(function(data){
       var arts=Array.isArray(data)?data:(data&&Array.isArray(data.articles)?data.articles:[]);
       arts=arts.filter(function(a){return a&&a.slug&&a.title;});
-      render(arts);
+      renderInitial(arts);
     })
     .catch(function(){emptyState();});
 })();
