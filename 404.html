@@ -1405,6 +1405,34 @@ p{letter-spacing:.005em}
 }@media (prefers-reduced-motion:reduce){
   .atelier-flame{animation:none!important}
   *{transition-duration:.001ms!important;animation-duration:.001ms!important}
+}@media (max-width:760px){
+  .reveal{opacity:0;transform:none;filter:blur(10px);transition:opacity 1s cubic-bezier(.22,1,.36,1),filter 1s cubic-bezier(.22,1,.36,1)}
+  .reveal.in{opacity:1;filter:blur(0)}
+  .phi-item{opacity:0;transform:none;filter:blur(10px);transition:opacity 1s cubic-bezier(.22,1,.36,1),filter 1s cubic-bezier(.22,1,.36,1)}
+  .phi-item.in{opacity:1;filter:blur(0)}
+}
+
+/* ── FOOTER FOG: thin warm mist drifting in just above the footer rule.
+   Sits as a pseudo-element on the footer so it travels with it. Very low
+   opacity, no blur on the content itself - just a soft white-warm haze. */
+.site-footer{position:relative;isolation:isolate}
+.site-footer::before{
+  content:'';
+  position:absolute;
+  top:-40px;left:0;right:0;height:120px;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 60% at 30% 70%, rgba(244,240,232,.04) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 70% at 80% 80%, rgba(196,160,93,.025) 0%, transparent 75%),
+    linear-gradient(180deg, transparent 0%, rgba(244,240,232,.018) 50%, transparent 100%);
+  filter:blur(6px);
+  z-index:-1;
+  animation:footerMist 14s ease-in-out infinite;
+}@keyframes footerMist{
+  0%,100%{transform:translateX(-8px);opacity:.9}
+  50%{transform:translateX(8px);opacity:1}
+}@media (prefers-reduced-motion:reduce){
+  .site-footer::before{animation:none}
 }
 /* page */
 .e404{max-width:560px;margin:0 auto;padding:88px 24px 96px;text-align:center}
