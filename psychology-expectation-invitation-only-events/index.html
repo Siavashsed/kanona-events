@@ -1169,7 +1169,10 @@ body::before{
 }
 
 /* ── LOGO POLISH ── */
-.nav-logo{position:relative;display:inline-block;padding-bottom:4px}
+/* Keep flex-column from the base rule so K-Projects sits BELOW the wordmark
+   instead of beside it. The polish rule used to set display:inline-block,
+   which collapsed the stack on every viewport including mobile. */
+.nav-logo{position:relative;padding-bottom:4px}
 .nav-logo::after{
   content:'';
   position:absolute;left:0;right:0;bottom:0;height:1px;
@@ -1333,9 +1336,9 @@ body::before{
   .reveal,.phi-item{opacity:1!important;transform:none!important}
 }
 
-/* CONTRAST-AUDIT v1 */
-/* Article-page-only contrast guard. body[data-page-depth="1"] is stamped on
-   every article by layout_shell.wrap_page. Homepage (depth=0) is untouched. */
+/* CONTRAST-AUDIT v2 - auto-derived from site theme so it adapts to each
+   palette instead of forcing one fixed color (which broke white-on-white
+   on every light-bg site). */
 body[data-page-depth="1"] h1,
 body[data-page-depth="1"] h2,
 body[data-page-depth="1"] h3,
@@ -1345,7 +1348,7 @@ body[data-page-depth="1"] .mag-hero h1,
 body[data-page-depth="1"] .imm-hero h1,
 body[data-page-depth="1"] article h1,
 body[data-page-depth="1"] article h2,
-body[data-page-depth="1"] article h3{color:#ffffff !important}
+body[data-page-depth="1"] article h3{color:#f2ede6 !important}
 body[data-page-depth="1"] article p,
 body[data-page-depth="1"] article li,
 body[data-page-depth="1"] .art-body p,
@@ -1353,10 +1356,10 @@ body[data-page-depth="1"] .mag-body p,
 body[data-page-depth="1"] .imm-body p,
 body[data-page-depth="1"] article .intro,
 body[data-page-depth="1"] article .concl,
-body[data-page-depth="1"] article strong{color:#e6e6e6 !important}
+body[data-page-depth="1"] article strong{color:#f2ede6 !important}
 body[data-page-depth="1"] article a,
 body[data-page-depth="1"] article p a,
-body[data-page-depth="1"] article .intro a{color:#c4a05d !important;text-decoration:underline;text-underline-offset:3px}
+body[data-page-depth="1"] article .intro a{color:#c9a96e !important;text-decoration:underline;text-underline-offset:3px}
 /* /CONTRAST-AUDIT */
 
 /* ── PREMIUM POLISH (Vestigare-inspired typographic tightening) ────────────
