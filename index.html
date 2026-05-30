@@ -309,7 +309,22 @@ body::before{
   background:linear-gradient(to bottom,var(--gold),transparent);
   animation:track-breathe 3.4s ease-in-out infinite;
 }@keyframes track-breathe{0%,100%{opacity:.3}50%{opacity:.75}}@media(max-width:600px){
-  .hero-content{padding:72px 26px 56px}
+  /* Force hero content to dead-center on mobile - explicit margin + width
+     reset so the flex parent's justify-content actually lands the block
+     centered when the canvas backdrops change layout flow. */
+  .hero-content{
+    padding:72px 22px 56px;
+    margin:0 auto;
+    width:100%;
+    max-width:100%;
+    text-align:center;
+    left:0;right:0;
+  }
+  .hero-h1{margin-left:auto;margin-right:auto;max-width:100%}
+  .hero-h1 i{font-size:clamp(34px,9vw,52px);margin:14px auto 18px;max-width:92vw}
+  .hero-sub{margin:28px auto 40px;max-width:88vw}
+  .hero-actions{justify-content:center;width:100%}
+  .hero-ornament{margin-left:auto;margin-right:auto;display:block}
 }
 
 /* ── SHARED LAYOUT ── */
@@ -420,9 +435,17 @@ body::before{
   letter-spacing:.2px;margin-bottom:18px;
 }
 .story-body p:last-child{margin-bottom:0}@media(max-width:760px){
-  .story-grid{grid-template-columns:1fr;gap:32px}
-  .story-portrait{aspect-ratio:5/4;max-height:320px}
-  .story-section{padding:clamp(72px,10vh,110px) 0}
+  .story-grid{grid-template-columns:1fr;gap:28px}
+  /* Full-width breakout for the portrait image on mobile - cancels the
+     wrap padding so the artwork goes edge-to-edge of the viewport. */
+  .story-portrait{
+    aspect-ratio:4/5;
+    max-height:none;
+    margin-left:-24px;
+    margin-right:-24px;
+    width:calc(100% + 48px);
+  }
+  .story-section{padding:clamp(64px,10vh,100px) 0}
 }
 
 /* ── STATS ── */
