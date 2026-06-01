@@ -109,5 +109,22 @@
       "en"
     ],
     "category": "Brand Experiences"
+  },
+  {
+    "title": "One Room, One Evening: How a Single Space Carries the Weight of an Unforgettable Event",
+    "slug": "single-room-unforgettable-evening-atmosphere",
+    "meta_description": "Kani Sedighi on how a single room shapes memory, mood, and meaning at experiential events. Sensory design, atmosphere, and what actually works.",
+    "date": "June 01, 2026",
+    "date_iso": "2026-06-01",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/95949/pexels-photo-95949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "ncbi.nlm.nih.gov",
+      "sciencedirect.com"
+    ],
+    "posted_iso": "2026-06-01",
+    "available_languages": [
+      "en"
+    ]
   }
 ]
