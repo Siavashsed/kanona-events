@@ -313,12 +313,13 @@ body::before{
      reset so the flex parent's justify-content actually lands the block
      centered when the canvas backdrops change layout flow. */
   .hero-content{
+    position:static !important;transform:none !important;
     padding:72px 22px 56px;
     margin:0 auto;
     width:100%;
     max-width:100%;
     text-align:center;
-    left:0;right:0;
+    left:auto;right:auto;
   }
   .hero-h1{margin-left:auto;margin-right:auto;max-width:100%}
   /* Keep the display sentence on ONE centred line on phones: a viewport-scaled
@@ -1510,7 +1511,7 @@ body[data-page-depth="1"] .ap-kicker{font-size:10px;letter-spacing:.28em;color:#
 .kn-body{font-size:19px;line-height:1.82;color:#ede9e2;position:relative;padding-left:18px}
 .kn-body p{margin:0 0 26px;color:#ede9e2;font-weight:400}
 .kn-body p.kn-lede{font-size:24px;line-height:1.5;color:#ede9e2;font-style:italic;margin-bottom:34px;font-weight:400}
-.kn-body p.kn-lede::first-letter{float:left;font-family:'Cormorant Garamond',Georgia,serif;font-style:normal;font-size:88px;font-weight:500;line-height:.82;margin:10px 14px -4px 0;color:#c4a05d}
+.kn-body p.kn-lede::first-letter{float:none;font-size:inherit;font-weight:inherit;margin:0;color:inherit}
 .kn-h2-wrap{margin:64px 0 18px;text-align:center}
 .kn-h2-orn{display:inline-block;color:#c4a05d;opacity:.7;margin-bottom:10px}
 .kn-body h2.kn-h2,.kn-body .art-h2{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(28px,4.2vw,42px);line-height:1.2;letter-spacing:-.5px;color:#ede9e2;margin:0;text-align:center}
@@ -1535,7 +1536,8 @@ body[data-page-depth="1"] .ap-kicker{font-size:10px;letter-spacing:.28em;color:#
 .kn-concl::after{content:'';position:absolute;top:0;left:0;width:48px;height:1px;background:#c4a05d}
 .kn-concl p{color:#ede9e2;margin-bottom:18px}
 .kn-fin-row{text-align:center;margin:44px 0 8px;color:#c4a05d;opacity:.75;line-height:0}
-.kn-fin-row svg{display:inline-block}@media(max-width:760px){
+.kn-fin-row svg{display:inline-block}
+.kn-tagline{max-width:560px;margin:42px auto 0;text-align:center;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:15px;line-height:1.65;color:#8f8b82}@media(max-width:760px){
   .kn-hero{height:48vh;min-height:320px}
   .kn-wrap{padding:0 22px 24px}
   /* Mobile: center the hero/title banner (kicker, headline, deck) so the
@@ -1549,7 +1551,7 @@ body[data-page-depth="1"] .ap-kicker{font-size:10px;letter-spacing:.28em;color:#
   .kn-body{font-size:18px;padding-left:14px}
   .kn-rail{left:8px}
   .kn-body p.kn-lede{font-size:21px}
-  .kn-body p.kn-lede::first-letter{font-size:66px}
+  .kn-body p.kn-lede::first-letter{font-size:inherit}
   .kn-pull{font-size:24px;margin:42px 0;padding:28px 8px}
   .kn-pull-q{font-size:38px;vertical-align:-8px}
   .kn-body h2.kn-h2{font-size:30px}
@@ -1576,6 +1578,11 @@ body[data-page-depth="1"] .kn-body li,
 body[data-page-depth="1"] .kn-body p.kn-lede,
 body[data-page-depth="1"] .kn-concl,
 body[data-page-depth="1"] .kn-concl p{color:var(--text,#ece6dd) !important}
+/* article copy: light gray + standard responsive size (headings stay) */
+body[data-page-depth="1"] .kn-body,
+body[data-page-depth="1"] .kn-body p,
+body[data-page-depth="1"] .kn-body li,
+body[data-page-depth="1"] .kn-body p.kn-lede{color:#b9b5ab !important;font-size:clamp(16px,1.55vw,18px) !important;line-height:1.78 !important}
 body[data-page-depth="1"] .kn-deck{color:var(--text2,rgba(236,230,221,.78)) !important}
 body[data-page-depth="1"] .kn-kicker,
 body[data-page-depth="1"] .kn-body strong,
@@ -1643,6 +1650,7 @@ body[data-page-depth="1"] .kn-body p.kn-lede::first-letter{color:var(--gold,#c4a
   <p style="font-size:13.5px;color:#b8b4aa;line-height:1.7;margin:0;max-width:580px">Kanona Projects is for curious minds who believe a gathering can be more than a social obligation. The people who show up wanting to feel something different - and leave carrying a memory they did not expect.</p>
 </div>
 </article>
+<!-- FOOTER --></article>
 <!-- FOOTER --></article>
 <!-- FOOTER -->
 <footer class="site-footer">
