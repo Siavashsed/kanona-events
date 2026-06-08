@@ -68,5 +68,43 @@
     "category": "Brand Experiences",
     "date_iso": "2020-08-02",
     "date": ""
+  },
+  {
+    "title": "The Art of the Unrepeatable: Why the Best Events Never Happen Twice",
+    "slug": "art-unrepeatable-events-never-twice",
+    "meta_description": "Kani Sedighi on why truly great experiential events resist repetition, and why that's the whole point.",
+    "date": "June 08, 2026",
+    "date_iso": "2026-06-08",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/17023144/pexels-photo-17023144.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "science.org",
+      "journals.sagepub.com",
+      "apa.org"
+    ],
+    "posted_iso": "2026-06-08",
+    "available_languages": [
+      "en"
+    ]
+  },
+  {
+    "title": "The Senses as Infrastructure: How Sphere Las Vegas Redefined Experiential Events in 2024",
+    "slug": "sphere-las-vegas-2024-experiential-events",
+    "meta_description": "Kani Sedighi on how Sphere Las Vegas changed experiential events in 2024 - the sensory design, the industry reaction, and what it means for live experience.",
+    "date": "August 03, 2024",
+    "date_iso": "2024-08-03",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/6940497/pexels-photo-6940497.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "msg.com",
+      "wired.com",
+      "ncbi.nlm.nih.gov",
+      "eventmarketer.com"
+    ],
+    "posted_iso": "2026-06-08",
+    "historical": true,
+    "available_languages": [
+      "en"
+    ]
   }
 ]
