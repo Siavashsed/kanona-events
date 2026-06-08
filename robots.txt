@@ -3,4 +3,4 @@ Allow: /
 Disallow: /articles.json
 Disallow: /_state.json
 Disallow: /.posted-tracker.json
-Sitemap: https://siavashsed.github.io/kanona-events/sitemap.xml
+Sitemap: https://kanonaprojects.com/sitemap.xml
