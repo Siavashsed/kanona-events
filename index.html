@@ -107,8 +107,7 @@ body::before{
   padding:9px 20px;
   transition:opacity .2s;
 }
-.nav-cta:hover{opacity:.82}
-@media(max-width:760px){
+.nav-cta:hover{opacity:.82}@media(max-width:760px){
   .nav{padding:0 22px}
   .nav-links .nav-link{display:none}
 }
@@ -156,8 +155,7 @@ body::before{
 .hero-frame.tl{top:88px;left:56px}
 .hero-frame.tr{top:88px;right:56px;transform:scaleX(-1)}
 .hero-frame.bl{bottom:56px;left:56px;transform:scaleY(-1)}
-.hero-frame.br{bottom:56px;right:56px;transform:scale(-1,-1)}
-@media(max-width:760px){
+.hero-frame.br{bottom:56px;right:56px;transform:scale(-1,-1)}@media(max-width:760px){
   .hero-frame{width:38px;height:38px}
   .hero-frame.tl,.hero-frame.tr{top:74px}
   .hero-frame.tl,.hero-frame.bl{left:22px}
@@ -182,8 +180,7 @@ body::before{
 .hero-meta-dot{
   width:3px;height:3px;border-radius:50%;
   background:var(--gold);opacity:.55;
-}
-@media(max-width:600px){
+}@media(max-width:600px){
   .hero-meta{gap:14px;font-size:8px;letter-spacing:1.8px;flex-wrap:wrap}
 }
 #gl,#gl-dots,#gl-bg{
@@ -202,9 +199,7 @@ body::before{
   background:
     radial-gradient(ellipse 45% 35% at 50% 42%, rgba(196,160,93,.10) 0%, transparent 60%),
     radial-gradient(ellipse 80% 60% at 50% 110%, rgba(20,14,28,.55) 0%, transparent 60%);
-}
-.no-webgl .hero-static-fallback,
-@media(prefers-reduced-motion:reduce){.hero-static-fallback{display:block}}
+}@media(prefers-reduced-motion:reduce){.hero-static-fallback{display:block}}
 
 /* Section accent strip - replaced the WebGL shader band (which rendered as a
    thick metallic sweep on black BG) with a single static gold hairline,
@@ -225,8 +220,7 @@ body::before{
   pointer-events:none;
 }
 .shader-accent.in{opacity:.85}
-.shader-accent canvas{display:none}
-@media(prefers-reduced-motion:reduce){.shader-accent{opacity:.85;transition:none}}
+.shader-accent canvas{display:none}@media(prefers-reduced-motion:reduce){.shader-accent{opacity:.85;transition:none}}
 .hero-vignette{
   position:absolute;inset:0;z-index:1;pointer-events:none;
   background:
@@ -264,7 +258,10 @@ body::before{
   text-transform:none;
   color:var(--text);
   line-height:1.12;
-  margin:16px 0 18px;
+  margin:16px auto 18px;
+  /* keep the display line clean: balanced wrapping prevents a single orphan
+     word from dropping onto a messy second row at in-between widths */
+  text-wrap:balance;
 }
 .hero-h1 span{
   display:block;
@@ -281,8 +278,9 @@ body::before{
   color:var(--text2);
   line-height:1.7;
   letter-spacing:.2px;
-  max-width:400px;
+  max-width:420px;
   margin:30px auto 48px;
+  text-wrap:balance;
 }
 .hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 .btn-primary{
@@ -314,9 +312,7 @@ body::before{
   width:1px;height:46px;
   background:linear-gradient(to bottom,var(--gold),transparent);
   animation:track-breathe 3.4s ease-in-out infinite;
-}
-@keyframes track-breathe{0%,100%{opacity:.3}50%{opacity:.75}}
-@media(max-width:600px){
+}@keyframes track-breathe{0%,100%{opacity:.3}50%{opacity:.75}}@media(max-width:600px){
   /* Force hero content to dead-center on mobile - explicit margin + width
      reset so the flex parent's justify-content actually lands the block
      centered when the canvas backdrops change layout flow. */
@@ -340,8 +336,7 @@ body::before{
 }
 
 /* ── SHARED LAYOUT ── */
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 56px}
-@media(max-width:600px){.wrap{padding:0 24px}}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 56px}@media(max-width:600px){.wrap{padding:0 24px}}
 
 .sect-label{
   font-size:9px;letter-spacing:2.5px;text-transform:uppercase;
@@ -447,8 +442,7 @@ body::before{
   color:var(--text2);line-height:1.7;
   letter-spacing:.2px;margin-bottom:18px;
 }
-.story-body p:last-child{margin-bottom:0}
-@media(max-width:760px){
+.story-body p:last-child{margin-bottom:0}@media(max-width:760px){
   .story-grid{grid-template-columns:1fr;gap:28px}
   /* Full-width breakout for the portrait image on mobile - cancels the
      wrap padding so the artwork goes edge-to-edge of the viewport. */
@@ -499,8 +493,7 @@ body::before{
 .stat-l{
   font-size:9px;letter-spacing:1.8px;text-transform:uppercase;
   color:var(--platinum);opacity:.55;
-}
-@media(max-width:760px){
+}@media(max-width:760px){
   .stats-grid{grid-template-columns:1fr 1fr}
   .stat{padding:40px 24px}
   .stat+.stat::before{display:none}
@@ -560,9 +553,7 @@ body::before{
   font-size:11.5px;font-weight:300;
   color:var(--muted);line-height:1.64;
   letter-spacing:.15px;
-}
-@media(max-width:860px){.svc-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){
+}@media(max-width:860px){.svc-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){
   .svc-grid{grid-template-columns:1fr}
   .services-section{padding:clamp(72px,10vh,110px) 0}
 }
@@ -632,9 +623,7 @@ body::before{
 .proc-p{
   font-size:11.5px;font-weight:300;
   color:var(--text2);line-height:1.64;letter-spacing:.2px;
-}
-@media(max-width:960px){.proc-list{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){
+}@media(max-width:960px){.proc-list{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){
   .proc-list{grid-template-columns:1fr}
 }
 
@@ -743,9 +732,7 @@ body::before{
 .exp-empty-p{
   font-size:11.5px;font-weight:300;color:var(--muted);
   line-height:1.62;max-width:380px;margin:0 auto;
-}
-@media(max-width:860px){.exp-grid{grid-template-columns:1fr 1fr;gap:18px}}
-@media(max-width:560px){
+}@media(max-width:860px){.exp-grid{grid-template-columns:1fr 1fr;gap:18px}}@media(max-width:560px){
   .exp-grid{grid-template-columns:1fr;gap:16px}
   .exp-card{padding:30px 22px}
   .exp-thumb{margin:-30px -22px 22px}
@@ -787,11 +774,9 @@ body::before{
   font-size:11.5px;font-weight:300;
   color:var(--muted);
   line-height:1.66;letter-spacing:.2px;
-}
-@media(max-width:760px){
+}@media(max-width:760px){
   .phi-list{grid-template-columns:1fr;gap:0}
-}
-@media(max-width:560px){
+}@media(max-width:560px){
   .phi-item{grid-template-columns:38px 1fr;gap:0 16px;padding:30px 0}
 }
 
@@ -882,8 +867,7 @@ body::before{
   font-family:var(--serif);font-style:italic;
   font-size:24px;color:var(--gold);
   margin-top:24px;
-}
-@media(max-width:760px){
+}@media(max-width:760px){
   .creator-inner{grid-template-columns:1fr;gap:32px}
   .creator-img-wrap{width:170px;aspect-ratio:2/3}
   .creator-section{padding:clamp(72px,10vh,110px) 0}
@@ -924,8 +908,7 @@ body::before{
   font-size:12px;font-weight:300;
   color:var(--muted);line-height:1.68;letter-spacing:.2px;
   padding:0 0 30px;max-width:660px;
-}
-@media(max-width:600px){.faq-section{padding:clamp(72px,10vh,110px) 0}}
+}@media(max-width:600px){.faq-section{padding:clamp(72px,10vh,110px) 0}}
 
 /* ── NEWSLETTER ── */
 .nl-section{
@@ -990,8 +973,7 @@ body::before{
   display:none;
   font-family:var(--serif);font-size:18px;font-style:italic;
   color:var(--gold);margin-top:24px;
-}
-@media(max-width:600px){
+}@media(max-width:600px){
   .nl-inner{padding:clamp(72px,10vh,108px) 24px}
   .nl-form{flex-direction:column;gap:11px}
   .nl-input{border-right:1px solid var(--border2);border-bottom:1px solid var(--border2)}
@@ -1050,12 +1032,10 @@ body::before{
   display:flex;justify-content:space-between;align-items:center;
   flex-wrap:wrap;gap:12px;
 }
-.footer-copy{font-size:9.5px;color:rgba(232,226,217,.2);letter-spacing:.4px}
-@media(max-width:760px){
+.footer-copy{font-size:9.5px;color:rgba(232,226,217,.2);letter-spacing:.4px}@media(max-width:760px){
   .footer-top{grid-template-columns:1fr 1fr;gap:36px;padding:56px 24px 44px}
   .footer-bottom-inner{padding:22px 24px}
-}
-@media(max-width:480px){
+}@media(max-width:480px){
   .footer-top{grid-template-columns:1fr}
 }
 
@@ -1066,8 +1046,7 @@ body::before{
   background:radial-gradient(circle,rgba(196,160,93,.045) 0%,transparent 70%);
   transform:translate(-50%,-50%);
   will-change:transform;transition:opacity .5s;
-}
-@media(hover:none){.cursor-orb{display:none}}
+}@media(hover:none){.cursor-orb{display:none}}
 
 /* ── REVEAL ── */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
@@ -1087,8 +1066,7 @@ body::before{
 .ornament-divider svg{
   width:88px;height:22px;margin:0 22px;opacity:.7;flex-shrink:0;
 }
-.ornament-divider svg *{stroke:var(--gold)}
-@media(max-width:600px){
+.ornament-divider svg *{stroke:var(--gold)}@media(max-width:600px){
   .ornament-divider{padding:36px 24px}
   .ornament-divider svg{width:64px;margin:0 14px}
 }
@@ -1172,8 +1150,7 @@ body::before{
   background:linear-gradient(to bottom, rgba(196,160,93,.4), rgba(196,160,93,.06));
   transform:translateX(-50%);
   z-index:1;
-}
-@keyframes flicker{
+}@keyframes flicker{
   0%,100%{opacity:.85;transform:translate(-50%,-50%) scale(1,1)}
   50%{opacity:1;transform:translate(-50%,-50%) scale(1.04,1.08)}
 }
@@ -1196,8 +1173,7 @@ body::before{
   font-size:12.5px;font-weight:300;
   color:var(--text2);line-height:1.7;letter-spacing:.2px;
   margin-bottom:14px;
-}
-@media(max-width:760px){
+}@media(max-width:760px){
   .atelier-grid{grid-template-columns:1fr;gap:40px}
   .atelier-visual{aspect-ratio:5/4;max-height:360px}
   .atelier-section{padding:clamp(72px,10vh,110px) 0}
@@ -1374,9 +1350,7 @@ body::before{
   font-size:9px;letter-spacing:1.5px;text-transform:uppercase;
   color:var(--muted);
 }
-.fn-attr em{color:var(--gold);font-style:normal}
-@media(max-width:860px){.fn-grid{grid-template-columns:1fr 1fr;gap:18px}}
-@media(max-width:560px){.fn-grid{grid-template-columns:1fr;gap:16px}}
+.fn-attr em{color:var(--gold);font-style:normal}@media(max-width:860px){.fn-grid{grid-template-columns:1fr 1fr;gap:18px}}@media(max-width:560px){.fn-grid{grid-template-columns:1fr;gap:16px}}
 
 /* ── FOOTER MONOGRAM ── */
 .footer-mono{
@@ -1392,9 +1366,7 @@ body::before{
   border-radius:50%;
   font-size:8px;font-weight:500;letter-spacing:.5px;
   color:var(--platinum);
-}
-
-@media(prefers-reduced-motion:reduce){
+}@media(prefers-reduced-motion:reduce){
   *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   .reveal,.phi-item{opacity:1!important;transform:none!important}
 }
@@ -1450,13 +1422,7 @@ section h2,section h3{
 p{letter-spacing:.005em}
 .atelier-body .at-p,.svc-p,.proc-p,.exp-p,.fn-p,.foot-p,article p{
   font-feature-settings:"kern","liga","onum";
-}
-
-/* ── MOBILE PREMIUM AUDIT ──────────────────────────────────────────────────
-   The original mobile blocks above handle layout, but didn't tune type for
-   premium feel. Override here so the homepage reads at small width like a
-   pocket monograph rather than a default mobile page. */
-@media (max-width:760px){
+}@media (max-width:760px){
   body{font-size:13.5px;line-height:1.6}
   .nav{padding:0 22px;height:58px}
   .hero-h,.at-h,.hero-headline{
@@ -1473,8 +1439,7 @@ p{letter-spacing:.005em}
   .pull-mark{font-size:36px;line-height:1}
   .nav-logo{font-size:14px;letter-spacing:1.4px}
   .nav-logo-sub{font-size:8px;letter-spacing:1.6px}
-}
-@media (max-width:480px){
+}@media (max-width:480px){
   body{font-size:13.5px}
   .nav{padding:0 18px;height:56px}
   .hero-h,.hero-headline{font-size:clamp(26px,8.4vw,34px)}
@@ -1483,18 +1448,10 @@ p{letter-spacing:.005em}
   .atelier-visual{max-height:300px}
   .atelier-body .at-h{font-size:24px}
   .atelier-body .at-p{font-size:13.5px}
-}
-/* Respect reduced-motion across all flicker/hover animations the page uses. */
-@media (prefers-reduced-motion:reduce){
+}@media (prefers-reduced-motion:reduce){
   .atelier-flame{animation:none!important}
   *{transition-duration:.001ms!important;animation-duration:.001ms!important}
-}
-
-/* ── MOBILE: BLUR-IN reveal instead of slide-up.
-   On phones the slide-up bounce was reading as cheap. Soft blur fade matches
-   the editorial atmosphere brand. Desktop keeps its slide because there's
-   more whitespace context for the motion to make sense. */
-@media (max-width:760px){
+}@media (max-width:760px){
   .reveal{opacity:0;transform:none;filter:blur(10px);transition:opacity 1s cubic-bezier(.22,1,.36,1),filter 1s cubic-bezier(.22,1,.36,1)}
   .reveal.in{opacity:1;filter:blur(0)}
   .phi-item{opacity:0;transform:none;filter:blur(10px);transition:opacity 1s cubic-bezier(.22,1,.36,1),filter 1s cubic-bezier(.22,1,.36,1)}
@@ -1534,19 +1491,14 @@ body[data-page-depth="1"] .ap-kicker{font-size:10px;letter-spacing:.28em;color:#
   filter:blur(6px);
   z-index:-1;
   animation:footerMist 14s ease-in-out infinite;
-}
-@keyframes footerMist{
+}@keyframes footerMist{
   0%,100%{transform:translateX(-8px);opacity:.9}
   50%{transform:translateX(8px);opacity:1}
-}
-@media (prefers-reduced-motion:reduce){
+}@media (prefers-reduced-motion:reduce){
   .site-footer::before{animation:none}
-}
-</style>
+}</style>
 </head>
 <body>
-<!--SHELL:ACCENT:#c4a05d-->
-
 <!-- PRELOADER: smooth charismatic fade-out. Gold hairline that draws across
      the screen as a single horizontal line, then a tiny serif "Kanona" mark
      reveals, then everything fades. ~1.4s total. CSS-only, no JS frameworks. -->
@@ -1561,13 +1513,9 @@ body[data-page-depth="1"] .ap-kicker{font-size:10px;letter-spacing:.28em;color:#
 #preloader .pre-rule{width:0;height:1px;background:linear-gradient(90deg,transparent,#c4a05d 30%,#c4a05d 70%,transparent);animation:preRule 900ms cubic-bezier(.22,1,.36,1) forwards}
 #preloader .pre-mark{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:32px;letter-spacing:.04em;color:#f2ede6;opacity:0;margin-top:22px;animation:preFade 700ms ease 600ms forwards}
 #preloader .pre-mark em{font-style:italic;color:#c4a05d;font-weight:300}
-#preloader .pre-sub{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:#8a7a6a;opacity:0;margin-top:8px;animation:preFade 700ms ease 800ms forwards}
-@keyframes preRule{0%{width:0}100%{width:min(280px,42vw)}}
-@keyframes preFade{0%{opacity:0;transform:translateY(4px)}100%{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){
+#preloader .pre-sub{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:#8a7a6a;opacity:0;margin-top:8px;animation:preFade 700ms ease 800ms forwards}@keyframes preRule{0%{width:0}100%{width:min(280px,42vw)}}@keyframes preFade{0%{opacity:0;transform:translateY(4px)}100%{opacity:1;transform:none}}@media (prefers-reduced-motion:reduce){
   #preloader .pre-rule,#preloader .pre-mark,#preloader .pre-sub{animation:none;width:280px;opacity:1}
-}
-</style>
+}</style>
 <script>
 (function(){
   function done(){var p=document.getElementById('preloader');if(p)p.classList.add('gone');setTimeout(function(){if(p&&p.parentNode)p.parentNode.removeChild(p);},700);}
@@ -1592,13 +1540,10 @@ body[data-page-depth="1"] .ap-kicker{font-size:10px;letter-spacing:.28em;color:#
 #ambient-trigger:hover{transform:translateY(-2px);border-color:#c4a05d;box-shadow:0 12px 32px -16px rgba(196,160,93,.4)}
 #ambient-trigger:hover .amb-wave{opacity:1}
 #ambient-trigger.on{border-color:#c4a05d;box-shadow:0 0 28px rgba(196,160,93,.35)}
-#ambient-trigger.on .amb-wave path{animation:waveFlow 2.4s ease-in-out infinite}
-@keyframes waveFlow{
+#ambient-trigger.on .amb-wave path{animation:waveFlow 2.4s ease-in-out infinite}@keyframes waveFlow{
   0%,100%{d:path("M2 12 Q 6 4, 10 12 T 18 12 T 26 12 T 34 12 T 42 12")}
   50%{d:path("M2 12 Q 6 20, 10 12 T 18 12 T 26 12 T 34 12 T 42 12")}
-}
-/* Fallback for browsers without animatable d:path - softly pulse opacity instead */
-@supports not (d: path("M0 0 L1 1")){
+}@supports not (d: path("M0 0 L1 1")){
   #ambient-trigger.on .amb-wave{animation:wavePulse 2.4s ease-in-out infinite}
   @keyframes wavePulse{0%,100%{transform:scaleY(1);opacity:.7}50%{transform:scaleY(1.6);opacity:1}}
 }
@@ -1609,12 +1554,10 @@ body[data-page-depth="1"] .ap-kicker{font-size:10px;letter-spacing:.28em;color:#
 #ambient-menu .am-btn{background:none;border:none;color:#f2ede6;font-family:inherit;font-size:11.5px;letter-spacing:.06em;padding:9px 12px;cursor:pointer;text-align:left;border-radius:6px;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
 #ambient-menu .am-btn:hover{background:rgba(196,160,93,.1)}
 #ambient-menu .am-btn.active{color:#c4a05d;background:rgba(196,160,93,.14)}
-#ambient-menu .am-btn .am-hz{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:13px;opacity:.7}
-@media(max-width:560px){
+#ambient-menu .am-btn .am-hz{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:13px;opacity:.7}@media(max-width:560px){
   #ambient-trigger{right:14px;bottom:14px;width:44px;height:44px}
   #ambient-menu{right:14px;bottom:68px;min-width:220px}
-}
-</style>
+}</style>
 <script>
 (function(){
   var btn=document.getElementById('ambient-trigger');
@@ -1675,15 +1618,19 @@ body[data-page-depth="1"] .ap-kicker{font-size:10px;letter-spacing:.28em;color:#
 <!-- Hero overlay strengthening for mobile - adds a darker bottom gradient so
      the hero copy stays readable on phones where the background image takes
      up more vertical real estate. -->
-<style>
-@media(max-width:760px){
+<style>@media(max-width:760px){
   .hero::after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(5,4,7,.35) 0%,rgba(5,4,7,.55) 45%,rgba(5,4,7,.85) 100%)}
-  .hero > *{position:relative;z-index:1}
+  /* Lift ONLY the content layer above the overlay. The previous ".hero > *"
+     selector also hit the absolutely-positioned corner frames and backdrops,
+     forcing them to position:relative and dropping them into the flex flow at
+     the top-left, which dragged the whole hero block off-centre on phones and
+     tablets. Scope it to the content so the centred flex layout is preserved. */
+  .hero > .hero-content{position:relative;z-index:1}
+  /* Keep the content block dead-centred across the full small-screen range,
+     not just below 600px, so the 600-760px band no longer leaks left. */
+  .hero-content{margin-left:auto;margin-right:auto;text-align:center}
   .hero .hero-sub{color:#e8e2d9;opacity:.95}
-}
-</style>
-
-<!--SHELL:HEADER-->
+}</style>
 
 <div class="cursor-orb" id="orb"></div>
 
@@ -1701,8 +1648,6 @@ body[data-page-depth="1"] .ap-kicker{font-size:10px;letter-spacing:.28em;color:#
     <a href="./#newsletter" class="nav-cta">The Letter</a>
   </div>
 </nav>
-<!--/SHELL:HEADER-->
-
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-backdrop" aria-hidden="true"></div>
@@ -1985,7 +1930,6 @@ body[data-page-depth="1"] .ap-kicker{font-size:10px;letter-spacing:.28em;color:#
     <circle cx="14" cy="11" r="1.2" fill="currentColor" stroke="none" opacity=".7"/>
     <line x1="22" y1="11" x2="38" y2="11" opacity=".5"/>
     <path d="M40 6 L 44 11 L 40 16" opacity=".75"/>
-    <path d="M48 6 L 44 11 L 48 16" opacity=".75"/>
     <line x1="50" y1="11" x2="66" y2="11" opacity=".5"/>
     <circle cx="74" cy="11" r="1.2" fill="currentColor" stroke="none" opacity=".7"/>
   </svg>
@@ -2115,7 +2059,6 @@ body[data-page-depth="1"] .ap-kicker{font-size:10px;letter-spacing:.28em;color:#
 
 <div style="text-align:center;padding:0 24px 64px"><a href="./articles" style="display:inline-flex;align-items:center;gap:14px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);padding:14px 24px;border-top:1px solid rgba(196,160,93,.4);border-bottom:1px solid rgba(196,160,93,.4);text-decoration:none">The full journal <span style="display:inline-block;width:32px;height:1px;background:var(--gold)"></span></a></div>
 
-<!--SHELL:FOOTER-->
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-top">
@@ -2732,6 +2675,5 @@ function nlSub(e){
   return false;
 }
 </script>
-<!--/SHELL:FOOTER-->
 </body>
 </html>
