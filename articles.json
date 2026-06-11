@@ -106,5 +106,25 @@
     "available_languages": [
       "en"
     ]
+  },
+  {
+    "title": "Refik Anadol's Unsupervised Made MoMA a Living Room in 2022",
+    "slug": "refik-anadol-unsupervised-moma-2022-experiential",
+    "meta_description": "Kani Sedighi on how Refik Anadol's Unsupervised at MoMA redefined experiential events in 2022, and why the field hasn't been the same since.",
+    "date": "August 09, 2022",
+    "date_iso": "2022-08-09",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/21790491/pexels-photo-21790491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "moma.org",
+      "arxiv.org",
+      "eventmarketer.com",
+      "pewresearch.org"
+    ],
+    "posted_iso": "2026-06-11",
+    "historical": true,
+    "available_languages": [
+      "en"
+    ]
   }
 ]
