@@ -86,11 +86,13 @@ body::before{content:"";position:fixed;inset:0;z-index:9996;pointer-events:none;
 
 /* ---------- SLIDER (full-bleed, mousewheel snap) ---------- */
 .slider{height:100svh;position:relative;background:#0d0b08}
-.slides{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;
+.slider-gl{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block}
+.slides{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;position:relative;z-index:1;
   scrollbar-width:none;-ms-overflow-style:none;scroll-behavior:smooth}
 .slides::-webkit-scrollbar{display:none}
 .slide{flex:0 0 100%;height:100%;scroll-snap-align:start;position:relative;overflow:hidden;display:flex;align-items:flex-end}
-.slide .bg{position:absolute;inset:0;transform:scale(1.04);transition:transform 1.4s var(--ease)}
+.slide .bg{position:absolute;inset:0;transform:scale(1.04);transition:transform 1.4s var(--ease);opacity:.42;mix-blend-mode:screen}
+.no-gl .slide .bg{opacity:1;mix-blend-mode:normal}
 .slide.active .bg{transform:scale(1)}
 .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(8,6,4,.66),rgba(8,6,4,.05) 50%,rgba(8,6,4,.2));z-index:1}
 .bg-1{background:radial-gradient(120% 100% at 32% 24%,#3e2f1c,#0e0a06 72%)}
@@ -244,6 +246,7 @@ body::before{content:"";position:fixed;inset:0;z-index:9996;pointer-events:none;
 
 <!-- FULL-BLEED SLIDER -->
 <section class="slider" id="slider">
+  <canvas class="slider-gl" id="gl" aria-hidden="true"></canvas>
   <div class="slides" id="slides">
     <div class="slide"><div class="bg bg-1"><span class="gl" style="top:22%;left:30%"></span></div><div class="slide-content"><div class="slide-no">01 / 05</div><div class="slide-cat">Private Dinners</div><h2 class="slide-title">A lantern-lit table, set early</h2><p class="slide-sub">Intimate seated evenings for ten to twenty, designed around menu pacing, table dynamics, and the room itself.</p></div></div>
     <div class="slide"><div class="bg bg-2"><span class="gl" style="top:30%;left:44%"></span></div><div class="slide-content"><div class="slide-no">02 / 05</div><div class="slide-cat">Venue Atmosphere</div><h2 class="slide-title">The hour before arrival</h2><p class="slide-sub">A focused engagement to transform a space you already have. Lighting design, scent layering, a sound score tuned to the room.</p></div></div>
@@ -332,6 +335,53 @@ body::before{content:"";position:fixed;inset:0;z-index:9996;pointer-events:none;
 <script>
 'use strict';
 var REDUCED=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* ---------- WebGL interactive banner: flowing molten-gold field, mouse ripple ---------- */
+(function(){
+  var cv=document.getElementById('gl');if(!cv){document.body.classList.add('no-gl');return;}
+  var gl=cv.getContext('webgl')||cv.getContext('experimental-webgl');
+  if(!gl){document.body.classList.add('no-gl');return;}
+  var vs='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+  var fs=[
+   'precision highp float;',
+   'uniform vec2 u_res;uniform float u_time;uniform vec2 u_mouse;uniform float u_int;',
+   'float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}',
+   'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.-2.*f);',
+   ' return mix(mix(hash(i),hash(i+vec2(1,0)),u.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),u.x),u.y);}',
+   'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<6;i++){v+=a*noise(p);p*=2.03;a*=.5;}return v;}',
+   'void main(){',
+   ' vec2 uv=gl_FragCoord.xy/u_res.xy;vec2 p=uv;p.x*=u_res.x/u_res.y;p*=2.6;',
+   ' vec2 m=u_mouse;m.x*=u_res.x/u_res.y;m*=2.6;',
+   ' float t=u_time*0.07;',
+   ' vec2 q=vec2(fbm(p+vec2(0.0,t)),fbm(p+vec2(5.2,1.3)));',
+   ' vec2 r=vec2(fbm(p+3.5*q+vec2(1.7,9.2)+t),fbm(p+3.5*q+vec2(8.3,2.8)-t));',
+   ' float f=fbm(p+3.5*r);',
+   ' float d=distance(p,m);float rip=exp(-d*1.8)*u_int;f+=0.22*rip;',
+   // deep ink -> ember -> molten gold
+   ' vec3 c0=vec3(0.035,0.028,0.020);vec3 c1=vec3(0.16,0.10,0.05);vec3 c2=vec3(0.55,0.36,0.14);vec3 c3=vec3(0.92,0.74,0.42);',
+   ' vec3 col=mix(c0,c1,smoothstep(0.15,0.55,f));',
+   ' col=mix(col,c2,smoothstep(0.5,0.8,f));',
+   ' col=mix(col,c3,smoothstep(0.74,1.0,f));',
+   ' col+=c3*rip*0.35;',
+   ' float vig=smoothstep(1.25,0.2,length(uv-0.5));col*=mix(0.78,1.08,vig);',
+   ' gl_FragColor=vec4(col,1.0);',
+   '}'].join('\n');
+  function sh(t,src){var o=gl.createShader(t);gl.shaderSource(o,src);gl.compileShader(o);return o;}
+  var pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);
+  if(!gl.getProgramParameter(pr,gl.LINK_STATUS)){document.body.classList.add('no-gl');return;}
+  gl.useProgram(pr);
+  var buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+  var loc=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+  var uRes=gl.getUniformLocation(pr,'u_res'),uTime=gl.getUniformLocation(pr,'u_time'),uMouse=gl.getUniformLocation(pr,'u_mouse'),uInt=gl.getUniformLocation(pr,'u_int');
+  var mx=.5,my=.5,tmx=.5,tmy=.5,it=0,tit=0;
+  function resize(){var d=Math.min(window.devicePixelRatio||1,1.5);cv.width=Math.max(2,cv.clientWidth*d);cv.height=Math.max(2,cv.clientHeight*d);gl.viewport(0,0,cv.width,cv.height);}
+  window.addEventListener('resize',resize);resize();
+  window.addEventListener('mousemove',function(e){var r=cv.getBoundingClientRect();tmx=(e.clientX-r.left)/r.width;tmy=1-(e.clientY-r.top)/r.height;tit=1;});
+  function draw(t){gl.uniform2f(uRes,cv.width,cv.height);gl.uniform1f(uTime,t);gl.uniform2f(uMouse,mx,my);gl.uniform1f(uInt,it);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);}
+  if(REDUCED){draw(0);return;}
+  var st=null;
+  (function frame(ts){if(st===null)st=ts;mx+=(tmx-mx)*.05;my+=(tmy-my)*.05;it+=(tit-it)*.05;tit*=0.95;draw((ts-st)/1000);requestAnimationFrame(frame);})(0);
+})();
 
 /* loader */
 window.addEventListener('load',function(){setTimeout(function(){document.getElementById('loader').classList.add('done')},900)});
