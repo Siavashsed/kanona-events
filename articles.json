@@ -126,5 +126,42 @@
     "available_languages": [
       "en"
     ]
+  },
+  {
+    "title": "What Your Floor Plan Is Actually Telling People",
+    "slug": "spatial-flow-emotional-pathways-events",
+    "meta_description": "Kani Sedighi on how spatial flow shapes emotional experience at events - the hidden choreography most designers never think about.",
+    "date": "July 01, 2026",
+    "date_iso": "2026-07-01",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/36286298/pexels-photo-36286298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "sciencedirect.com",
+      "ncbi.nlm.nih.gov",
+      "scholar.harvard.edu"
+    ],
+    "posted_iso": "2026-07-01",
+    "available_languages": [
+      "en"
+    ]
+  },
+  {
+    "title": "Cosm's Shared Reality Domes Arrived in 2023 and Changed What a Crowd Could Feel",
+    "slug": "cosm-shared-reality-domes-2023",
+    "meta_description": "Kani Sedighi on how Cosm's Shared Reality domes redefined immersive events in 2023, and what it means for the future of experiential atmosphere.",
+    "date": "August 28, 2023",
+    "date_iso": "2023-08-28",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/35526324/pexels-photo-35526324.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "sportico.com",
+      "pewresearch.org",
+      "science.org"
+    ],
+    "posted_iso": "2026-07-01",
+    "historical": true,
+    "available_languages": [
+      "en"
+    ]
   }
 ]
