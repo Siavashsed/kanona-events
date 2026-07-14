@@ -163,5 +163,43 @@
     "available_languages": [
       "en"
     ]
+  },
+  {
+    "title": "The Best Rooms I Build Are the Ones You Walk Through in Three Seconds",
+    "slug": "designing-thresholds-transition-spaces",
+    "meta_description": "Why the transition between spaces shapes an event more than the spaces themselves, from a curator who designs thresholds for a living.",
+    "date": "July 13, 2026",
+    "date_iso": "2026-07-13",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/3710509/pexels-photo-3710509.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "news.nd.edu",
+      "brown.edu",
+      "freeman.com"
+    ],
+    "posted_iso": "2026-07-13",
+    "available_languages": [
+      "en"
+    ]
+  },
+  {
+    "title": "The Night ABBA's Avatars Made 3,000 People Cry",
+    "slug": "abba-voyage-2022-avatar-concert",
+    "meta_description": "ABBA Voyage opened in a purpose-built London arena in 2022, and its digital avatars changed what a live show can be. A curator's on-the-ground read.",
+    "date": "March 30, 2022",
+    "date_iso": "2022-03-30",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/17120500/pexels-photo-17120500.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "theguardian.com",
+      "bbc.co.uk",
+      "ilm.com",
+      "pollstar.com"
+    ],
+    "posted_iso": "2026-07-13",
+    "historical": true,
+    "available_languages": [
+      "en"
+    ]
   }
 ]
