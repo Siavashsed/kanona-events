@@ -201,5 +201,22 @@
     "available_languages": [
       "en"
     ]
+  },
+  {
+    "title": "Your Feet Read a Room Before Your Eyes Do",
+    "slug": "texture-underfoot-flooring-space-feel",
+    "meta_description": "How flooring and materials shape the way a space feels to move through, from a curator who has staged evenings on stone, wool and wet grass.",
+    "date": "July 15, 2026",
+    "date_iso": "2026-07-15",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/35493897/pexels-photo-35493897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "carpet-rug.org",
+      "sciencedirect.com"
+    ],
+    "posted_iso": "2026-07-15",
+    "available_languages": [
+      "en"
+    ]
   }
 ]
