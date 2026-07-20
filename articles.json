@@ -218,5 +218,24 @@
     "available_languages": [
       "en"
     ]
+  },
+  {
+    "title": "Paris Bet Its Opening Ceremony on Rain, and Won",
+    "slug": "paris-2024-opening-ceremony-rain-atmosphere",
+    "meta_description": "The Paris 2024 opening ceremony broke the stadium format, staged four miles of river, and let the weather in. What that means for experiential events.",
+    "date": "February 09, 2024",
+    "date_iso": "2024-02-09",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/33931409/pexels-photo-33931409.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "olympics.com",
+      "reuters.com",
+      "nbcuniversal.com"
+    ],
+    "posted_iso": "2026-07-20",
+    "historical": true,
+    "available_languages": [
+      "en"
+    ]
   }
 ]
