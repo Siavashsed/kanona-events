@@ -85,7 +85,8 @@
     "posted_iso": "2026-06-08",
     "available_languages": [
       "en"
-    ]
+    ],
+    "category": "Venue & Atmosphere"
   },
   {
     "title": "The Senses as Infrastructure: How Sphere Las Vegas Redefined Experiential Events in 2024",
@@ -105,7 +106,8 @@
     "historical": true,
     "available_languages": [
       "en"
-    ]
+    ],
+    "category": "Creative Direction"
   },
   {
     "title": "Refik Anadol's Unsupervised Made MoMA a Living Room in 2022",
@@ -125,7 +127,8 @@
     "historical": true,
     "available_languages": [
       "en"
-    ]
+    ],
+    "category": "Brand Experiences"
   },
   {
     "title": "What Your Floor Plan Is Actually Telling People",
@@ -143,7 +146,8 @@
     "posted_iso": "2026-07-01",
     "available_languages": [
       "en"
-    ]
+    ],
+    "category": "Venue & Atmosphere"
   },
   {
     "title": "Cosm's Shared Reality Domes Arrived in 2023 and Changed What a Crowd Could Feel",
@@ -162,7 +166,8 @@
     "historical": true,
     "available_languages": [
       "en"
-    ]
+    ],
+    "category": "Creative Direction"
   },
   {
     "title": "The Best Rooms I Build Are the Ones You Walk Through in Three Seconds",
@@ -180,7 +185,8 @@
     "posted_iso": "2026-07-13",
     "available_languages": [
       "en"
-    ]
+    ],
+    "category": "Sound & Music"
   },
   {
     "title": "The Night ABBA's Avatars Made 3,000 People Cry",
@@ -200,7 +206,8 @@
     "historical": true,
     "available_languages": [
       "en"
-    ]
+    ],
+    "category": "Private Dinners"
   },
   {
     "title": "Your Feet Read a Room Before Your Eyes Do",
@@ -217,7 +224,8 @@
     "posted_iso": "2026-07-15",
     "available_languages": [
       "en"
-    ]
+    ],
+    "category": "Private Dinners"
   },
   {
     "title": "Paris Bet Its Opening Ceremony on Rain, and Won",
@@ -236,6 +244,7 @@
     "historical": true,
     "available_languages": [
       "en"
-    ]
+    ],
+    "category": "Creative Direction"
   }
 ]
