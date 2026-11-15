@@ -246,5 +246,41 @@
       "en"
     ],
     "category": "Creative Direction"
+  },
+  {
+    "title": "Every Long Dinner Needs Three Doors and Forty Seconds of Silence",
+    "slug": "pacing-long-evening-story-chapters",
+    "meta_description": "How pacing turns a long evening into a story with chapters: thresholds, silences, and why the last forty minutes decide what guests remember.",
+    "date": "November 15, 2026",
+    "date_iso": "2026-11-15",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/3937411/pexels-photo-3937411.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "doi.org",
+      "pubmed.ncbi.nlm.nih.gov"
+    ],
+    "posted_iso": "2026-11-15",
+    "available_languages": [
+      "en"
+    ]
+  },
+  {
+    "title": "Twelve Million People Stood Under Travis Scott's Feet in April",
+    "slug": "travis-scott-astronomical-fortnite-2020",
+    "meta_description": "Travis Scott's Astronomical in Fortnite drew 12.3 million people in April 2020. An event curator on what it taught a dark industry about atmosphere.",
+    "date": "January 25, 2020",
+    "date_iso": "2020-01-25",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/17116018/pexels-photo-17116018.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "epicgames.com",
+      "pollstar.com",
+      "cdc.gov"
+    ],
+    "posted_iso": "2026-11-15",
+    "historical": true,
+    "available_languages": [
+      "en"
+    ]
   }
 ]
