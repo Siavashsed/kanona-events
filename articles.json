@@ -282,5 +282,23 @@
     "available_languages": [
       "en"
     ]
+  },
+  {
+    "title": "The Bar Was Eleven Feet Too Close, and Nobody Talked",
+    "slug": "spatial-flow-guides-conversation-events",
+    "meta_description": "How spatial flow guides conversation at events without guests noticing: where the bar belongs and why chairs should meet at corners.",
+    "date": "November 16, 2026",
+    "date_iso": "2026-11-16",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/4992827/pexels-photo-4992827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "jstor.org",
+      "en.wikipedia.org",
+      "hbr.org"
+    ],
+    "posted_iso": "2026-11-16",
+    "available_languages": [
+      "en"
+    ]
   }
 ]
