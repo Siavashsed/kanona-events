@@ -300,5 +300,21 @@
     "available_languages": [
       "en"
     ]
+  },
+  {
+    "title": "The Bread Came Out at 9:40, and Only the Host Knew Why",
+    "slug": "hidden-narrative-intimate-events",
+    "meta_description": "Intimate events feel complete when the host keeps a hidden narrative guests sense but never hear. Kani Sedighi on why the story should stay secret.",
+    "date": "November 17, 2026",
+    "date_iso": "2026-11-17",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/39101731/pexels-photo-39101731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "doi.org"
+    ],
+    "posted_iso": "2026-11-17",
+    "available_languages": [
+      "en"
+    ]
   }
 ]
