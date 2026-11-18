@@ -316,5 +316,24 @@
     "available_languages": [
       "en"
     ]
+  },
+  {
+    "title": "The Coat Check Took Their Phones. Nobody Asked for Them Back.",
+    "slug": "phones-down-by-design-guest-presence",
+    "meta_description": "Phones down by design: how light, ritual objects and a quiet basket by the door make guests choose presence over the screen.",
+    "date": "November 18, 2026",
+    "date_iso": "2026-11-18",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/17033125/pexels-photo-17033125.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "journals.uchicago.edu",
+      "journals.sagepub.com",
+      "doi.org",
+      "overyondr.com"
+    ],
+    "posted_iso": "2026-11-18",
+    "available_languages": [
+      "en"
+    ]
   }
 ]
