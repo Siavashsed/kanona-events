@@ -335,5 +335,22 @@
     "available_languages": [
       "en"
     ]
+  },
+  {
+    "title": "Your Mood Board Is Lying to You About the Room",
+    "slug": "mood-board-to-physical-space",
+    "meta_description": "Turning a mood board into a physical space starts with what the images can't hold: light, sound, scent and scale. A curator on what survives the move.",
+    "date": "November 19, 2026",
+    "date_iso": "2026-11-19",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/10622331/pexels-photo-10622331.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "cognitiveresearchjournal.springeropen.com",
+      "doi.org"
+    ],
+    "posted_iso": "2026-11-19",
+    "available_languages": [
+      "en"
+    ]
   }
 ]
