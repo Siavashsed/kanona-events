@@ -352,5 +352,22 @@
     "available_languages": [
       "en"
     ]
+  },
+  {
+    "title": "Guests Forget the Menu but Never the Smell of the Room",
+    "slug": "scent-memory-private-dinner-design",
+    "meta_description": "Scent anchors memory at private dinners more firmly than food or music. Here's how I build a room's smell, and where it goes wrong.",
+    "date": "November 20, 2026",
+    "date_iso": "2026-11-20",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/6670664/pexels-photo-6670664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "nobelprize.org",
+      "academic.oup.com"
+    ],
+    "posted_iso": "2026-11-20",
+    "available_languages": [
+      "en"
+    ]
   }
 ]
