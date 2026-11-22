@@ -369,5 +369,23 @@
     "available_languages": [
       "en"
     ]
+  },
+  {
+    "title": "Silence Is the Costliest Thing You Can Put in a Room",
+    "slug": "silence-in-event-atmosphere",
+    "meta_description": "Why silence, not music, decides whether an event becomes a memory. A curator on the pause before the first note and where to place it.",
+    "date": "November 21, 2026",
+    "date_iso": "2026-11-21",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/5116976/pexels-photo-5116976.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "heart.bmj.com",
+      "link.springer.com",
+      "who.int"
+    ],
+    "posted_iso": "2026-11-21",
+    "available_languages": [
+      "en"
+    ]
   }
 ]
