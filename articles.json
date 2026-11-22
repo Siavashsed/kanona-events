@@ -387,5 +387,41 @@
     "available_languages": [
       "en"
     ]
+  },
+  {
+    "title": "Why Most Gatherings Vanish by Monday and a Few Last for Decades",
+    "slug": "gathering-versus-lasting-experience",
+    "meta_description": "A gathering fills an evening. An experience stays for years. A curator on scent, silence and the single choice that separates them.",
+    "date": "November 22, 2026",
+    "date_iso": "2026-11-22",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/6185403/pexels-photo-6185403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "hbr.org",
+      "journals.sagepub.com",
+      "psycnet.apa.org"
+    ],
+    "posted_iso": "2026-11-22",
+    "available_languages": [
+      "en"
+    ]
+  },
+  {
+    "title": "Paris Sang in the Rain, and the Seine Became the Best Seat",
+    "slug": "paris-2024-seine-opening-ceremony-atmosphere",
+    "meta_description": "The Paris 2024 opening ceremony put 300,000 people along a river in the rain. Here's what it taught experiential event makers about atmosphere.",
+    "date": "May 05, 2024",
+    "date_iso": "2024-05-05",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/39974822/pexels-photo-39974822.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "olympics.com",
+      "nbcuniversal.com"
+    ],
+    "posted_iso": "2026-11-22",
+    "historical": true,
+    "available_languages": [
+      "en"
+    ]
   }
 ]
