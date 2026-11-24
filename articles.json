@@ -441,5 +441,22 @@
     "available_languages": [
       "en"
     ]
+  },
+  {
+    "title": "Your Playlist Is the Floor Plan Guests Feel Before They Sit",
+    "slug": "music-selection-emotional-architecture-gatherings",
+    "meta_description": "Music selection for an intimate gathering shapes how guests feel before anyone speaks. A curator on tempo, silence, and the order of songs.",
+    "date": "November 24, 2026",
+    "date_iso": "2026-11-24",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/5791665/pexels-photo-5791665.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "doi.org",
+      "nature.com"
+    ],
+    "posted_iso": "2026-11-24",
+    "available_languages": [
+      "en"
+    ]
   }
 ]
