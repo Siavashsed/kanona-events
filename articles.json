@@ -458,5 +458,23 @@
     "available_languages": [
       "en"
     ]
+  },
+  {
+    "title": "A Room Holds the Evening Before Anyone Speaks",
+    "slug": "single-room-unforgettable-evening",
+    "meta_description": "A single room can carry an unforgettable evening if it makes one decision loudly. Smell, silence and memory science from a curator's floor.",
+    "date": "November 25, 2026",
+    "date_iso": "2026-11-25",
+    "author": "Kani Sedighi",
+    "image": "https://images.pexels.com/photos/3953852/pexels-photo-3953852.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "outbound_links": [
+      "pnas.org",
+      "journals.sagepub.com",
+      "academic.oup.com"
+    ],
+    "posted_iso": "2026-11-25",
+    "available_languages": [
+      "en"
+    ]
   }
 ]
